@@ -1,15 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { brotliDecompressSync } from 'node:zlib';
 
 const root = process.cwd();
-const readPart = (name) => fs.readFileSync(path.join(root, '.static', name), 'utf8').trim();
-const part1 = readPart('portfolio-01.br.b64');
-const part2 = readPart('portfolio-02.br.b64');
-const part3 = readPart('portfolio-03.br.b64');
-
-const encoded = part1 + part2.slice(0, 10000) + part3;
-const html = brotliDecompressSync(Buffer.from(encoded, 'base64')).toString('utf8');
+const names = [
+  'html-01.b64','html-02.b64','html-03.b64','html-04.b64','html-05.b64','html-06.b64','html-07.b64','html-08.b64','html-09.b64',
+  'html-10a.b64','html-10b.b64','html-11a.b64','html-11b.b64','html-12a.b64','html-12b.b64','html-13a.b64','html-13b.b64','html-14.b64'
+];
+const encoded = names.map((name) => fs.readFileSync(path.join(root, '.static', name), 'utf8').trim()).join('');
+const html = Buffer.from(encoded, 'base64').toString('utf8');
 
 const required = ['Agent Proof Runtime', 'mini-audit-form', 'social-grid', 'id="lightning"'];
 for (const marker of required) {
@@ -17,6 +15,9 @@ for (const marker of required) {
 }
 for (const forbidden of ['Ładowanie portfolio', '<iframe', 'fetch(']) {
   if (html.includes(forbidden)) throw new Error(`Forbidden runtime construct: ${forbidden}`);
+}
+if ((html.match(/class="project-card"/g) || []).length !== 4) {
+  throw new Error('Expected exactly four project cards');
 }
 
 const out = path.join(root, 'public');
@@ -28,4 +29,4 @@ fs.cpSync(
   path.join(out, 'osatechgpt_portfolio_assets'),
   { recursive: true }
 );
-console.log('STATIC_PORTFOLIO_BUILD_PASS', html.length);
+console.log('STATIC_PORTFOLIO_BUILD_PASS', Buffer.byteLength(html));
