@@ -1,0 +1,133 @@
+name: Apply static portfolio repair
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-static-portfolio.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore last correct static page
+        run: git show 0a4ad8e7b4529141e34085302c7246be1132bc6b:index.html > index.html
+
+      - name: Capture APR screenshots
+        shell: bash
+        run: |
+          mkdir -p osatechgpt_portfolio_assets
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.54.2 >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null 2>&1
+          cat > /tmp/capture-apr.mjs <<'JS'
+          import { chromium } from 'playwright';
+          const browser = await chromium.launch({headless:true});
+          const page = await browser.newPage({viewport:{width:1600,height:1000},deviceScaleFactor:1});
+          await page.goto('https://apr-osatechgpt-landing.vercel.app',{waitUntil:'networkidle',timeout:120000});
+          await page.waitForTimeout(7000);
+          await page.screenshot({path:'osatechgpt_portfolio_assets/apr-mission-control.jpg',type:'jpeg',quality:82,fullPage:false});
+          let clicked=false;
+          for (const frame of page.frames()) {
+            for (const label of ['Audit','AUDIT','Verifier']) {
+              const loc=frame.getByText(label,{exact:true}).first();
+              if (await loc.count()) {
+                try { await loc.click({timeout:3000}); clicked=true; break; } catch {}
+              }
+            }
+            if (clicked) break;
+          }
+          await page.waitForTimeout(2500);
+          await page.screenshot({path:'osatechgpt_portfolio_assets/apr-audit-verifier.jpg',type:'jpeg',quality:82,fullPage:false});
+          await browser.close();
+          JS
+          node /tmp/capture-apr.mjs
+
+      - name: Build final static index
+        shell: bash
+        run: |
+          cat > /tmp/patch.py <<'PY'
+          from pathlib import Path
+          import re
+          from html.parser import HTMLParser
+
+          p=Path('index.html')
+          text=p.read_text(encoding='utf-8')
+
+          apr='''<article class="client-project-card">
+            <div class="project-media apr-media" data-gallery>
+              <div class="media-track">
+                <figure class="media-slide active"><img src="osatechgpt_portfolio_assets/apr-mission-control.jpg" alt="Agent Proof Runtime — Mission Control"></figure>
+                <figure class="media-slide"><img src="osatechgpt_portfolio_assets/apr-audit-verifier.jpg" alt="Agent Proof Runtime — Audit i Verifier"></figure>
+              </div>
+              <button class="media-nav media-prev" aria-label="Poprzedni screenshot APR">‹</button>
+              <button class="media-nav media-next" aria-label="Następny screenshot APR">›</button>
+              <span class="media-label">Agent Proof Runtime</span><span class="media-count">1 / 2</span>
+            </div>
+            <div class="project-status">LOCAL_VERIFIED · PRIVATE REPO</div>
+            <h3>Agent Proof Runtime</h3>
+            <p>Kontrolowane misje AI z Mission Studio, orkiestracją agentów, deterministycznym evidence, Proof Bundle, verifierem i Tamper Lab.</p>
+            <div class="project-actions"><a href="https://apr-osatechgpt-landing.vercel.app" target="_blank" rel="noopener">ZOBACZ APR ↗</a></div>
+          </article>'''
+
+          pattern=r'<article class="client-project-card">\s*<div class="project-media" data-gallery>\s*<div class="media-track">\s*<figure class="media-slide active"><img src="osatechgpt_portfolio_assets/agentic-dashboard\.jpg"[\s\S]*?</article>'
+          if not re.search(pattern,text):
+              raise SystemExit('Agentic City card not found')
+          text=re.sub(pattern,apr,text,count=1)
+
+          footer_css='''
+          /* STATIC FINAL: APR + VISIBLE AUDIT + PREMIUM FOOTER */
+          .apr-media img{object-fit:contain!important;background:#06100d}
+          .osa-footer{position:relative;overflow:hidden;margin-top:52px;padding:58px 0 26px;border-top:1px solid rgba(255,255,255,.13);background:linear-gradient(180deg,rgba(3,5,9,.36),rgba(3,4,7,.97))}
+          .osa-footer:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 18% 0%,rgba(0,229,255,.09),transparent 34%),radial-gradient(circle at 82% 0%,rgba(224,177,85,.09),transparent 34%)}
+          .osa-footer-inner{position:relative;z-index:1;width:min(1180px,calc(100% - 38px));margin:auto}.osa-footer-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:40px;align-items:end}
+          .osa-footer-brand{font-size:clamp(32px,5vw,62px);font-weight:900;letter-spacing:-.06em;line-height:.95}.osa-footer-brand span{color:var(--gold,#e0b155)}.osa-footer-copy{margin-top:17px;max-width:660px;color:rgba(255,255,255,.63);line-height:1.7}
+          .osa-footer-contact{padding:22px;border:1px solid rgba(224,177,85,.24);border-radius:18px;background:rgba(10,12,18,.76);box-shadow:0 24px 70px rgba(0,0,0,.28)}.osa-footer-contact strong{display:block;font-size:20px}.osa-footer-contact p{margin:8px 0 0;color:rgba(255,255,255,.6);line-height:1.55}.osa-footer-contact a{display:inline-flex;margin-top:16px;padding:11px 15px;border-radius:10px;background:var(--gold,#e0b155);color:#08090c;font-weight:900;text-decoration:none}
+          .osa-social-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:38px}.osa-social{--social:#fff;position:relative;min-height:166px;padding:20px;border:1px solid rgba(255,255,255,.11);border-radius:18px;background:linear-gradient(155deg,rgba(18,21,31,.94),rgba(7,8,12,.98));color:#fff;text-decoration:none;overflow:hidden;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}.osa-social:after{content:"";position:absolute;width:120px;height:120px;right:-48px;top:-52px;border-radius:50%;background:var(--social);opacity:.08;transition:.22s}.osa-social:hover,.osa-social:focus-visible{transform:translateY(-5px);border-color:color-mix(in srgb,var(--social) 65%,transparent);box-shadow:0 18px 50px color-mix(in srgb,var(--social) 13%,transparent);outline:none}.osa-social:hover:after{opacity:.16;transform:scale(1.18)}.osa-social-icon{width:47px;height:47px;display:grid;place-items:center;border-radius:14px;background:color-mix(in srgb,var(--social) 12%,transparent);border:1px solid color-mix(in srgb,var(--social) 30%,transparent)}.osa-social-icon svg{width:25px;height:25px;fill:currentColor}.osa-social-name{display:block;margin-top:24px;font-size:16px;font-weight:900}.osa-social-handle{display:block;margin-top:5px;color:rgba(255,255,255,.48);font:500 10px var(--mono,monospace);letter-spacing:.07em;overflow-wrap:anywhere}.osa-social.github{--social:#f1f1f1}.osa-social.linkedin{--social:#0a66c2}.osa-social.instagram{--social:#e1306c}.osa-social.x{--social:#f5f5f5}.osa-social.facebook{--social:#1877f2}.osa-social.pending{opacity:.48;cursor:not-allowed}.osa-social.pending:hover{transform:none;box-shadow:none;border-color:rgba(255,255,255,.11)}.osa-footer-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:38px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.42);font:500 10px var(--mono,monospace);letter-spacing:.08em}@media(max-width:900px){.osa-footer-head{grid-template-columns:1fr}.osa-social-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.osa-social-grid{grid-template-columns:1fr}.osa-footer-inner{width:min(100% - 28px,1180px)}}
+          '''
+          text=text.replace('</style>',footer_css+'\n</style>',1)
+
+          gh='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.3 11.3 0 0 0-3.57 22.03c.57.1.77-.25.77-.55v-2.16c-3.15.69-3.81-1.34-3.81-1.34-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.24 3.31.95.1-.74.4-1.24.72-1.52-2.51-.29-5.15-1.26-5.15-5.59 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.44.11-3 0 0 .95-.31 3.11 1.16a10.8 10.8 0 0 1 5.66 0C15.05 5.39 16 5.7 16 5.7c.62 1.56.23 2.71.11 3 .73.79 1.17 1.8 1.17 3.04 0 4.34-2.65 5.3-5.17 5.58.41.35.77 1.04.77 2.1v2.76c0 .3.21.66.78.55A11.3 11.3 0 0 0 12 .7Z"/></svg>'
+          li='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.3 3.5A2.8 2.8 0 1 1 5.3 9.1a2.8 2.8 0 0 1 0-5.6ZM3 10.7h4.7V21H3V10.7Zm7.8 0h4.5v1.4h.1c.6-1.2 2.2-2.5 4.5-2.5 4.8 0 5.7 3.2 5.7 7.4v4H21v-3.5c0-.8 0-1.9-1.1-1.9-1.2 0-1.4.9-1.4 1.8V21h-4.7V10.7Z" transform="scale(.86) translate(1.4 1.5)"/></svg>'
+          ig='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 2h9.6A5.2 5.2 0 0 1 22 7.2v9.6a5.2 5.2 0 0 1-5.2 5.2H7.2A5.2 5.2 0 0 1 2 16.8V7.2A5.2 5.2 0 0 1 7.2 2Zm0 2A3.2 3.2 0 0 0 4 7.2v9.6A3.2 3.2 0 0 0 7.2 20h9.6a3.2 3.2 0 0 0 3.2-3.2V7.2A3.2 3.2 0 0 0 16.8 4H7.2Zm10.3 1.5a1.3 1.3 0 1 1 0 2.5 1.3 1.3 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>'
+          xx='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.2 2H21l-6 6.9L22 22h-5.5l-4.3-5.6L7.3 22H4.5l6.4-7.3L4.2 2h5.6l3.9 5.1L18.2 2Zm-1 17.7h1.6L9 4.2H7.4l9.8 15.5Z"/></svg>'
+          fb='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.1C22 6.5 17.5 2 12 2S2 6.5 2 12.1C2 17.1 5.7 21.2 10.4 22v-7H7.9v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6v1.9h2.8l-.4 2.9h-2.4v7c4.8-.8 8.5-4.9 8.5-9.9Z"/></svg>'
+          footer=f'''<footer class="osa-footer" aria-label="Stopka OsaTechGPT"><div class="osa-footer-inner"><div class="osa-footer-head"><div><div class="osa-footer-brand">OSA<span>TECHGPT</span>.DEV</div><p class="osa-footer-copy">Buduję systemy AI, aplikacje, automatyzacje i bezpieczne runtime’y od architektury po działający deployment i dowód wykonania.</p></div><div class="osa-footer-contact"><strong>Masz proces, który blokuje firmę?</strong><p>Formularz mini audytu jest widoczny bezpośrednio powyżej. Firmowy e-mail i automatyczną wysyłkę podłączymy po uruchomieniu Workspace.</p><a href="#kontakt">MINI AUDYT JEST TUTAJ ↑</a></div></div><div class="osa-social-grid"><a class="osa-social github" href="https://github.com/HazEOskA" target="_blank" rel="noopener noreferrer"><span class="osa-social-icon">{gh}</span><span class="osa-social-name">GitHub</span><span class="osa-social-handle">@HazEOskA</span></a><a class="osa-social linkedin" href="https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385" target="_blank" rel="noopener noreferrer"><span class="osa-social-icon">{li}</span><span class="osa-social-name">LinkedIn</span><span class="osa-social-handle">Bartosz Osiński</span></a><a class="osa-social instagram" href="https://www.instagram.com/osatechgpt/" target="_blank" rel="noopener noreferrer"><span class="osa-social-icon">{ig}</span><span class="osa-social-name">Instagram</span><span class="osa-social-handle">@osatechgpt</span></a><span class="osa-social x pending" aria-disabled="true"><span class="osa-social-icon">{xx}</span><span class="osa-social-name">X</span><span class="osa-social-handle">URL DO PODPIĘCIA</span></span><span class="osa-social facebook pending" aria-disabled="true"><span class="osa-social-icon">{fb}</span><span class="osa-social-name">Facebook</span><span class="osa-social-handle">URL DO PODPIĘCIA</span></span></div><div class="osa-footer-bottom"><span>© 2026 Bartosz Osiński · OsaTechGPT.dev</span><span>BUILD · VERIFY · DEPLOY</span></div></div></footer>'''
+          old='<footer class="site-footer"><div>OsaTechGPT.dev · Bartosz Osiński</div><div>Systemy AI · aplikacje · automatyzacje · security · wdrożenia</div></footer>'
+          if old not in text:
+              raise SystemExit('Old footer not found')
+          text=text.replace(old,footer,1)
+          text=text.replace('Formularz otworzy gotową wiadomość e-mail. Backend formularza zostanie podpięty przy wdrożeniu.','Backend formularza i firmowy e-mail zostaną podpięte po uruchomieniu Workspace.')
+          text=re.sub(r"window\.location\.href\s*=\s*`mailto:[^`]+`;", "status.textContent='Formularz jest gotowy. Wysyłkę podłączymy po uruchomieniu Workspace.';", text)
+
+          assert 'Ładowanie portfolio' not in text
+          assert '<iframe' not in text
+          assert 'Agentic City' not in text
+          assert 'Agent Proof Runtime' in text
+          assert 'mini-audit-form' in text
+          assert 'osa-footer' in text
+          class P(HTMLParser): pass
+          P().feed(text)
+          p.write_text(text,encoding='utf-8')
+          print('STATIC_VALIDATION_PASS')
+          PY
+          python /tmp/patch.py
+          rm -f TEST_WRITE.txt package.json package-lock.json
+
+      - name: Commit static repair
+        shell: bash
+        run: |
+          git config user.name "OsaTechGPT Repair Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html osatechgpt_portfolio_assets/apr-mission-control.jpg osatechgpt_portfolio_assets/apr-audit-verifier.jpg TEST_WRITE.txt package.json package-lock.json || true
+          git commit -m "fix: restore static portfolio with APR screenshots, visible audit and footer"
+          git push origin main
