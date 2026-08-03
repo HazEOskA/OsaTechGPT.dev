@@ -8,17 +8,8 @@ const part1 = readPart('portfolio-01.br.b64');
 const part2 = readPart('portfolio-02.br.b64');
 const part3 = readPart('portfolio-03.br.b64');
 
-let html = null;
-let lastError = null;
-for (const encoded of [part1 + part2 + part3, part1 + part2]) {
-  try {
-    html = brotliDecompressSync(Buffer.from(encoded, 'base64')).toString('utf8');
-    break;
-  } catch (error) {
-    lastError = error;
-  }
-}
-if (html === null) throw lastError ?? new Error('Static portfolio artifact could not be decompressed');
+const encoded = part1 + part2.slice(0, 10000) + part3;
+const html = brotliDecompressSync(Buffer.from(encoded, 'base64')).toString('utf8');
 
 const required = ['Agent Proof Runtime', 'mini-audit-form', 'social-grid', 'id="lightning"'];
 for (const marker of required) {
