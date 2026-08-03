@@ -1,0 +1,21 @@
+name: Export backup source
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package backup site
+        run: |
+          mkdir -p export
+          cp index.html export/index.html
+          find . -maxdepth 3 -type f \( -name '*.css' -o -name '*.js' -o -name '*.mjs' -o -name '*.json' -o -name '*.webm' -o -name '*.mp4' -o -name '*.jpg' -o -name '*.jpeg' -o -name '*.png' \) -not -path './.git/*' -exec cp --parents {} export/ \;
+      - uses: actions/upload-artifact@v4
+        with:
+          name: backup-site-source
+          path: export
+          retention-days: 1

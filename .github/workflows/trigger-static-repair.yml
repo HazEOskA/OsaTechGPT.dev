@@ -1,0 +1,21 @@
+name: Trigger static repair
+
+on:
+  push:
+    paths:
+      - '.github/workflows/trigger-static-repair.yml'
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch static portfolio repair
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run apply-static-portfolio.yml --repo "$GITHUB_REPOSITORY" --ref main
+
+# dispatch 2026-08-03

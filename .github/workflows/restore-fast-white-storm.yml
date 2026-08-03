@@ -1,0 +1,54 @@
+name: Restore approved hero and fast white storm
+
+on:
+  push:
+    paths:
+      - build-fast-storm-small.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: restore-fast-white-storm
+  cancel-in-progress: true
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Build exact static portfolio
+        run: node build-fast-storm-small.mjs
+
+      - name: Validate hero, media and storm
+        shell: bash
+        run: |
+          test -s public/index.html
+          grep -q 'class="reel-v"' public/index.html
+          grep -q 'class="corridor"' public/index.html
+          grep -q 'FAST WHITE STORM: continuous, smooth' public/index.html
+          grep -q 'id="mini-audit-form"' public/index.html
+          test "$(grep -o 'class="client-project-card"' public/index.html | wc -l)" -eq 4
+          ! grep -q 'Ładowanie portfolio' public/index.html
+          ! grep -q '<iframe' public/index.html
+
+      - name: Publish static index
+        shell: bash
+        run: |
+          cp public/index.html index.html
+          cp -a public/osatechgpt_portfolio_assets/. osatechgpt_portfolio_assets/
+          git config user.name 'OsaTechGPT Release Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add index.html osatechgpt_portfolio_assets
+          if git diff --cached --quiet; then
+            echo 'No changes to publish'
+            exit 0
+          fi
+          git commit -m 'fix: restore hero media and fast white storm'
+          git push origin HEAD:main
