@@ -3,10 +3,22 @@ import path from 'node:path';
 import { brotliDecompressSync } from 'node:zlib';
 
 const root = process.cwd();
-const parts = ['01','02','03'].map((n) =>
-  fs.readFileSync(path.join(root, '.static', `portfolio-${n}.br.b64`), 'utf8').trim()
-);
-const html = brotliDecompressSync(Buffer.from(parts.join(''), 'base64')).toString('utf8');
+const readPart = (name) => fs.readFileSync(path.join(root, '.static', name), 'utf8').trim();
+const part1 = readPart('portfolio-01.br.b64');
+const part2 = readPart('portfolio-02.br.b64');
+const part3 = readPart('portfolio-03.br.b64');
+
+let html = null;
+let lastError = null;
+for (const encoded of [part1 + part2 + part3, part1 + part2]) {
+  try {
+    html = brotliDecompressSync(Buffer.from(encoded, 'base64')).toString('utf8');
+    break;
+  } catch (error) {
+    lastError = error;
+  }
+}
+if (html === null) throw lastError ?? new Error('Static portfolio artifact could not be decompressed');
 
 const required = ['Agent Proof Runtime', 'mini-audit-form', 'social-grid', 'id="lightning"'];
 for (const marker of required) {
