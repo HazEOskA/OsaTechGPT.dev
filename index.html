@@ -55,6 +55,8 @@
     </div>
   </div>
   <div class="page-transition" aria-hidden="true"></div>
+  <canvas class="world-canvas" aria-hidden="true"></canvas>
+  <div class="world-hud" aria-hidden="true"><span>OSA NEURAL CITY / WORLD ONLINE</span><span data-world-status>SECTOR / GENESIS CORE</span></div>
 
   <header class="site-header" data-header>
     <div class="header-inner container">
@@ -77,71 +79,73 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" aria-labelledby="hero-title" data-world="genesis">
       <canvas class="hero-canvas" aria-hidden="true"></canvas>
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="container hero-content">
-        <p class="eyebrow">OSATechGPT / SOLO SOFTWARE ENGINEERING</p>
+        <p class="eyebrow">BARTOSZ OSIŃSKI / OSATECHGPT / SOLO SYSTEM BUILDER</p>
         <h1 class="hero-title" id="hero-title">
           <span class="reveal-line"><span>I build the whole thing.</span></span>
           <span class="reveal-line secondary-line"><span>From idea to production.</span></span>
         </h1>
         <div class="hero-lower">
           <div>
-            <p class="hero-copy">22 lata doświadczenia w IT. Jeden developer łączący frontend, backend, AI, automatyzacje, integracje i architekturę w jeden działający produkt.</p>
+            <p class="hero-copy">Nazywam się Bartosz Osiński. Od 22 lat uczę się technologii przez budowanie, rozbieranie problemów na części i doprowadzanie systemów do momentu, w którym naprawdę działają — od interfejsu po infrastrukturę.</p>
             <div class="hero-actions">
               <a class="button button-primary" href="#selected-work"><span>Zobacz, co buduję</span></a>
               <a class="button button-secondary" href="contact.html"><span>Porozmawiajmy o projekcie</span></a>
             </div>
           </div>
           <div class="hero-status" aria-label="Status">
-            <span class="status"><span class="status-dot" aria-hidden="true"></span>Solo developer / 22 years in IT</span>
-            <span class="coordinates">SYSTEM / PRODUCT / PRODUCTION</span>
+            <span class="status"><span class="status-dot" aria-hidden="true"></span>Bartosz Osiński / building now</span>
+            <span class="coordinates">MACHINE LOGIC → SOFTWARE SYSTEMS → PRODUCTION</span>
           </div>
         </div>
       </div>
       <span class="scroll-cue technical-label" aria-hidden="true">SCROLL TO ENTER</span>
     </section>
 
-    <section class="manifest" aria-labelledby="manifest-title">
+    <section class="manifest" aria-labelledby="manifest-title" data-world="forge">
       <div class="manifest-sticky">
         <div class="container">
           <p class="kicker">01 / MANIFEST</p>
           <h2 class="manifest-copy" id="manifest-title">
-            <span>Nie jestem agencją składającą projekt z pięciu różnych osób.</span>
-            <span> Projektuję system.</span>
-            <span> Buduję frontend.</span>
-            <span> Piszę backend.</span>
-            <span> Łączę API.</span>
-            <span> Automatyzuję procesy.</span>
-            <span> Wdrażam AI.</span>
-            <span> Dowodzę produkt do produkcji.</span>
+            <span>Moje myślenie o software nie powstało wyłącznie przed monitorem.</span>
+            <span> Ukształtowały je też maszyny i produkcja, gdzie błąd kosztuje realny czas.</span>
+            <span> Dlatego nie buduję demo do slajdu.</span>
+            <span> Rozkładam problem.</span>
+            <span> Projektuję cały system.</span>
+            <span> Piszę interfejs i logikę.</span>
+            <span> Łączę dane, API, AI i automatykę.</span>
+            <span> Testuję.</span>
+            <span> Wdrażam.</span>
+            <span> Biorę odpowiedzialność za całość.</span>
           </h2>
           <p class="manifest-final technical-label">ONE DEVELOPER. FULL PICTURE.</p>
         </div>
       </div>
     </section>
 
-    <section class="years" aria-labelledby="years-heading">
+    <section class="years" aria-labelledby="years-heading" data-world="archive">
       <div class="container years-inner">
         <canvas class="years-canvas" aria-hidden="true"></canvas>
         <h2 class="years-number" id="years-heading" aria-label="22 years in IT">22</h2>
         <p class="years-label technical-label">YEARS IN IT</p>
         <div class="years-copy" data-reveal>
-          <strong>Technologie się zmieniają. Fundamenty dobrego software’u nie.</strong>
-          <p>Dwie dekady doświadczenia oznaczają mniej zgadywania, lepsze decyzje techniczne i patrzenie na produkt jako całość.</p>
+          <strong>IT zaczęło się dla mnie długo przed generatywnym AI i obecnym wyścigiem frameworków.</strong>
+          <p>Została ta sama ciekawość: zrozumieć, jak działa cały system. Dwie dekady później oznacza to mniej zgadywania, szybsze decyzje i widzenie zależności, zanim staną się problemem.</p>
         </div>
       </div>
     </section>
 
-    <section class="section system-section" aria-labelledby="system-title">
+    <section class="section system-section" aria-labelledby="system-title" data-world="network">
       <div class="container">
         <div class="system-header">
           <div>
             <p class="kicker">02 / WHAT I BUILD</p>
             <h2 class="section-title" id="system-title">Everything connects.</h2>
           </div>
-          <p class="section-intro">Dobry produkt nie jest frontendem, backendem albo AI. Jest systemem, w którym wszystkie elementy działają razem.</p>
+          <p class="section-intro">Nie interesuje mnie wygranie jednej warstwy i przerzucenie problemu dalej. Dobry produkt jest systemem, w którym interfejs, logika, dane, AI i infrastruktura pracują razem.</p>
         </div>
 
         <div class="system-map" data-reveal aria-label="Interaktywna mapa warstw produktu">
@@ -173,12 +177,12 @@
       </div>
     </section>
 
-    <section class="section process-section" aria-labelledby="process-title">
+    <section class="section process-section" aria-labelledby="process-title" data-world="signal">
       <div class="container process-shell">
         <div class="process-heading">
           <p class="kicker">03 / HOW I THINK</p>
           <h2 class="section-title" id="process-title">I don’t start with code.</h2>
-          <p class="section-intro">Najpierw trzeba zrozumieć problem, użytkownika i ograniczenia. Dopiero później wybiera się technologię.</p>
+          <p class="section-intro">Nie zaczynam od repo i ulubionego frameworka. Najpierw szukam realnego wąskiego gardła: co boli użytkownika, gdzie znika czas i ile kosztuje błąd.</p>
         </div>
         <ol class="timeline" aria-label="Proces pracy">
           <li class="timeline-item is-active">
@@ -205,14 +209,14 @@
       </div>
     </section>
 
-    <section class="section work-section" id="selected-work" aria-labelledby="work-title">
+    <section class="section work-section" id="selected-work" aria-labelledby="work-title" data-world="city">
       <div class="container">
         <div class="work-header">
           <div>
             <p class="kicker">04 / SELECTED WORK</p>
             <h2 class="section-title" id="work-title">Systems in motion.</h2>
           </div>
-          <a class="link-arrow" href="work.html"><span>Wszystkie realizacje</span></a>
+          <div><p class="section-intro">To nie są koncepty z generatora. Każdy ekran poniżej pochodzi z systemu, który faktycznie zbudowałem.</p><a class="link-arrow" href="work.html"><span>Wszystkie realizacje</span></a></div>
         </div>
 
         <article class="project-scene" data-cursor="view">
@@ -309,11 +313,11 @@
       </div>
     </section>
 
-    <section class="section engineering-section" aria-labelledby="engineering-title">
+    <section class="section engineering-section" aria-labelledby="engineering-title" data-world="kernel">
       <div class="container engineering-copy" data-reveal>
         <p class="kicker">05 / EXPERIENCE ≠ TOOL LIST</p>
         <h2 class="section-title" id="engineering-title">Tools change. Engineering doesn’t.</h2>
-        <p class="section-intro">Framework może być modny przez trzy lata. Dobre decyzje architektoniczne, wydajność, bezpieczeństwo, utrzymanie i prostota pozostają ważne zawsze.</p>
+        <p class="section-intro">Praca z produkcją nauczyła mnie prostego testu: system ma być zrozumiały, odporny i naprawialny wtedy, gdy coś pójdzie źle. Framework jest tylko wymienną częścią tej układanki.</p>
       </div>
       <div class="system-tokens" aria-label="Elementy systemu">
         <span class="system-token">Process map</span><span class="system-token">Risk</span><span class="system-token">Approvals</span><span class="system-token">Web app</span><span class="system-token">API</span><span class="system-token">Queues</span><span class="system-token">Evidence</span><span class="system-token">Access</span><span class="system-token">Monitoring</span><span class="system-token">Rollback</span>
@@ -321,12 +325,12 @@
       </div>
     </section>
 
-    <section class="section ai-section" aria-labelledby="ai-title">
+    <section class="section ai-section" aria-labelledby="ai-title" data-world="neural">
       <div class="container">
         <div class="ai-copy" data-reveal>
           <p class="kicker">06 / ARTIFICIAL INTELLIGENCE</p>
           <h2 class="section-title" id="ai-title">AI is a component. Not the product strategy.</h2>
-          <p class="section-intro">AI ma sens wtedy, kiedy realnie skraca proces, automatyzuje pracę albo daje użytkownikowi możliwość, której wcześniej nie miał. Integruję AI tam, gdzie poprawia produkt — nie dlatego, że dobrze wygląda w prezentacji.</p>
+          <p class="section-intro">Buduję z AI codziennie, dlatego nie muszę udawać, że model rozwiązuje wszystko. Używam go tam, gdzie skraca proces, automatyzuje pracę albo daje użytkownikowi realnie nową możliwość — z kontrolą, granicami i dowodem wykonania.</p>
         </div>
         <div class="data-flow" aria-label="Przepływ informacji od użytkownika do działania">
           <div class="flow-node" style="--i:0">USER</div>
@@ -338,12 +342,12 @@
       </div>
     </section>
 
-    <section class="section solo-section" aria-labelledby="solo-title">
+    <section class="section solo-section" aria-labelledby="solo-title" data-world="owner">
       <div class="container solo-grid">
         <div data-reveal>
           <p class="kicker">07 / SOLO DEV ADVANTAGE</p>
           <h2 class="section-title" id="solo-title">One brain. Zero handoff tax.</h2>
-          <p class="section-intro">Projekt nie przechodzi przez account managera, project managera, designera i trzech developerów zanim zapadnie decyzja. Strategia, architektura i implementacja pozostają w jednym kontekście.</p>
+          <p class="section-intro">Nie odsyłam Cię do zespołu, który „wróci z odpowiedzią”. Rozmawiasz ze mną — człowiekiem, który projektuje, koduje, testuje i rozumie konsekwencje decyzji w całym produkcie.</p>
         </div>
         <ul class="solo-points" data-reveal>
           <li class="solo-point"><h3>Direct communication</h3><p>Rozmawiasz bezpośrednio z osobą, która buduje produkt.</p></li>
@@ -353,7 +357,7 @@
       </div>
     </section>
 
-    <section class="philosophy" aria-labelledby="philosophy-title">
+    <section class="philosophy" aria-labelledby="philosophy-title" data-world="dream">
       <div class="philosophy-sticky">
         <h2 class="sr-only" id="philosophy-title">Engineering philosophy</h2>
         <ol class="philosophy-list">
@@ -366,12 +370,12 @@
       </div>
     </section>
 
-    <section class="final-cta" aria-labelledby="final-title">
+    <section class="final-cta" aria-labelledby="final-title" data-world="contact">
       <div class="final-core" aria-hidden="true"></div>
       <div class="final-content" data-reveal>
         <p class="kicker">08 / START</p>
         <h2 class="final-title" id="final-title">Got something difficult to build?<br><span>Good.</span></h2>
-        <p class="final-copy">Jeżeli masz pomysł, problem albo produkt, którego nie da się zamknąć w gotowym szablonie — porozmawiajmy.</p>
+        <p class="final-copy">Pokaż mi problem, przy którym inni nie wiedzą, od czego zacząć. Rozłożę go na system, wybiorę najmniejszy sensowny ruch i powiem wprost, co da się zbudować.</p>
         <div class="final-actions">
           <a class="button button-primary" href="contact.html"><span>Start a conversation</span></a>
           <a class="button button-secondary" href="work.html"><span>View projects</span></a>

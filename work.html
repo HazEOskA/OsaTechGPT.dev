@@ -18,6 +18,8 @@
 <body>
   <a class="skip-link" href="#main">Przejdź do treści</a>
   <div class="page-transition" aria-hidden="true"></div>
+  <canvas class="world-canvas" aria-hidden="true"></canvas>
+  <div class="world-hud" aria-hidden="true"><span>OSA NEURAL CITY / WORLD ONLINE</span><span data-world-status>SECTOR / BUILT SYSTEMS</span></div>
 
   <header class="site-header">
     <div class="header-inner container">
@@ -35,15 +37,15 @@
   </header>
 
   <main id="main">
-    <section class="subpage-hero" aria-labelledby="page-title">
+    <section class="subpage-hero" aria-labelledby="page-title" data-world="city">
       <div class="container">
         <p class="eyebrow">OSATechGPT / SELECTED WORK</p>
         <h1 class="subpage-title" id="page-title">Built systems.</h1>
-        <p class="subpage-intro">Cztery projekty pokazane przez prawdziwe materiały z interfejsu. Bez fikcyjnych klientów, wyników i metryk.</p>
+        <p class="subpage-intro">To mój plac budowy: cztery systemy, które przeszedłem od pomysłu do działającego interfejsu. Pokazuję prawdziwy materiał — bez fikcyjnych klientów, wyników i metryk.</p>
       </div>
     </section>
 
-    <article class="work-detail" id="apr">
+    <article class="work-detail" id="apr" data-world="network">
       <div class="container">
         <div class="work-detail-heading">
           <div data-reveal>
@@ -70,7 +72,7 @@
       </div>
     </article>
 
-    <article class="work-detail" id="hydra">
+    <article class="work-detail" id="hydra" data-world="forge">
       <div class="container">
         <div class="work-detail-heading">
           <div data-reveal>
@@ -103,7 +105,7 @@
       </div>
     </article>
 
-    <article class="work-detail" id="drk">
+    <article class="work-detail" id="drk" data-world="signal">
       <div class="container">
         <div class="work-detail-heading">
           <div data-reveal>
@@ -129,7 +131,7 @@
       </div>
     </article>
 
-    <article class="work-detail" id="michael">
+    <article class="work-detail" id="michael" data-world="neural">
       <div class="container">
         <div class="work-detail-heading">
           <div data-reveal>
@@ -157,12 +159,12 @@
       </div>
     </article>
 
-    <section class="final-cta" aria-labelledby="final-title">
+    <section class="final-cta" aria-labelledby="final-title" data-world="contact">
       <div class="final-core" aria-hidden="true"></div>
       <div class="final-content" data-reveal>
         <p class="kicker">NEXT / YOUR PRODUCT</p>
         <h2 class="final-title" id="final-title">Got something difficult to build?<br><span>Good.</span></h2>
-        <p class="final-copy">Jeżeli masz pomysł, problem albo produkt, którego nie da się zamknąć w gotowym szablonie — porozmawiajmy.</p>
+        <p class="final-copy">Pokaż mi trudny problem. Rozłożę go na system i powiem wprost, jaki pierwszy etap ma sens.</p>
         <div class="final-actions"><a class="button button-primary" href="contact.html"><span>Start a conversation</span></a></div>
       </div>
     </section>

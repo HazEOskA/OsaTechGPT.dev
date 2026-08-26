@@ -18,6 +18,8 @@
 <body>
   <a class="skip-link" href="#main">Przejdź do treści</a>
   <div class="page-transition" aria-hidden="true"></div>
+  <canvas class="world-canvas" aria-hidden="true"></canvas>
+  <div class="world-hud" aria-hidden="true"><span>OSA NEURAL CITY / WORLD ONLINE</span><span data-world-status>SECTOR / SOLO CONTROL</span></div>
 
   <header class="site-header">
     <div class="header-inner container">
@@ -35,28 +37,28 @@
   </header>
 
   <main id="main">
-    <section class="subpage-hero" aria-labelledby="page-title">
+    <section class="subpage-hero" aria-labelledby="page-title" data-world="owner">
       <div class="container">
         <p class="eyebrow">BARTOSZ OSIŃSKI / SOLO SOFTWARE DEVELOPER</p>
-        <h1 class="subpage-title" id="page-title">Full picture.</h1>
-        <p class="subpage-intro">22 lata w IT. Jeden developer odpowiedzialny za strategię techniczną, architekturę i implementację całego produktu.</p>
+        <h1 class="subpage-title" id="page-title">Built by Osa.</h1>
+        <p class="subpage-intro">Nazywam się Bartosz Osiński. Łączę 22 lata w IT z doświadczeniem realnych maszyn, produkcji i procesów, które muszą działać również wtedy, gdy warunki nie są idealne.</p>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="about-lead">
+    <section class="section" aria-labelledby="about-lead" data-world="forge">
       <div class="container">
-        <h2 class="about-lead" id="about-lead" data-reveal>Nie składam produktu z odizolowanych warstw. Projektuję system, w którym interfejs, logika, dane, AI i infrastruktura prowadzą do jednego działającego wyniku.</h2>
+        <h2 class="about-lead" id="about-lead" data-reveal>Moje podejście powstało między kodem a halą produkcyjną. Gdy maszyna lub proces staje, nie pomaga ładny slajd — trzeba znaleźć przyczynę, odzyskać kontrolę i uruchomić całość.</h2>
         <div class="section-grid" data-reveal>
           <p class="kicker">01 / PERSPECTIVE</p>
           <div>
-            <p class="section-intro">Technologie się zmieniają. Fundamenty dobrego software’u nie. Dwie dekady doświadczenia oznaczają mniej zgadywania, lepsze decyzje techniczne i patrzenie na produkt jako całość.</p>
-            <p class="section-intro">Najpierw trzeba zrozumieć problem, użytkownika, dane, koszt błędu i ograniczenia. Dopiero później wybiera się technologię.</p>
+            <p class="section-intro">To samo przenoszę do software’u: obserwuję przepływ, znajduję wąskie gardło, upraszczam decyzje i buduję rozwiązanie, które da się monitorować, naprawić i rozwijać.</p>
+            <p class="section-intro">Nie interesuje mnie tytuł „full-stack” jako lista technologii. Interesuje mnie odpowiedzialność za cały wynik — od pierwszego pytania użytkownika do działającej produkcji.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="capabilities-title">
+    <section class="section" aria-labelledby="capabilities-title" data-world="network">
       <div class="container">
         <p class="kicker">02 / CAPABILITIES</p>
         <h2 class="section-title" id="capabilities-title">From problem to production.</h2>
@@ -73,12 +75,12 @@
       </div>
     </section>
 
-    <section class="section solo-section" aria-labelledby="context-title">
+    <section class="section solo-section" aria-labelledby="context-title" data-world="owner">
       <div class="container solo-grid">
         <div data-reveal>
           <p class="kicker">03 / WORKING MODEL</p>
           <h2 class="section-title" id="context-title">One brain. Zero handoff tax.</h2>
-          <p class="section-intro">Strategia, architektura i implementacja pozostają w jednym kontekście. Decyzja techniczna nie ginie między rolami.</p>
+          <p class="section-intro">Jeśli rozmawiasz o projekcie, rozmawiasz ze mną. Ta sama osoba rozumie cel, podejmuje decyzje architektoniczne i później odpowiada za kod.</p>
         </div>
         <ul class="solo-points" data-reveal>
           <li class="solo-point"><h3>Direct communication</h3><p>Rozmawiasz bezpośrednio z osobą, która buduje produkt.</p></li>
@@ -88,7 +90,7 @@
       </div>
     </section>
 
-    <section class="philosophy" aria-labelledby="philosophy-title">
+    <section class="philosophy" aria-labelledby="philosophy-title" data-world="dream">
       <div class="philosophy-sticky">
         <h2 class="sr-only" id="philosophy-title">Engineering philosophy</h2>
         <ol class="philosophy-list">
@@ -101,12 +103,12 @@
       </div>
     </section>
 
-    <section class="final-cta" aria-labelledby="final-title">
+    <section class="final-cta" aria-labelledby="final-title" data-world="contact">
       <div class="final-core" aria-hidden="true"></div>
       <div class="final-content" data-reveal>
         <p class="kicker">04 / START</p>
         <h2 class="final-title" id="final-title">Got something difficult to build?<br><span>Good.</span></h2>
-        <p class="final-copy">Jeżeli masz pomysł, problem albo produkt, którego nie da się zamknąć w gotowym szablonie — porozmawiajmy.</p>
+        <p class="final-copy">Najbardziej interesują mnie problemy, których nie da się rozwiązać kolejnym gotowym szablonem. Jeśli masz taki — opowiedz mi o nim.</p>
         <div class="final-actions"><a class="button button-primary" href="contact.html"><span>Start a conversation</span></a><a class="button button-secondary" href="work.html"><span>View projects</span></a></div>
       </div>
     </section>
