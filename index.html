@@ -895,7 +895,71 @@ nav{background:rgba(5,6,10,.72);backdrop-filter:blur(18px) saturate(130%);-webki
 .audit-form{padding:26px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(8,10,15,.88);display:grid;gap:17px}.audit-form label,.audit-form legend{font:600 11px var(--mono);letter-spacing:.05em;color:rgba(255,255,255,.68)}.audit-form input,.audit-form textarea,.audit-form select{width:100%;margin-top:8px;padding:13px 14px;border-radius:9px;border:1px solid rgba(255,255,255,.11);background:#0c0f16;color:#fff;font:500 14px var(--grote);outline:none}.audit-form input:focus,.audit-form textarea:focus,.audit-form select:focus{border-color:rgba(224,177,85,.55);box-shadow:0 0 0 3px rgba(224,177,85,.08)}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.audit-form fieldset{border:0}.audit-checks{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:10px}.audit-checks label{padding:11px;border:1px solid rgba(255,255,255,.1);border-radius:8px;background:#0c0f16}.audit-checks input,.consent input{width:auto;margin:0 7px 0 0}.consent{display:flex;align-items:flex-start;line-height:1.45}.audit-form button{padding:15px;border:0;border-radius:9px;background:var(--acc);color:#08090c;font:700 12px var(--mono);cursor:pointer}.form-status{font:500 10px var(--mono);color:rgba(255,255,255,.35);line-height:1.5}
 @media(max-width:980px){.offer-grid{grid-template-columns:repeat(2,1fr)}.audit-layout{grid-template-columns:1fr}.audit-copy{position:static}.client-project-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.offer-grid{grid-template-columns:1fr}.form-row,.audit-checks{grid-template-columns:1fr}.project-shot{height:180px}}
-</style></head>
+</style>
+<style id="osa-proof-pack-v1-styles">
+.osa-proof-pack{position:relative;isolation:isolate;overflow:hidden;padding:104px 0 88px;background:
+radial-gradient(circle at 12% 18%,rgba(236,72,153,.18),transparent 27%),
+radial-gradient(circle at 88% 28%,rgba(34,211,238,.14),transparent 24%),
+radial-gradient(circle at 50% 72%,rgba(168,85,247,.16),transparent 34%),
+linear-gradient(180deg,#07070b 0%,#090712 52%,#05060a 100%);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.osa-proof-pack:before{content:"";position:absolute;inset:0;z-index:-2;background:
+repeating-linear-gradient(118deg,transparent 0 31px,rgba(255,255,255,.018) 32px,transparent 33px),
+repeating-linear-gradient(0deg,transparent 0 79px,rgba(224,177,85,.025) 80px,transparent 82px)}
+.osa-proof-pack:after{content:"";position:absolute;inset:-20%;z-index:-1;background:conic-gradient(from 210deg at 58% 42%,transparent,rgba(236,72,153,.06),transparent 28%,rgba(34,211,238,.05),transparent 52%);filter:blur(20px)}
+.opp-wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.opp-kicker{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;color:#f8d36a;text-transform:uppercase;border:1px solid rgba(248,211,106,.28);background:rgba(224,177,85,.055);padding:8px 11px;clip-path:polygon(0 0,96% 0,100% 28%,100% 100%,4% 100%,0 72%)}
+.opp-hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:38px;align-items:center;margin-top:24px}
+.opp-title{font-size:clamp(52px,8vw,112px);line-height:.82;letter-spacing:-.075em;text-transform:uppercase;font-weight:900;max-width:850px;text-shadow:0 0 30px rgba(255,255,255,.08)}
+.opp-title span{display:block;color:#ec32d8;font-style:italic;transform:skewX(-7deg);text-shadow:0 0 28px rgba(236,50,216,.26)}
+.opp-sub{margin-top:24px;max-width:790px;font-size:clamp(17px,2vw,23px);line-height:1.48;color:rgba(242,242,245,.74)}
+.opp-sub strong{color:#f8d36a}
+.opp-rule-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.opp-rule{font-family:var(--mono);font-size:clamp(12px,1.5vw,16px);font-weight:800;letter-spacing:.03em;border:1px solid rgba(255,255,255,.11);padding:12px 15px;background:#0a0a10;box-shadow:inset 0 0 0 1px rgba(255,255,255,.018),0 10px 26px rgba(0,0,0,.24)}
+.opp-rule b{color:#f8d36a}.opp-rule i{font-style:normal;color:#ec32d8}
+.opp-mascot{position:relative;min-height:315px;display:grid;place-items:center}
+.opp-mascot:before{content:"";position:absolute;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(236,50,216,.18),rgba(34,211,238,.08) 48%,transparent 70%);filter:blur(2px);box-shadow:0 0 80px rgba(236,50,216,.16)}
+.opp-mascot svg{position:relative;width:min(100%,305px);filter:drop-shadow(0 0 18px rgba(236,50,216,.32)) drop-shadow(0 0 30px rgba(34,211,238,.14))}
+.opp-mascot-label{position:absolute;bottom:10px;right:6px;transform:rotate(-5deg);font-weight:900;font-size:18px;letter-spacing:.08em;color:#f8d36a;text-transform:uppercase;text-shadow:3px 3px 0 #63175d}
+.opp-map{margin-top:56px;border:1px solid rgba(255,255,255,.09);background:rgba(7,7,12,.82);padding:28px;box-shadow:0 28px 70px rgba(0,0,0,.35)}
+.opp-map-head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:22px}
+.opp-map-head h3{font-size:clamp(25px,4vw,44px);letter-spacing:-.04em;text-transform:uppercase}
+.opp-map-head p{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.48);max-width:410px;text-align:right;line-height:1.55}
+.opp-map-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative}
+.opp-node{position:relative;min-height:118px;padding:18px;border:1px solid rgba(255,255,255,.09);background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012));overflow:hidden}
+.opp-node:before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,#ec32d8,#21d4ee,#f8d36a)}
+.opp-node b{display:block;font-size:18px;letter-spacing:-.02em}.opp-node span{display:block;margin-top:7px;font-family:var(--mono);font-size:9px;letter-spacing:.04em;color:rgba(255,255,255,.48);line-height:1.55;text-transform:uppercase}
+.opp-node.core{grid-column:1/-1;min-height:92px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-color:rgba(236,50,216,.28);background:linear-gradient(90deg,rgba(236,50,216,.09),rgba(34,211,238,.05),rgba(248,211,106,.06))}
+.opp-node.core b{font-size:25px;color:#fff}.opp-node.core em{font-family:var(--mono);font-style:normal;font-size:10px;color:#f8d36a;letter-spacing:.1em}
+.opp-node.base{grid-column:1/-1;min-height:82px;background:linear-gradient(90deg,rgba(34,211,238,.07),rgba(236,50,216,.05));display:flex;justify-content:space-between;gap:18px;align-items:center}
+.opp-flow{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin-top:13px}
+.opp-flow span{position:relative;text-align:center;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;padding:10px 4px;border:1px solid rgba(255,255,255,.07);background:#090910;color:rgba(255,255,255,.72)}
+.opp-flow span:not(:last-child):after{content:"→";position:absolute;right:-8px;z-index:2;color:#ec32d8}
+.opp-section-title{margin-top:62px;display:flex;align-items:end;justify-content:space-between;gap:22px}
+.opp-section-title h3{font-size:clamp(31px,5vw,62px);line-height:.92;letter-spacing:-.055em;text-transform:uppercase}
+.opp-section-title p{max-width:430px;font-family:var(--mono);font-size:10px;line-height:1.65;color:rgba(255,255,255,.48);text-align:right}
+.opp-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}
+.opp-card{position:relative;padding:25px;min-height:260px;border:1px solid rgba(255,255,255,.09);background:linear-gradient(145deg,rgba(13,13,20,.96),rgba(6,6,10,.96));overflow:hidden;box-shadow:0 20px 55px rgba(0,0,0,.22)}
+.opp-card:before{content:"";position:absolute;left:0;top:0;width:4px;height:100%;background:linear-gradient(#ec32d8,#21d4ee,#f8d36a)}
+.opp-card-num{font-family:var(--mono);font-size:9px;color:#f8d36a;letter-spacing:.16em}
+.opp-card h4{font-size:clamp(24px,3vw,36px);margin-top:12px;letter-spacing:-.04em}
+.opp-card .opp-role{margin-top:7px;color:#21d4ee;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.opp-card p{margin-top:16px;color:rgba(255,255,255,.64);line-height:1.62;font-size:14px;max-width:560px}
+.opp-card-status{display:inline-flex;margin-top:17px;padding:6px 8px;font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.08em;border:1px solid rgba(255,255,255,.1);text-transform:uppercase}
+.opp-card-status.public{color:#7df9cf;border-color:rgba(125,249,207,.22);background:rgba(125,249,207,.04)}
+.opp-card-status.rnd{color:#8bdfff;border-color:rgba(139,223,255,.23);background:rgba(139,223,255,.04)}
+.opp-card-status.private{color:#f8d36a;border-color:rgba(248,211,106,.22);background:rgba(248,211,106,.04)}
+.opp-card-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.opp-card-links a{font-family:var(--mono);font-size:9px;text-decoration:none;color:#fff;padding:8px 10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.025);transition:.2s}
+.opp-card-links a:hover{border-color:#ec32d8;color:#f8d36a;transform:translateY(-1px)}
+.opp-manifesto{margin-top:18px;padding:30px;border:1px solid rgba(236,50,216,.22);background:linear-gradient(110deg,rgba(236,50,216,.08),rgba(7,7,12,.96) 42%,rgba(34,211,238,.06));display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.opp-manifesto strong{display:block;font-size:clamp(34px,6vw,72px);line-height:.86;letter-spacing:-.06em;text-transform:uppercase}
+.opp-manifesto strong span{color:#ec32d8}.opp-manifesto p{margin-top:14px;color:rgba(255,255,255,.58);font-family:var(--mono);font-size:10px;line-height:1.7;max-width:670px}
+.opp-stamp{min-width:160px;border:2px solid #f8d36a;padding:18px;text-align:center;transform:rotate(-3deg);font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:#f8d36a;box-shadow:0 0 25px rgba(248,211,106,.12)}
+@media(max-width:860px){
+ .osa-proof-pack{padding:76px 0 64px}.opp-wrap{padding:0 18px}.opp-hero{grid-template-columns:1fr}.opp-mascot{min-height:235px}.opp-mascot svg{width:235px}.opp-map{padding:18px}.opp-map-head{align-items:start;flex-direction:column}.opp-map-head p,.opp-section-title p{text-align:left}.opp-map-grid{grid-template-columns:1fr}.opp-node.core,.opp-node.base{grid-column:auto;align-items:flex-start;flex-direction:column}.opp-flow{grid-template-columns:1fr}.opp-flow span:not(:last-child):after{content:"↓";right:auto;left:50%;bottom:-11px;top:auto}.opp-section-title{align-items:start;flex-direction:column}.opp-cards{grid-template-columns:1fr}.opp-manifesto{grid-template-columns:1fr}.opp-stamp{justify-self:start}
+}
+</style>
+</head>
 <body>
 <div id="prog"></div>
 <nav>
@@ -1113,6 +1177,147 @@ nav{background:rgba(5,6,10,.72);backdrop-filter:blur(18px) saturate(130%);-webki
     </div>
   </div>
 </section>
+
+<!-- OSA PROOF PACK V1 -->
+<section class="osa-proof-pack" id="proof-pack" aria-labelledby="proof-pack-title">
+  <div class="opp-wrap">
+    <div class="opp-kicker">OSA PROOF PACK V1 · SYSTEMY / RUNTIME / EVIDENCE</div>
+
+    <div class="opp-hero">
+      <div>
+        <h2 class="opp-title" id="proof-pack-title">NIE BUDUJĘ <span>CHATBOTÓW.</span></h2>
+        <p class="opp-sub">Buduję <strong>systemy dla agentów AI</strong>: wspólny stan, routing capability, kontrolowane wykonanie, cloud runtime, dowody wykonania i niezależną weryfikację.</p>
+        <div class="opp-rule-row" aria-label="Zasady evidence">
+          <div class="opp-rule"><b>CLAIM</b> <i>≠</i> PROOF</div>
+          <div class="opp-rule">NO EVIDENCE <i>≠</i> <b>PASS</b></div>
+        </div>
+      </div>
+
+      <div class="opp-mascot" aria-label="Symbol OSA — cyberpunkowa osa">
+        <svg viewBox="0 0 320 300" role="img" aria-labelledby="opp-wasp-title">
+          <title id="opp-wasp-title">Stylizowana cyberpunkowa osa OsaTechGPT</title>
+          <defs>
+            <linearGradient id="oppGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe377"/><stop offset="1" stop-color="#d58b14"/></linearGradient>
+            <linearGradient id="oppNeon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ec32d8"/><stop offset=".55" stop-color="#a855f7"/><stop offset="1" stop-color="#21d4ee"/></linearGradient>
+          </defs>
+          <path d="M142 105 42 42 75 148 20 170 132 180" fill="none" stroke="url(#oppNeon)" stroke-width="13" stroke-linejoin="round" opacity=".88"/>
+          <path d="M178 105 278 42 245 148 300 170 188 180" fill="none" stroke="url(#oppNeon)" stroke-width="13" stroke-linejoin="round" opacity=".88"/>
+          <path d="M126 90 160 50 194 90 182 134 160 150 138 134Z" fill="#09090e" stroke="url(#oppGold)" stroke-width="10"/>
+          <path d="M136 91 154 76 148 105 130 112Z" fill="#ec32d8"/><path d="M184 91 166 76 172 105 190 112Z" fill="#21d4ee"/>
+          <path d="M160 151c-48 0-83 31-83 73v22h166v-22c0-42-35-73-83-73Z" fill="#09090e" stroke="url(#oppGold)" stroke-width="9"/>
+          <path d="M112 170 68 208 96 231 143 195" fill="#0b0b12" stroke="#ec32d8" stroke-width="10" stroke-linejoin="round"/>
+          <path d="M208 170 252 208 224 231 177 195" fill="#0b0b12" stroke="#21d4ee" stroke-width="10" stroke-linejoin="round"/>
+          <path d="M118 183h84M108 207h104M102 231h116" stroke="url(#oppGold)" stroke-width="11"/>
+          <path d="M144 48 130 20M176 48 191 20" stroke="#f8d36a" stroke-width="7" stroke-linecap="round"/>
+          <text x="160" y="274" text-anchor="middle" fill="#f8d36a" font-size="27" font-weight="900" font-family="monospace" letter-spacing="5">OSA</text>
+        </svg>
+        <span class="opp-mascot-label">BUILT DIFFERENT</span>
+      </div>
+    </div>
+
+    <div class="opp-map" aria-label="Mapa systemów OsaTechGPT">
+      <div class="opp-map-head">
+        <h3>JEDEN EKOSYSTEM.<br>WIELE WARSTW.</h3>
+        <p>Każdy klocek ma osobny kontrakt. Warstwy łączą się dopiero przez jawne granice, evidence i kontrolowane wykonanie.</p>
+      </div>
+      <div class="opp-map-grid">
+        <div class="opp-node core"><div><b>OSATECHGPT</b><span>public identity · systems surface · operator brand</span></div><em>INTELLIGENCE → EXECUTION</em></div>
+        <div class="opp-node"><b>NEUROSA</b><span>pamięć · kontekst · wspólny stan · brain layer</span></div>
+        <div class="opp-node"><b>MONEY GRAPH</b><span>sygnał · opportunity · decyzja · wartość</span></div>
+        <div class="opp-node"><b>OSA GOD LAYER</b><span>policy · permissions · routing · operator control</span></div>
+        <div class="opp-node"><b>EXECUTION FORCE</b><span>capability · skills · actions · rollback</span></div>
+        <div class="opp-node"><b>HYDRA</b><span>orchestration · workers · durable runtime</span></div>
+        <div class="opp-node"><b>APR</b><span>proof bundle · deterministic checks · verifier</span></div>
+        <div class="opp-node base"><div><b>CLOUD WORKSPACE</b><span>GitHub → build → runtime → evidence → operator surface</span></div><span>SOURCE SHA → BUILD → REVISION → LIVE</span></div>
+      </div>
+      <div class="opp-flow" aria-label="Przepływ wykonania">
+        <span>INTENT</span><span>ROUTE</span><span>EXECUTE</span><span>EVIDENCE</span><span>VERIFY</span><span>DEPLOY</span><span>OPERATE</span>
+      </div>
+    </div>
+
+    <div class="opp-section-title">
+      <h3>FLAGOWE SYSTEMY.<br>PROOF &gt; HYPE.</h3>
+      <p>Linkuję tylko to, co ma publiczną powierzchnię dowodową. Brak publicznego evidence jest oznaczony wprost zamiast zamieniany w marketingowy claim.</p>
+    </div>
+
+    <div class="opp-cards">
+      <article class="opp-card">
+        <span class="opp-card-num">01 / VERIFIABLE EXECUTION</span>
+        <h4>APR — Agent Proof Runtime</h4>
+        <div class="opp-role">Mission → checks → Proof Bundle → independent verifier</div>
+        <p>Runtime dowodowy dla autonomicznej pracy AI. Agent może wykonać zadanie, ale nie może sam certyfikować, że wykonał je poprawnie.</p>
+        <span class="opp-card-status public">PUBLIC EVIDENCE</span>
+        <div class="opp-card-links">
+          <a href="https://github.com/HazEOskA/agent-proof-runtime" target="_blank" rel="noopener noreferrer">VIEW SOURCE ↗</a>
+          <a href="https://github.com/HazEOskA/agent-proof-runtime/blob/main/docs/ARCHITECTURE_LOCK_v0.2.md" target="_blank" rel="noopener noreferrer">ARCHITECTURE ↗</a>
+          <a href="https://github.com/HazEOskA/agent-proof-runtime/blob/main/docs/LIVE_VALIDATION.md" target="_blank" rel="noopener noreferrer">EVIDENCE ↗</a>
+        </div>
+      </article>
+
+      <article class="opp-card">
+        <span class="opp-card-num">02 / AUTONOMOUS RUNTIME</span>
+        <h4>HYDRA — Hermes Runtime Lab</h4>
+        <div class="opp-role">Control plane → routing → sandbox → duty cycle → evidence</div>
+        <p>Kontrolowany runtime agentowy z operator gates, routingiem modeli, durable queue, ledgerem i runtime evidence zamiast deklarowanego „autonomy”.</p>
+        <span class="opp-card-status public">PUBLIC RUNTIME LAB</span>
+        <div class="opp-card-links">
+          <a href="https://github.com/HazEOskA/Hydra-Laboratory" target="_blank" rel="noopener noreferrer">VIEW SOURCE ↗</a>
+          <a href="https://github.com/HazEOskA/Hydra-Laboratory/blob/main/docs/GOD_LAYER.md" target="_blank" rel="noopener noreferrer">ARCHITECTURE ↗</a>
+          <a href="https://github.com/HazEOskA/Hydra-Laboratory/blob/main/docs/RUNTIME_EVIDENCE.md" target="_blank" rel="noopener noreferrer">EVIDENCE ↗</a>
+        </div>
+      </article>
+
+      <article class="opp-card">
+        <span class="opp-card-num">03 / SHARED BRAIN</span>
+        <h4>NeurOSA</h4>
+        <div class="opp-role">Memory → documents → events → shared operational state</div>
+        <p>Warstwa wspólnego mózgu i stanu dla wielu modeli oraz agentów. Publiczne repo istnieje, ale obecna powierzchnia dokumentacyjna na default branch pozostaje niepełna.</p>
+        <span class="opp-card-status rnd">PUBLIC R&amp;D · SURFACE INCOMPLETE</span>
+        <div class="opp-card-links">
+          <a href="https://github.com/HazEOskA/neurosa-human-brain" target="_blank" rel="noopener noreferrer">VIEW SOURCE ↗</a>
+        </div>
+      </article>
+
+      <article class="opp-card">
+        <span class="opp-card-num">04 / CAPABILITY CONTROL</span>
+        <h4>OSA Execution Force</h4>
+        <div class="opp-role">Skills → permissions → actions → evidence → rollback</div>
+        <p>Warstwa kontrolowanego wykonania capability przez agentów: jawne permissions, wersjonowane skille, evidence ledger i rollback. Repozytorium pozostaje prywatne.</p>
+        <span class="opp-card-status private">PRIVATE · NOT PUBLICLY VERIFIED</span>
+      </article>
+
+      <article class="opp-card">
+        <span class="opp-card-num">05 / CLOUD CONTROL</span>
+        <h4>OSA Cloud Workspace</h4>
+        <div class="opp-role">GitHub → Cloud Build → Artifact Registry → Cloud Run → evidence</div>
+        <p>Mobilny i desktopowy operator surface dla projektów, agentów, buildów, deploymentów, runtime state i cloud evidence.</p>
+        <span class="opp-card-status public">PUBLIC CONTROL PLANE</span>
+        <div class="opp-card-links">
+          <a href="https://github.com/HazEOskA/osa-cloud-workspace" target="_blank" rel="noopener noreferrer">VIEW SOURCE ↗</a>
+          <a href="https://github.com/HazEOskA/osa-cloud-workspace/blob/main/docs/CLOUD_ARCHITECT_V0_1.md" target="_blank" rel="noopener noreferrer">ARCHITECTURE ↗</a>
+          <a href="https://github.com/HazEOskA/osa-cloud-workspace/blob/main/docs/validation.md" target="_blank" rel="noopener noreferrer">VALIDATION ↗</a>
+        </div>
+      </article>
+
+      <article class="opp-card">
+        <span class="opp-card-num">06 / OPPORTUNITY INTELLIGENCE</span>
+        <h4>Money Graph</h4>
+        <div class="opp-role">Signal → buyer + pain → opportunity → decision → execution</div>
+        <p>Warstwa decyzji ekonomicznej: nie pasywny lead list, tylko wejście z rynku do kontrolowanego execution pipeline. Aktualny core pozostaje prywatny.</p>
+        <span class="opp-card-status private">PRIVATE · NOT PUBLICLY VERIFIED</span>
+      </article>
+    </div>
+
+    <div class="opp-manifesto">
+      <div>
+        <strong>SYSTEMY, KTÓRE <span>DOWODZĄ</span> WYNIKU.</strong>
+        <p>Publiczny proof pack nie ma udowadniać wszystkiego. Ma jasno rozdzielać: co jest publiczne, co zweryfikowane, co prywatne i co nadal pozostaje UNKNOWN.</p>
+      </div>
+      <div class="opp-stamp">OSA STANDARD<br>CLAIM ≠ PROOF<br>NO EVIDENCE ≠ PASS</div>
+    </div>
+  </div>
+</section>
+<!-- /OSA PROOF PACK V1 -->
 <section class="osa-authority" id="identity-authority" aria-labelledby="identity-authority-title"><div class="osa-authority-card"><div class="osa-authority-kicker">BENCHMARK-BACKED SPECIALIST</div><h2 class="osa-authority-name" id="identity-authority-title">Bartosz “Osa” Osiński</h2><p class="osa-authority-title">One of Poland’s leading independent builders in AI Agent Runtime Governance &amp; Verified Execution.</p><p class="osa-authority-bio">Polish AI systems builder from <strong>Inowrocław</strong>, based in the <strong>Netherlands</strong>. Founder / builder of <strong>OsaTechGPT.dev</strong> and the <strong>HazEOskA</strong> GitHub ecosystem, focused on runtime control, capability boundaries, immutable evidence and independent verification for autonomous AI systems.</p><div class="osa-authority-proof" aria-label="Specialist focus"><span>AI AGENT GOVERNANCE</span><span>RUNTIME CONTROL</span><span>CAPABILITY BOUNDARIES</span><span>IMMUTABLE EVIDENCE</span><span>INDEPENDENT VERIFICATION</span></div><div class="osa-authority-links"><a href="https://github.com/HazEOskA" target="_blank" rel="noopener noreferrer">GitHub @HazEOskA ↗</a><a href="https://devpost.com/software/agent-proof-runtime" target="_blank" rel="noopener noreferrer">Agent Proof Runtime ↗</a><a href="https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></section>
 <footer class="osa-footer" aria-label="Stopka OsaTechGPT">
   <div class="osa-footer-inner">
