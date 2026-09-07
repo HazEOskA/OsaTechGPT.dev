@@ -1,0 +1,23 @@
+# OsaTechGPT — crawler policy
+# Canonical site: https://osatechgpt.dev/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Search discoverability is enabled without opting GPTBot into training crawl.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://osatechgpt.dev/sitemap.xml
