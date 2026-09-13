@@ -1,0 +1,328 @@
+{
+  "generatedAt": "2026-09-13T03:57:30.236Z",
+  "lighthouseVersion": "13.4.1",
+  "requestedUrl": "http://127.0.0.1:4173/",
+  "finalUrl": "http://127.0.0.1:4173/",
+  "categories": {
+    "accessibility": {
+      "score": 0.91,
+      "title": "Accessibility"
+    },
+    "agentic-browsing": {
+      "score": 0.19,
+      "title": "Agentic Browsing"
+    }
+  },
+  "agentic": [
+    {
+      "id": "agent-accessibility-tree",
+      "score": 0,
+      "scoreDisplayMode": "binary",
+      "title": "Accessibility tree is not well-formed",
+      "displayValue": null,
+      "explanation": null,
+      "items": [
+        {
+          "value": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "description",
+                "valueType": "text",
+                "label": "Description"
+              },
+              {
+                "key": "node",
+                "valueType": "node",
+                "label": "Failing Element"
+              }
+            ],
+            "items": [
+              {
+                "description": "Elements must only use supported ARIA attributes",
+                "node": {
+                  "type": "node",
+                  "lhId": "1-0-BUTTON",
+                  "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,0,DIV,5,DIV,1,ASIDE,1,DIV,0,BUTTON",
+                  "selector": "div.oxf-leftbody > aside.oxf-rail > div.oxf-sysnav > button",
+                  "boundingRect": {
+                    "top": 9991,
+                    "bottom": 10035,
+                    "left": 21,
+                    "right": 203,
+                    "width": 182,
+                    "height": 44
+                  },
+                  "snippet": "<button type=\"button\" data-key=\"apr\" aria-selected=\"true\">",
+                  "nodeLabel": "Pokaż APR"
+                }
+              },
+              {
+                "description": "Certain ARIA roles must contain particular children",
+                "node": {
+                  "type": "node",
+                  "lhId": "1-12-DIV",
+                  "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,0,DIV,5,DIV,1,ASIDE,1,DIV",
+                  "selector": "div.oxf-left > div.oxf-leftbody > aside.oxf-rail > div.oxf-sysnav",
+                  "boundingRect": {
+                    "top": 9991,
+                    "bottom": 10137,
+                    "left": 21,
+                    "right": 391,
+                    "width": 370,
+                    "height": 146
+                  },
+                  "snippet": "<div class=\"oxf-sysnav\" role=\"tablist\" aria-label=\"Systemy OsaTechGPT\">",
+                  "nodeLabel": "Pokaż APR\nPokaż Hydra\nPokaż NeurOSA\nPokaż Execution\nPokaż Cloud\nPokaż Money Gra…"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "llms-txt",
+      "score": 0,
+      "scoreDisplayMode": "binary",
+      "title": "llms.txt does not follow recommendations",
+      "displayValue": null,
+      "explanation": null,
+      "items": [
+        {}
+      ]
+    },
+    {
+      "id": "cumulative-layout-shift",
+      "score": 0.56,
+      "scoreDisplayMode": "numeric",
+      "title": "Cumulative Layout Shift",
+      "displayValue": "0.22",
+      "explanation": null,
+      "items": [
+        {}
+      ]
+    },
+    {
+      "id": "webmcp-registered-tools",
+      "score": null,
+      "scoreDisplayMode": "notApplicable",
+      "title": "WebMCP tools registered",
+      "displayValue": null,
+      "explanation": null,
+      "items": []
+    },
+    {
+      "id": "webmcp-form-coverage",
+      "score": null,
+      "scoreDisplayMode": "notApplicable",
+      "title": "WebMCP form coverage",
+      "displayValue": null,
+      "explanation": null,
+      "items": []
+    },
+    {
+      "id": "webmcp-schema-validity",
+      "score": null,
+      "scoreDisplayMode": "notApplicable",
+      "title": "WebMCP schemas are valid",
+      "displayValue": null,
+      "explanation": null,
+      "items": []
+    }
+  ],
+  "accessibilityFailures": [
+    {
+      "id": "aria-allowed-attr",
+      "score": 0,
+      "scoreDisplayMode": "binary",
+      "title": "`[aria-*]` attributes do not match their roles",
+      "displayValue": null,
+      "explanation": null,
+      "items": [
+        {
+          "node": {
+            "selector": "div.oxf-leftbody > aside.oxf-rail > div.oxf-sysnav > button",
+            "snippet": "<button type=\"button\" data-key=\"apr\" aria-selected=\"true\">",
+            "nodeLabel": "Pokaż APR",
+            "explanation": "Fix all of the following:\n  ARIA attribute is not allowed: aria-selected=\"true\"",
+            "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,0,DIV,5,DIV,1,ASIDE,1,DIV,0,BUTTON"
+          }
+        },
+        {
+          "node": {
+            "selector": "div.oxf-leftbody > aside.oxf-rail > div.oxf-sysnav > button",
+            "snippet": "<button type=\"button\" data-key=\"hydra\" aria-selected=\"false\">",
+            "nodeLabel": "Pokaż Hydra",
+            "explanation": "Fix all of the following:\n  ARIA attribute is not allowed: aria-selected=\"false\"",
+            "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,0,DIV,5,DIV,1,ASIDE,1,DIV,1,BUTTON"
+          }
+        },
+        {
+          "node": {
+            "selector": "div.oxf-leftbody > aside.oxf-rail > div.oxf-sysnav > button",
+            "snippet": "<button type=\"button\" data-key=\"neurosa\" aria-selected=\"false\">",
+            "nodeLabel": "Pokaż NeurOSA",
+            "explanation": "Fix all of the following:\n  ARIA attribute is not allowed: aria-selected=\"false\"",
+            "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,0,DIV,5,DIV,1,ASIDE,1,DIV,2,BUTTON"
+          }
+        },
+        {
+          "node": {
+            "selector": "div.oxf-leftbody > aside.oxf-rail > div.oxf-sysnav > button",
+            "snippet": "<button type=\"button\" data-key=\"execution\" aria-selected=\"false\">",
+            "nodeLabel": "Pokaż Execution",
+            "explanation": "Fix all of the following:\n  ARIA attribute is not allowed: aria-selected=\"false\"",
+            "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,0,DIV,5,DIV,1,ASIDE,1,DIV,3,BUTTON"
+          }
+        },
+        {
+          "node": {
+            "selector": "div.oxf-leftbody > aside.oxf-rail > div.oxf-sysnav > button",
+            "snippet": "<button type=\"button\" data-key=\"cloud\" aria-selected=\"false\">",
+            "nodeLabel": "Pokaż Cloud",
+            "explanation": "Fix all of the following:\n  ARIA attribute is not allowed: aria-selected=\"false\"",
+            "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,0,DIV,5,DIV,1,ASIDE,1,DIV,4,BUTTON"
+          }
+        },
+        {
+          "node": {
+            "selector": "div.oxf-leftbody > aside.oxf-rail > div.oxf-sysnav > button",
+            "snippet": "<button type=\"button\" data-key=\"money\" aria-selected=\"false\">",
+            "nodeLabel": "Pokaż Money Graph",
+            "explanation": "Fix all of the following:\n  ARIA attribute is not allowed: aria-selected=\"false\"",
+            "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,0,DIV,5,DIV,1,ASIDE,1,DIV,5,BUTTON"
+          }
+        },
+        {
+          "node": {
+            "selector": "div.oxf-right > div#oxf-view > div.oxf-grid > button.oxf-card",
+            "snippet": "<button class=\"oxf-card\" type=\"button\" data-key=\"apr\" aria-selected=\"true\">",
+            "nodeLabel": "◎\nAPR\nVerified execution · public proof\n›",
+            "explanation": "Fix all of the following:\n  ARIA attribute is not allowed: aria-selected=\"true\"",
+            "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,1,DIV,10,DIV,0,DIV,0,BUTTON"
+          }
+        },
+        {
+          "node": {
+            "selector": "div.oxf-right > div#oxf-view > div.oxf-grid > button.oxf-card",
+            "snippet": "<button class=\"oxf-card\" type=\"button\" data-key=\"hydra\" aria-selected=\"false\">",
+            "nodeLabel": "⌘\nHydra\nMulti-agent orchestration · laboratory\n›",
+            "explanation": "Fix all of the following:\n  ARIA attribute is not allowed: aria-selected=\"false\"",
+            "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,1,DIV,10,DIV,0,DIV,1,BUTTON"
+          }
+        },
+        {
+          "node": {
+            "selector": "div.oxf-right > div#oxf-view > div.oxf-grid > button.oxf-card",
+            "snippet": "<button class=\"oxf-card\" type=\"button\" data-key=\"neurosa\" aria-selected=\"false\">",
+            "nodeLabel": "◉\nNeurOSA\nShared brain · R&D\n›",
+            "explanation": "Fix all of the following:\n  ARIA attribute is not allowed: aria-selected=\"false\"",
+            "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,1,DIV,10,DIV,0,DIV,2,BUTTON"
+          }
+        },
+        {
+          "node": {
+            "selector": "div.oxf-right > div#oxf-view > div.oxf-grid > button.oxf-card",
+            "snippet": "<button class=\"oxf-card\" type=\"button\" data-key=\"execution\" aria-selected=\"false\">",
+            "nodeLabel": "ϟ\nExecution\nCapability control · private\n›",
+            "explanation": "Fix all of the following:\n  ARIA attribute is not allowed: aria-selected=\"false\"",
+            "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,1,DIV,10,DIV,0,DIV,3,BUTTON"
+          }
+        },
+        {
+          "node": {
+            "selector": "div.oxf-right > div#oxf-view > div.oxf-grid > button.oxf-card",
+            "snippet": "<button class=\"oxf-card\" type=\"button\" data-key=\"cloud\" aria-selected=\"false\">",
+            "nodeLabel": "☁\nCloud\nBuild → deploy → evidence\n›",
+            "explanation": "Fix all of the following:\n  ARIA attribute is not allowed: aria-selected=\"false\"",
+            "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,1,DIV,10,DIV,0,DIV,4,BUTTON"
+          }
+        },
+        {
+          "node": {
+            "selector": "div.oxf-right > div#oxf-view > div.oxf-grid > button.oxf-card",
+            "snippet": "<button class=\"oxf-card\" type=\"button\" data-key=\"money\" aria-selected=\"false\">",
+            "nodeLabel": "▥\nMoney Graph\nOpportunity intelligence · R&D\n›",
+            "explanation": "Fix all of the following:\n  ARIA attribute is not allowed: aria-selected=\"false\"",
+            "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,1,DIV,10,DIV,0,DIV,5,BUTTON"
+          }
+        }
+      ]
+    },
+    {
+      "id": "aria-required-children",
+      "score": 0,
+      "scoreDisplayMode": "binary",
+      "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+      "displayValue": null,
+      "explanation": null,
+      "items": [
+        {
+          "node": {
+            "selector": "div.oxf-left > div.oxf-leftbody > aside.oxf-rail > div.oxf-sysnav",
+            "snippet": "<div class=\"oxf-sysnav\" role=\"tablist\" aria-label=\"Systemy OsaTechGPT\">",
+            "nodeLabel": "Pokaż APR\nPokaż Hydra\nPokaż NeurOSA\nPokaż Execution\nPokaż Cloud\nPokaż Money Gra…",
+            "explanation": "Fix any of the following:\n  Element has children which are not allowed: button",
+            "path": "1,HTML,1,BODY,11,SECTION,0,DIV,0,DIV,0,DIV,5,DIV,1,ASIDE,1,DIV"
+          }
+        }
+      ]
+    },
+    {
+      "id": "label-content-name-mismatch",
+      "score": 0,
+      "scoreDisplayMode": "binary",
+      "title": "Elements with visible text labels do not have matching accessible names.",
+      "displayValue": null,
+      "explanation": null,
+      "items": [
+        {
+          "node": {
+            "selector": "header#hero > div.wrap > div > div.reel",
+            "snippet": "<div class=\"reel reel-link\" role=\"link\" tabindex=\"0\" data-live-url=\"https://mafia-ai-studio.vercel.app/\" aria-label=\"Otwórz Mafia AI Studio — Ratio Essendi live\">",
+            "nodeLabel": "MAFIA AI · RATIO ESSENDI · LIVE ↗",
+            "explanation": "Fix any of the following:\n  Text inside the element is not included in the accessible name",
+            "path": "1,HTML,1,BODY,3,HEADER,5,DIV,0,DIV,4,DIV"
+          }
+        },
+        {
+          "node": {
+            "selector": "footer.osa-footer > div.osa-footer-inner > div.osa-social-grid > a.osa-social",
+            "snippet": "<a class=\"osa-social instagram\" href=\"https://www.instagram.com/osatechgpt/\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"Instagram OsaTechGPT\">",
+            "nodeLabel": "Instagram\n@osatechgpt",
+            "explanation": "Fix any of the following:\n  Text inside the element is not included in the accessible name",
+            "path": "1,HTML,1,BODY,14,FOOTER,0,DIV,1,DIV,0,A"
+          }
+        },
+        {
+          "node": {
+            "selector": "footer.osa-footer > div.osa-footer-inner > div.osa-social-grid > a.osa-social",
+            "snippet": "<a class=\"osa-social linkedin\" href=\"https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"LinkedIn Bartosz Osiński\">",
+            "nodeLabel": "LinkedIn\nBartosz Osiński",
+            "explanation": "Fix any of the following:\n  Text inside the element is not included in the accessible name",
+            "path": "1,HTML,1,BODY,14,FOOTER,0,DIV,1,DIV,1,A"
+          }
+        },
+        {
+          "node": {
+            "selector": "footer.osa-footer > div.osa-footer-inner > div.osa-social-grid > a.osa-social",
+            "snippet": "<a class=\"osa-social github\" href=\"https://github.com/HazEOskA\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"GitHub HazEOskA\">",
+            "nodeLabel": "GitHub\n@HazEOskA",
+            "explanation": "Fix any of the following:\n  Text inside the element is not included in the accessible name",
+            "path": "1,HTML,1,BODY,14,FOOTER,0,DIV,1,DIV,2,A"
+          }
+        },
+        {
+          "node": {
+            "selector": "footer.osa-footer > div.osa-footer-inner > div.osa-social-grid > a.osa-social",
+            "snippet": "<a class=\"osa-social mail\" href=\"mailto:osabarca@gmail.com\" aria-label=\"E-mail osabarca@gmail.com\">",
+            "nodeLabel": "E-mail\nosabarca@gmail.com",
+            "explanation": "Fix any of the following:\n  Text inside the element is not included in the accessible name",
+            "path": "1,HTML,1,BODY,14,FOOTER,0,DIV,1,DIV,3,A"
+          }
+        }
+      ]
+    }
+  ]
+}
