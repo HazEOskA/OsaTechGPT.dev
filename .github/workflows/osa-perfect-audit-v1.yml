@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 jobs:
-  lighthouse-audit:
+  extract-context:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,99 +20,78 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Runtime info
+      - name: Extract exact audit and source context
         run: |
-          node --version
-          google-chrome --version || chromium --version || true
+          python3 <<'PY'
+          import json, re
+          from pathlib import Path
 
-      - name: Serve exact static source
-        run: |
-          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/osa-http.log 2>&1 &
-          for i in {1..30}; do
-            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
-            sleep 1
-          done
-          cat /tmp/osa-http.log
-          exit 1
+          evidence = json.loads(Path('audit-v1-evidence.json').read_text(encoding='utf-8'))
+          html = Path('index.html').read_text(encoding='utf-8')
+          out = []
+          out.append('OSA PERFECT AUDIT PASS V1 — EVIDENCE')
+          out.append('')
+          out.append('CATEGORY SCORES')
+          for k,v in evidence.get('categories', {}).items():
+              out.append(f'{k}: {v.get("score")}')
+          out.append('')
+          out.append('ACCESSIBILITY FAIL IDS')
+          for a in evidence.get('accessibilityFailures', []):
+              out.append(f'- {a.get("id")}: {a.get("title")}')
+              for item in a.get('items', []):
+                  n=item.get('node', {})
+                  if n.get('selector'): out.append(f'  selector: {n.get("selector")}')
+                  if n.get('snippet'): out.append(f'  snippet: {n.get("snippet")}')
+                  if n.get('explanation'): out.append(f'  why: {n.get("explanation").replace(chr(10), " | ")}')
+          out.append('')
+          out.append('AGENTIC')
+          for a in evidence.get('agentic', []):
+              out.append(f'- {a.get("id")}: score={a.get("score")} display={a.get("displayValue")}')
+          out.append('')
 
-      - name: Run Lighthouse accessibility + agentic browsing
-        run: |
-          npx --yes lighthouse@13.4.1 http://127.0.0.1:4173/ \
-            --only-categories=accessibility,agentic-browsing \
-            --output=json \
-            --output-path=./lighthouse-v1.json \
-            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage"
+          patterns = [
+              'class="oxf-sysnav"',
+              'aria-selected',
+              'class="reel reel-link"',
+              'Mafia AI Studio',
+              'setAttribute("aria-selected"',
+              "setAttribute('aria-selected'",
+              '.ariaSelected',
+          ]
+          lines = html.splitlines()
+          out.append('SOURCE CONTEXT')
+          seen=set()
+          for pat in patterns:
+              out.append(f'\n### pattern: {pat}')
+              found=False
+              for i,line in enumerate(lines):
+                  if pat in line:
+                      found=True
+                      lo=max(0,i-3); hi=min(len(lines),i+4)
+                      key=(lo,hi)
+                      if key in seen: continue
+                      seen.add(key)
+                      for j in range(lo,hi):
+                          out.append(f'{j+1}: {lines[j]}')
+              if not found: out.append('(not found)')
 
-      - name: Build compact evidence
-        run: |
-          node <<'NODE'
-          const fs = require('fs');
-          const r = JSON.parse(fs.readFileSync('lighthouse-v1.json','utf8'));
-          const compactItem = item => {
-            const out = {};
-            for (const k of ['rule','id','node','selector','snippet','explanation','failureSummary','value','label','text']) {
-              if (item?.[k] !== undefined) out[k] = item[k];
-            }
-            if (item?.node) {
-              out.node = {};
-              for (const k of ['selector','snippet','nodeLabel','explanation','failureSummary','path']) {
-                if (item.node[k] !== undefined) out.node[k] = item.node[k];
-              }
-            }
-            return out;
-          };
-          const auditView = id => {
-            const a = r.audits?.[id];
-            if (!a) return null;
-            return {
-              id,
-              score: a.score,
-              scoreDisplayMode: a.scoreDisplayMode,
-              title: a.title,
-              displayValue: a.displayValue || null,
-              explanation: a.explanation || null,
-              items: (a.details?.items || []).map(compactItem),
-            };
-          };
-          const accFailures = [];
-          for (const ref of r.categories?.accessibility?.auditRefs || []) {
-            const a = r.audits?.[ref.id];
-            if (a && a.score === 0) accFailures.push(auditView(ref.id));
-          }
-          const out = {
-            generatedAt: new Date().toISOString(),
-            lighthouseVersion: r.lighthouseVersion,
-            requestedUrl: r.requestedUrl,
-            finalUrl: r.finalUrl,
-            categories: Object.fromEntries(Object.entries(r.categories || {}).map(([id,c]) => [id,{score:c.score,title:c.title}])),
-            agentic: [
-              'agent-accessibility-tree',
-              'llms-txt',
-              'cumulative-layout-shift',
-              'webmcp-registered-tools',
-              'webmcp-form-coverage',
-              'webmcp-schema-validity'
-            ].map(auditView).filter(Boolean),
-            accessibilityFailures: accFailures,
-          };
-          fs.writeFileSync('audit-v1-evidence.json', JSON.stringify(out, null, 2) + '\n');
-          console.log(fs.readFileSync('audit-v1-evidence.json','utf8'));
-          NODE
+          # llms.txt deterministic checks used by Lighthouse 13.x
+          llms=Path('llms.txt').read_text(encoding='utf-8')
+          out.append('\nLLMS CHECK')
+          out.append(f'bytes={len(llms.encode("utf-8"))}')
+          out.append(f'has_h1={bool(re.search(r"^\\s*#\\s+.+", llms, re.M))}')
+          out.append(f'has_markdown_link={bool(re.search(r"\\[[^\\]]+\\]\\([^\\)]+\\)", llms))}')
+          out.append(f'plain_url_count={len(re.findall(r"https?://", llms))}')
 
-      - name: Commit evidence only
+          Path('audit-v1-summary.txt').write_text('\n'.join(out)+'\n', encoding='utf-8')
+          PY
+          cat audit-v1-summary.txt
+
+      - name: Commit summary only
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add audit-v1-evidence.json
-          if git diff --cached --quiet; then
-            echo "No evidence change"
-            exit 0
-          fi
-          git commit -m "chore: capture OSA perfect audit V1 evidence"
+          git add audit-v1-summary.txt
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "chore: capture minimal OSA audit V1 source context"
           git push origin HEAD:preview/static-osa-cookies-privacy
-
-      - name: Upload full Lighthouse report
-        uses: actions/upload-artifact@v4
-        with:
-          name: osa-perfect-audit-v1
-          path: lighthouse-v1.json
