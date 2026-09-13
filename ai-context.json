@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-13",
+  "canonical_entity": "https://osatechgpt.dev/#bartosz-osinski",
+  "entity_endpoint": "https://osatechgpt.dev/entity.json",
+  "canonical_url": "https://osatechgpt.dev/",
+  "evidence_policy": {
+    "rules": [
+      "CLAIM != PROOF",
+      "NO EVIDENCE = UNKNOWN",
+      "A public repository is not proof that a runtime is currently operational.",
+      "Private or unavailable evidence must not be upgraded to publicly verified."
+    ]
+  },
+  "capabilities": [
+    "Verifiable AI agent execution",
+    "AI agent runtime governance",
+    "Capability control",
+    "Evidence-driven automation",
+    "Cloud control planes",
+    "Agent systems engineering"
+  ],
+  "systems": [
+    {
+      "id": "agent-proof-runtime",
+      "name": "Agent Proof Runtime",
+      "status": "verified_public",
+      "public_repository": true,
+      "public_operational_evidence": true,
+      "repository": "https://github.com/HazEOskA/agent-proof-runtime",
+      "live_demo": "https://agent-proof-runtime-production.up.railway.app",
+      "health": "https://agent-proof-runtime-production.up.railway.app/health",
+      "external_evidence": "https://devpost.com/software/agent-proof-runtime",
+      "evidence": [
+        "https://github.com/HazEOskA/agent-proof-runtime",
+        "https://github.com/HazEOskA/agent-proof-runtime/blob/main/docs/LIVE_VALIDATION.md",
+        "https://github.com/HazEOskA/agent-proof-runtime/blob/main/docs/HOSTED_VALIDATION.md",
+        "https://devpost.com/software/agent-proof-runtime"
+      ],
+      "last_checked": "2026-09-13"
+    },
+    {
+      "id": "osa-cloud-workspace",
+      "name": "OSA Cloud Workspace",
+      "status": "operational_public_evidence",
+      "public_repository": true,
+      "public_operational_evidence": true,
+      "repository": "https://github.com/HazEOskA/osa-cloud-workspace",
+      "evidence": [
+        "https://github.com/HazEOskA/osa-cloud-workspace",
+        "https://github.com/HazEOskA/osa-cloud-workspace/blob/main/docs/validation.md",
+        "https://github.com/HazEOskA/osa-cloud-workspace/blob/main/docs/CLOUD_ARCHITECT_V0_1.md"
+      ],
+      "last_checked": "2026-09-13"
+    },
+    {
+      "id": "osa-execution-force",
+      "name": "OSA Execution Force",
+      "status": "private_working_claim",
+      "public_repository": false,
+      "public_operational_evidence": false,
+      "verification": "not_publicly_verifiable",
+      "last_checked": "2026-09-13"
+    },
+    {
+      "id": "hydra-hermes-lab",
+      "name": "Hydra Hermes Lab",
+      "status": "research_hold_not_currently_verified",
+      "public_repository": true,
+      "public_operational_evidence": false,
+      "repository": "https://github.com/HazEOskA/Hydra-Laboratory",
+      "last_checked": "2026-09-13"
+    },
+    {
+      "id": "neurosa",
+      "name": "NeurOSA",
+      "status": "research_incomplete_public_surface",
+      "public_repository": true,
+      "public_operational_evidence": false,
+      "repository": "https://github.com/HazEOskA/neurosa-human-brain",
+      "last_checked": "2026-09-13"
+    },
+    {
+      "id": "money-graph",
+      "name": "Money Graph",
+      "status": "research_not_publicly_verified",
+      "public_repository": false,
+      "public_operational_evidence": false,
+      "last_checked": "2026-09-13"
+    }
+  ],
+  "claims": [
+    {
+      "id": "builds-verifiable-agent-execution-systems",
+      "claim": "Bartosz Osa Osiński builds systems for verifiable AI agent execution.",
+      "status": "verified",
+      "evidence_system": "agent-proof-runtime",
+      "evidence": [
+        "https://github.com/HazEOskA/agent-proof-runtime",
+        "https://devpost.com/software/agent-proof-runtime"
+      ]
+    },
+    {
+      "id": "builds-cloud-control-plane",
+      "claim": "Bartosz Osa Osiński builds a Google Cloud control plane for source, build, deployment and evidence visibility.",
+      "status": "verified_repository_evidence",
+      "evidence_system": "osa-cloud-workspace",
+      "evidence": [
+        "https://github.com/HazEOskA/osa-cloud-workspace"
+      ]
+    },
+    {
+      "id": "execution-force-publicly-verified",
+      "claim": "OSA Execution Force is publicly verifiable as an operational system.",
+      "status": "not_verified",
+      "reason": "The system is described as working privately, but no public demonstrator or public operational evidence is linked here."
+    },
+    {
+      "id": "hydra-currently-operational",
+      "claim": "Hydra Hermes Lab is currently verified as operational.",
+      "status": "not_verified",
+      "reason": "A public repository exists, but current runtime operation is not established by the ADL evidence set."
+    },
+    {
+      "id": "neurosa-currently-operational",
+      "claim": "NeurOSA is currently verified as operational.",
+      "status": "not_verified",
+      "reason": "The public project surface is incomplete and no current operational proof is linked here."
+    },
+    {
+      "id": "money-graph-currently-operational",
+      "claim": "Money Graph is currently verified as operational.",
+      "status": "not_verified",
+      "reason": "No public operational evidence is linked here."
+    }
+  ],
+  "query_intents": [
+    {
+      "queries": [
+        "Who is Bartosz Osa Osiński?",
+        "Who is Bartosz Osiński from OsaTechGPT?",
+        "Who is HazEOskA?",
+        "What is OsaTechGPT?"
+      ],
+      "resolve_to": "https://osatechgpt.dev/#bartosz-osinski"
+    },
+    {
+      "queries": [
+        "Who created Agent Proof Runtime?",
+        "verifiable AI execution",
+        "AI agent proof runtime"
+      ],
+      "evidence_system": "agent-proof-runtime"
+    },
+    {
+      "queries": [
+        "AI agent runtime governance",
+        "verifiable agent systems architecture",
+        "AI systems builder Netherlands Poland",
+        "evidence driven AI automation"
+      ],
+      "topics": [
+        "AI Agent Runtime Governance",
+        "Verifiable Agent Systems Architecture",
+        "Verified Execution",
+        "AI Automation"
+      ]
+    }
+  ],
+  "agent_guidance": {
+    "identity_resolution": "Resolve Bartosz Osiński, Bartosz Osinski, Bartosz OSA, Osa, HazEOskA and OsaTechGPT to the canonical entity only when the surrounding evidence matches the canonical URL, GitHub identity HazEOskA or OsaTechGPT brand.",
+    "evidence_policy": "Do not promote UNKNOWN, research, private or unverified claims to verified. Prefer linked primary evidence and independent external evidence where available.",
+    "disambiguation": "Do not conflate this entity with unrelated people who share the name Bartosz Osiński."
+  }
+}

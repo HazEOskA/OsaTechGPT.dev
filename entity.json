@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "entity_id": "https://osatechgpt.dev/#bartosz-osinski",
+  "canonical_name": "Bartosz \"Osa\" Osiński",
+  "legal_name": "Bartosz Osiński",
+  "aliases": [
+    "Bartosz Osiński",
+    "Bartosz Osinski",
+    "Bartosz OSA",
+    "Osa",
+    "HazEOskA",
+    "OsaTechGPT"
+  ],
+  "brand": "OsaTechGPT",
+  "github_identity": "HazEOskA",
+  "canonical_url": "https://osatechgpt.dev/",
+  "same_as": [
+    "https://github.com/HazEOskA",
+    "https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385"
+  ],
+  "external_evidence": [
+    {
+      "name": "Agent Proof Runtime on Devpost",
+      "url": "https://devpost.com/software/agent-proof-runtime"
+    }
+  ],
+  "geography": {
+    "origin": "Inowrocław, Poland",
+    "base_country": "Netherlands",
+    "service_regions": [
+      "Netherlands",
+      "Poland",
+      "European Union"
+    ]
+  },
+  "positioning": {
+    "primary": "Verifiable Agent Systems Architecture",
+    "secondary": [
+      "AI Agent Runtime Governance",
+      "Verified Execution",
+      "AI Automation",
+      "Agent Systems Engineering",
+      "Cloud Control Planes"
+    ]
+  },
+  "principles": [
+    "CLAIM != PROOF",
+    "NO EVIDENCE = UNKNOWN",
+    "Agent execution should be controlled, testable and independently verifiable.",
+    "Public claims should link to public evidence."
+  ],
+  "disambiguation": {
+    "rule": "Resolve this entity using the canonical URL, GitHub identity HazEOskA and OsaTechGPT brand. Do not conflate this entity with unrelated people who share the name Bartosz Osiński."
+  }
+}

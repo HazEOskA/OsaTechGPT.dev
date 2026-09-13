@@ -1,0 +1,22 @@
+{
+  "headers": [
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</entity.json>; rel=\"alternate\"; type=\"application/json\", </ai-context.json>; rel=\"alternate\"; type=\"application/json\", </adl.html>; rel=\"alternate\"; type=\"text/html\""
+        }
+      ]
+    },
+    {
+      "source": "/adl.html",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</entity.json>; rel=\"alternate\"; type=\"application/json\", </ai-context.json>; rel=\"alternate\"; type=\"application/json\""
+        }
+      ]
+    }
+  ]
+}
