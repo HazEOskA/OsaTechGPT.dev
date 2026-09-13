@@ -922,7 +922,7 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 #07080b}
 .oxf-art:before{content:"OSA";position:absolute;z-index:0;left:5%;top:7%;font:900 clamp(78px,8vw,150px)/.8 var(--mono);letter-spacing:-.1em;color:rgba(244,191,50,.08);transform:rotate(-7deg)}
 .oxf-art:after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.03),transparent 50%,rgba(0,0,0,.34)),radial-gradient(ellipse 85% 70% at 50% 52%,transparent 54%,rgba(0,0,0,.54) 100%)}
-.oxf-art img{position:absolute;z-index:1;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;filter:saturate(1.06) contrast(1.03) brightness(.96);transform:scale(1.01)}
+.oxf-art img{position:absolute;z-index:1;left:50%;top:50%;width:min(72%,360px);height:auto;max-height:90%;object-fit:contain;object-position:center;filter:none;transform:translate(-50%,-50%);image-rendering:auto}
 .oxf-graffiti{position:absolute;z-index:3;font:900 13px/1.05 var(--mono);font-style:italic;color:var(--gold2);text-shadow:0 0 13px rgba(244,191,50,.32);transform:rotate(-7deg);pointer-events:none}.oxf-graffiti.g1{left:18px;top:90px}.oxf-graffiti.g2{left:18px;bottom:70px}.oxf-graffiti.g3{right:18px;bottom:110px;text-align:right}
 .oxf-staticbadge{position:absolute;z-index:4;left:18px;bottom:18px;border:1px solid rgba(244,191,50,.3);background:rgba(6,7,10,.78);backdrop-filter:blur(12px);padding:10px 12px;font:700 8px var(--mono);letter-spacing:.09em;color:var(--gold);border-radius:8px}.oxf-staticbadge span{display:block;margin-top:4px;color:rgba(255,255,255,.4);font-weight:500}
 .oxf-rail{border-left:1px solid rgba(255,255,255,.07);padding:14px 12px;background:rgba(7,8,11,.98);display:flex;flex-direction:column;gap:10px}
@@ -951,6 +951,19 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 @media(max-width:760px){.oxf{padding:62px 0 52px}.oxf-wrap{width:min(100% - 16px,1480px)}.oxf-leftbody{grid-template-columns:1fr;min-height:0}.oxf-art{min-height:590px}.oxf-rail{border-left:0;border-top:1px solid rgba(255,255,255,.07)}.oxf-sysnav{grid-template-columns:repeat(2,1fr)}.oxf-guidehelp{display:none}.oxf-right{padding:22px 16px}.oxf-title{font-size:clamp(38px,11vw,58px)}.oxf-quote{position:static;transform:rotate(-4deg);text-align:left;margin:14px 0 0}.oxf-benefits{grid-template-columns:repeat(2,1fr)}.oxf-tabs{grid-template-columns:repeat(2,1fr)}.oxf-grid,.oxf-proofview{grid-template-columns:1fr}.oxf-results,.oxf-community{grid-template-columns:1fr}.oxf-selected{align-items:flex-start;flex-direction:column}.oxf-selectedlinks{justify-content:flex-start}.oxf-cta{flex-direction:column}.oxf-cta button,.oxf-cta a{text-align:center}}
 @media(max-width:480px){.oxf-art{min-height:520px}.oxf-lefthead{padding:13px}.oxf-brandmark{font-size:21px}.oxf-sysnav{grid-template-columns:1fr 1fr}.oxf-sysnav button{padding:10px 9px;font-size:9px}.oxf-right{padding:20px 13px}.oxf-title{font-size:clamp(34px,10.8vw,48px)}.oxf-card{grid-template-columns:42px 1fr auto;min-height:78px}.oxf-cardicon{width:42px;height:42px}}
 @media(prefers-reduced-motion:reduce){.oxf *{animation:none!important;transition:none!important}}
+</style>
+
+<style id="osa-privacy-cookie-styles">
+.osa-footer-bottom a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(23,16,6,.25)}
+.osa-footer-bottom a:hover{color:#171006;border-bottom-color:currentColor}
+.osa-cookie-banner{position:fixed;z-index:9999;left:20px;right:20px;bottom:20px;max-width:920px;margin:0 auto;padding:16px 18px;border:1px solid rgba(224,177,85,.45);border-radius:14px;background:rgba(8,10,15,.97);box-shadow:0 24px 80px rgba(0,0,0,.55);backdrop-filter:blur(16px);color:#f5f2ea;display:none;align-items:center;justify-content:space-between;gap:18px}
+.osa-cookie-banner[data-open="true"]{display:flex}
+.osa-cookie-copy{font:500 12px/1.55 var(--grote,system-ui,sans-serif);color:rgba(255,255,255,.72)}
+.osa-cookie-copy strong{display:block;margin-bottom:3px;color:#fff;font-size:13px}
+.osa-cookie-copy a{color:var(--acc,#e0b155);text-decoration:none;border-bottom:1px solid rgba(224,177,85,.35)}
+.osa-cookie-actions{display:flex;gap:8px;flex:0 0 auto}
+.osa-cookie-actions button{appearance:none;border:1px solid var(--acc,#e0b155);background:var(--acc,#e0b155);color:#080a0f;border-radius:8px;padding:10px 14px;font:700 9px var(--mono,monospace);letter-spacing:.04em;cursor:pointer}
+@media(max-width:680px){.osa-cookie-banner{left:10px;right:10px;bottom:10px;align-items:stretch;flex-direction:column}.osa-cookie-actions button{width:100%}}
 </style>
 </head>
 <body>
@@ -1309,7 +1322,7 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
         <span class="osa-social-name">Facebook</span><span class="osa-social-handle">LINK DO UZUPEŁNIENIA</span>
       </span>
     </div>
-    <div class="osa-footer-bottom"><span>© 2026 Bartosz Osiński · OsaTechGPT.dev</span><span>BUILD · VERIFY · DEPLOY</span></div>
+    <div class="osa-footer-bottom"><span>© 2026 Bartosz Osiński · OsaTechGPT.dev</span><span>BUILD · VERIFY · DEPLOY · <a href="/privacy.html">PRYWATNOŚĆ &amp; COOKIES</a></span></div>
   </div>
 </footer>
 <script>
@@ -1565,5 +1578,23 @@ document.querySelectorAll('[data-gallery]').forEach((gallery)=>{
   window.OsaExperienceV2={selectSystem:select,setView,speak,connectRuntime,getRuntimeEndpoint:()=>root.dataset.runtimeEndpoint||''};
   select('apr');
 })();
-</script></body>
+</script>
+<div class="osa-cookie-banner" id="osa-cookie-banner" role="dialog" aria-label="Informacja o cookies" aria-live="polite" data-open="false">
+  <div class="osa-cookie-copy"><strong>Cookies bez śledzenia.</strong>OsaTechGPT.dev nie używa cookies reklamowych ani analitycznych. Jedno niezbędne cookie zapamiętuje tylko zamknięcie tego komunikatu. Zewnętrzne fonty są pobierane z Google Fonts. <a href="/privacy.html">Polityka prywatności</a>.</div>
+  <div class="osa-cookie-actions"><button id="osa-cookie-ack" type="button">ROZUMIEM</button></div>
+</div>
+<script id="osa-cookie-notice">
+(function(){
+  const name='osa_cookie_notice';
+  const read=()=>document.cookie.split('; ').find(row=>row.startsWith(name+'='))?.split('=')[1]||'';
+  const banner=document.getElementById('osa-cookie-banner');
+  if(!banner)return;
+  if(!read())banner.dataset.open='true';
+  document.getElementById('osa-cookie-ack')?.addEventListener('click',()=>{
+    document.cookie=name+'=acknowledged; Path=/; Max-Age=15552000; SameSite=Lax; Secure';
+    banner.dataset.open='false';
+  });
+})();
+</script>
+</body>
 </html>
