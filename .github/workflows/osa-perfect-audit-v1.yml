@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 jobs:
-  extract-context:
+  patch-and-verify:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,78 +20,136 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Extract exact audit and source context
+      - name: Apply minimal V1 patch with hard guards
         run: |
           python3 <<'PY'
-          import json, re
           from pathlib import Path
+          import re
 
-          evidence = json.loads(Path('audit-v1-evidence.json').read_text(encoding='utf-8'))
-          html = Path('index.html').read_text(encoding='utf-8')
-          out = []
-          out.append('OSA PERFECT AUDIT PASS V1 — EVIDENCE')
-          out.append('')
-          out.append('CATEGORY SCORES')
-          for k,v in evidence.get('categories', {}).items():
-              out.append(f'{k}: {v.get("score")}')
-          out.append('')
-          out.append('ACCESSIBILITY FAIL IDS')
-          for a in evidence.get('accessibilityFailures', []):
-              out.append(f'- {a.get("id")}: {a.get("title")}')
-              for item in a.get('items', []):
-                  n=item.get('node', {})
-                  if n.get('selector'): out.append(f'  selector: {n.get("selector")}')
-                  if n.get('snippet'): out.append(f'  snippet: {n.get("snippet")}')
-                  if n.get('explanation'): out.append(f'  why: {n.get("explanation").replace(chr(10), " | ")}')
-          out.append('')
-          out.append('AGENTIC')
-          for a in evidence.get('agentic', []):
-              out.append(f'- {a.get("id")}: score={a.get("score")} display={a.get("displayValue")}')
-          out.append('')
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          before = s
 
-          patterns = [
-              'class="oxf-sysnav"',
-              'aria-selected',
-              'class="reel reel-link"',
-              'Mafia AI Studio',
-              'setAttribute("aria-selected"',
-              "setAttribute('aria-selected'",
-              '.ariaSelected',
-          ]
-          lines = html.splitlines()
-          out.append('SOURCE CONTEXT')
-          seen=set()
-          for pat in patterns:
-              out.append(f'\n### pattern: {pat}')
-              found=False
-              for i,line in enumerate(lines):
-                  if pat in line:
-                      found=True
-                      lo=max(0,i-3); hi=min(len(lines),i+4)
-                      key=(lo,hi)
-                      if key in seen: continue
-                      seen.add(key)
-                      for j in range(lo,hi):
-                          out.append(f'{j+1}: {lines[j]}')
-              if not found: out.append('(not found)')
+          nav_keys = ['apr','hydra','neurosa','execution','cloud','money']
+          for key in nav_keys:
+              old_prefix = f'<button type="button" data-key="{key}" aria-selected='
+              new_prefix = f'<button type="button" role="tab" data-key="{key}" aria-selected='
+              count = s.count(old_prefix)
+              if count != 1:
+                  raise SystemExit(f'ABORT nav {key}: expected 1 exact match, got {count}')
+              s = s.replace(old_prefix, new_prefix, 1)
 
-          # llms.txt deterministic checks used by Lighthouse 13.x
-          llms=Path('llms.txt').read_text(encoding='utf-8')
-          out.append('\nLLMS CHECK')
-          out.append(f'bytes={len(llms.encode("utf-8"))}')
-          out.append(f'has_h1={bool(re.search(r"^\\s*#\\s+.+", llms, re.M))}')
-          out.append(f'has_markdown_link={bool(re.search(r"\\[[^\\]]+\\]\\([^\\)]+\\)", llms))}')
-          out.append(f'plain_url_count={len(re.findall(r"https?://", llms))}')
+          card_pat = re.compile(r'(<button class="oxf-card" type="button" data-key="[^"]+") aria-selected=("(?:true|false)")')
+          s, card_count = card_pat.subn(r'\1 aria-pressed=\2', s)
+          if card_count != 6:
+              raise SystemExit(f'ABORT cards: expected 6 aria-selected replacements, got {card_count}')
 
-          Path('audit-v1-summary.txt').write_text('\n'.join(out)+'\n', encoding='utf-8')
+          old_css = '.oxf-card[aria-selected="true"]'
+          new_css = '.oxf-card[aria-pressed="true"]'
+          if s.count(old_css) != 1:
+              raise SystemExit(f'ABORT card CSS: expected 1 match, got {s.count(old_css)}')
+          s = s.replace(old_css, new_css, 1)
+
+          old_js = "cards.forEach(b=>b.setAttribute('aria-selected',String(b.dataset.key===key)));"
+          new_js = "cards.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.key===key)));"
+          if s.count(old_js) != 1:
+              raise SystemExit(f'ABORT card JS: expected 1 match, got {s.count(old_js)}')
+          s = s.replace(old_js, new_js, 1)
+
+          old_aria = ' aria-label="Otwórz Mafia AI Studio — Ratio Essendi live"'
+          if s.count(old_aria) != 1:
+              raise SystemExit(f'ABORT MAFIA aria-label: expected 1 match, got {s.count(old_aria)}')
+          s = s.replace(old_aria, '', 1)
+
+          if s == before:
+              raise SystemExit('ABORT: index.html unchanged')
+
+          for needle in [
+              '<title>Bartosz Osiński (Osa) — AI Agent Runtime Governance & Verified Execution | OsaTechGPT</title>',
+              '<link href="https://osatechgpt.dev/" rel="canonical"/>',
+              'application/ld+json',
+          ]:
+              if needle not in s:
+                  raise SystemExit(f'ABORT invariant missing after patch: {needle}')
+
+          p.write_text(s, encoding='utf-8')
+
+          lp = Path('llms.txt')
+          llms = lp.read_text(encoding='utf-8')
+          llms_before = llms
+          old = 'Canonical URL: https://osatechgpt.dev/'
+          new = 'Canonical URL: [OsaTechGPT](https://osatechgpt.dev/)'
+          if llms.count(old) != 1:
+              raise SystemExit(f'ABORT llms canonical line: expected 1 match, got {llms.count(old)}')
+          llms = llms.replace(old, new, 1)
+          if not re.search(r'^\s*#\s+.+', llms, re.M):
+              raise SystemExit('ABORT llms: H1 check failed')
+          if not re.search(r'\[.+\]\(.+\)', llms):
+              raise SystemExit('ABORT llms: Markdown link check failed')
+          if len(llms) < 50:
+              raise SystemExit('ABORT llms: too short')
+          if llms == llms_before:
+              raise SystemExit('ABORT llms unchanged')
+          lp.write_text(llms, encoding='utf-8')
+
+          print('PATCH_OK')
+          print('nav_role_tab=6')
+          print('card_aria_pressed=6')
+          print('mafia_label_override_removed=1')
+          print('llms_markdown_link=1')
           PY
-          cat audit-v1-summary.txt
 
-      - name: Commit summary only
+          CHANGED="$(git diff --name-only)"
+          printf 'CHANGED FILES:\n%s\n' "$CHANGED"
+          test "$CHANGED" = $'index.html\nllms.txt'
+
+      - name: Serve patched exact source
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/osa-http.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/osa-http.log
+          exit 1
+
+      - name: Run Lighthouse 13.4.1
+        run: |
+          npx --yes lighthouse@13.4.1 http://127.0.0.1:4173/ \
+            --only-categories=accessibility,agentic-browsing \
+            --output=json \
+            --output-path=./lighthouse-v1-after.json \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage"
+
+      - name: Enforce V1 acceptance
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const r = JSON.parse(fs.readFileSync('lighthouse-v1-after.json','utf8'));
+          const acc = r.categories?.accessibility?.score;
+          const tree = r.audits?.['agent-accessibility-tree']?.score;
+          const llms = r.audits?.['llms-txt']?.score;
+          const cls = r.audits?.['cumulative-layout-shift']?.score;
+          const agentic = r.categories?.['agentic-browsing']?.score;
+          console.log(JSON.stringify({accessibility:acc, agentAccessibilityTree:tree, llmsTxt:llms, cls, agenticBrowsing:agentic}, null, 2));
+
+          const failures = [];
+          for (const ref of r.categories?.accessibility?.auditRefs || []) {
+            const a = r.audits?.[ref.id];
+            if (a && a.score === 0) failures.push({id:ref.id,title:a.title,items:a.details?.items || []});
+          }
+          if (failures.length) console.log('ACCESSIBILITY_FAILURES', JSON.stringify(failures, null, 2));
+
+          if (tree !== 1) throw new Error(`agent-accessibility-tree expected 1, got ${tree}`);
+          if (llms !== 1) throw new Error(`llms-txt expected 1, got ${llms}`);
+          if (acc !== 1) throw new Error(`accessibility expected 1, got ${acc}`);
+          NODE
+
+      - name: Commit only verified product patch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add audit-v1-summary.txt
-          if git diff --cached --quiet; then exit 0; fi
-          git commit -m "chore: capture minimal OSA audit V1 source context"
+          git add index.html llms.txt
+          test "$(git diff --cached --name-only)" = $'index.html\nllms.txt'
+          git commit -m "fix: close OSA Perfect Audit Pass V1"
           git push origin HEAD:preview/static-osa-cookies-privacy
