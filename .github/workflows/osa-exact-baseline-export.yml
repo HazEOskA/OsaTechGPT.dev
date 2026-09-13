@@ -23,11 +23,16 @@ jobs:
           test "$(git hash-object index.html)" = "ac232ca596b6f56c8e85d82b198d5af759e65780"
           echo "BLOB=$(git hash-object index.html)"
           echo "SIZE=$(stat -c '%s' index.html)"
+          test -s osatechgpt_portfolio_assets/osa-static-guide.webp
+          echo "STATIC_OSA_SIZE=$(stat -c '%s' osatechgpt_portfolio_assets/osa-static-guide.webp)"
+          sha256sum osatechgpt_portfolio_assets/osa-static-guide.webp
 
-      - name: Upload exact index
+      - name: Upload exact baseline and static osa
         uses: actions/upload-artifact@v4
         with:
-          name: osatechgpt-exact-baseline-index
-          path: index.html
+          name: osatechgpt-exact-baseline-and-static-osa
+          path: |
+            index.html
+            osatechgpt_portfolio_assets/osa-static-guide.webp
           if-no-files-found: error
           retention-days: 1
