@@ -4,10 +4,12 @@ on:
   push:
     branches:
       - preview/static-osa-cookies-privacy
+    paths:
+      - .github/workflows/osa-perfect-audit-v1.yml
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   lighthouse-audit:
@@ -15,6 +17,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Runtime info
         run: |
@@ -24,7 +28,6 @@ jobs:
       - name: Serve exact static source
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/osa-http.log 2>&1 &
-          echo $! > /tmp/osa-http.pid
           for i in {1..30}; do
             if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
             sleep 1
@@ -40,45 +43,75 @@ jobs:
             --output-path=./lighthouse-v1.json \
             --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage"
 
-      - name: Print exact failing audits
+      - name: Build compact evidence
         run: |
           node <<'NODE'
           const fs = require('fs');
           const r = JSON.parse(fs.readFileSync('lighthouse-v1.json','utf8'));
-          for (const [id, cat] of Object.entries(r.categories || {})) {
-            console.log(`CATEGORY ${id}: score=${cat.score}`);
-          }
-          const wanted = ['agent-accessibility-tree','llms-txt','cumulative-layout-shift','webmcp-registered-tools','webmcp-form-coverage','webmcp-schema-validity'];
-          for (const id of wanted) {
-            const a = r.audits?.[id];
-            if (!a) continue;
-            console.log(`\nAUDIT ${id}`);
-            console.log(`score=${a.score} mode=${a.scoreDisplayMode}`);
-            console.log(`title=${a.title}`);
-            if (a.displayValue) console.log(`display=${a.displayValue}`);
-            if (a.explanation) console.log(`explanation=${a.explanation}`);
-            const items = a.details?.items || [];
-            for (const [i,item] of items.entries()) {
-              console.log(`ITEM ${i+1}: ${JSON.stringify(item)}`);
+          const compactItem = item => {
+            const out = {};
+            for (const k of ['rule','id','node','selector','snippet','explanation','failureSummary','value','label','text']) {
+              if (item?.[k] !== undefined) out[k] = item[k];
             }
-          }
-          const acc = r.categories?.accessibility;
-          if (acc?.auditRefs) {
-            console.log('\nACCESSIBILITY FAILURES');
-            for (const ref of acc.auditRefs) {
-              const a = r.audits?.[ref.id];
-              if (a && a.score === 0) {
-                console.log(`FAIL ${ref.id}: ${a.title}`);
-                const items = a.details?.items || [];
-                for (const [i,item] of items.entries()) {
-                  console.log(`  ITEM ${i+1}: ${JSON.stringify(item)}`);
-                }
+            if (item?.node) {
+              out.node = {};
+              for (const k of ['selector','snippet','nodeLabel','explanation','failureSummary','path']) {
+                if (item.node[k] !== undefined) out.node[k] = item.node[k];
               }
             }
+            return out;
+          };
+          const auditView = id => {
+            const a = r.audits?.[id];
+            if (!a) return null;
+            return {
+              id,
+              score: a.score,
+              scoreDisplayMode: a.scoreDisplayMode,
+              title: a.title,
+              displayValue: a.displayValue || null,
+              explanation: a.explanation || null,
+              items: (a.details?.items || []).map(compactItem),
+            };
+          };
+          const accFailures = [];
+          for (const ref of r.categories?.accessibility?.auditRefs || []) {
+            const a = r.audits?.[ref.id];
+            if (a && a.score === 0) accFailures.push(auditView(ref.id));
           }
+          const out = {
+            generatedAt: new Date().toISOString(),
+            lighthouseVersion: r.lighthouseVersion,
+            requestedUrl: r.requestedUrl,
+            finalUrl: r.finalUrl,
+            categories: Object.fromEntries(Object.entries(r.categories || {}).map(([id,c]) => [id,{score:c.score,title:c.title}])),
+            agentic: [
+              'agent-accessibility-tree',
+              'llms-txt',
+              'cumulative-layout-shift',
+              'webmcp-registered-tools',
+              'webmcp-form-coverage',
+              'webmcp-schema-validity'
+            ].map(auditView).filter(Boolean),
+            accessibilityFailures: accFailures,
+          };
+          fs.writeFileSync('audit-v1-evidence.json', JSON.stringify(out, null, 2) + '\n');
+          console.log(fs.readFileSync('audit-v1-evidence.json','utf8'));
           NODE
 
-      - name: Upload report
+      - name: Commit evidence only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audit-v1-evidence.json
+          if git diff --cached --quiet; then
+            echo "No evidence change"
+            exit 0
+          fi
+          git commit -m "chore: capture OSA perfect audit V1 evidence"
+          git push origin HEAD:preview/static-osa-cookies-privacy
+
+      - name: Upload full Lighthouse report
         uses: actions/upload-artifact@v4
         with:
           name: osa-perfect-audit-v1
