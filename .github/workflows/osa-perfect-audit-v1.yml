@@ -30,6 +30,16 @@ jobs:
           s = p.read_text(encoding='utf-8')
           before = s
 
+          def snapshot_meta(text):
+              title = re.findall(r'<title>.*?</title>', text, re.S)
+              canonical = [line.strip() for line in text.splitlines() if 'rel="canonical"' in line]
+              jsonld = re.findall(r'<script[^>]*type="application/ld\+json"[^>]*>.*?</script>', text, re.S)
+              return title, canonical, jsonld
+
+          meta_before = snapshot_meta(before)
+          if len(meta_before[0]) != 1 or len(meta_before[1]) < 1 or len(meta_before[2]) < 1:
+              raise SystemExit(f'ABORT metadata baseline unexpected: title={len(meta_before[0])} canonical={len(meta_before[1])} jsonld={len(meta_before[2])}')
+
           nav_keys = ['apr','hydra','neurosa','execution','cloud','money']
           for key in nav_keys:
               old_prefix = f'<button type="button" data-key="{key}" aria-selected='
@@ -64,13 +74,9 @@ jobs:
           if s == before:
               raise SystemExit('ABORT: index.html unchanged')
 
-          for needle in [
-              '<title>Bartosz Osiński (Osa) — AI Agent Runtime Governance & Verified Execution | OsaTechGPT</title>',
-              '<link href="https://osatechgpt.dev/" rel="canonical"/>',
-              'application/ld+json',
-          ]:
-              if needle not in s:
-                  raise SystemExit(f'ABORT invariant missing after patch: {needle}')
+          meta_after = snapshot_meta(s)
+          if meta_before != meta_after:
+              raise SystemExit('ABORT: SEO identity metadata changed unexpectedly')
 
           p.write_text(s, encoding='utf-8')
 
@@ -93,6 +99,7 @@ jobs:
           lp.write_text(llms, encoding='utf-8')
 
           print('PATCH_OK')
+          print('metadata_unchanged=PASS')
           print('nav_role_tab=6')
           print('card_aria_pressed=6')
           print('mafia_label_override_removed=1')
