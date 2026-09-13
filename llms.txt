@@ -2,7 +2,7 @@
 
 > Canonical public identity and evidence-aware project surface for Bartosz “Osa” Osiński (GitHub: HazEOskA), an independent AI systems builder focused on agent runtimes, runtime governance, capability control, verifiable execution, cloud control planes and evidence-driven automation.
 
-Canonical URL: https://osatechgpt.dev/
+Canonical URL: [OsaTechGPT](https://osatechgpt.dev/)
 Canonical entity record: https://osatechgpt.dev/entity.json
 AI context graph: https://osatechgpt.dev/ai-context.json
 ADL semantic surface: https://osatechgpt.dev/adl.html
