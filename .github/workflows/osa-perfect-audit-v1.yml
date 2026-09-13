@@ -1,0 +1,85 @@
+name: OSA Perfect Audit Pass V1
+
+on:
+  push:
+    branches:
+      - preview/static-osa-cookies-privacy
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Runtime info
+        run: |
+          node --version
+          google-chrome --version || chromium --version || true
+
+      - name: Serve exact static source
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/osa-http.log 2>&1 &
+          echo $! > /tmp/osa-http.pid
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/osa-http.log
+          exit 1
+
+      - name: Run Lighthouse accessibility + agentic browsing
+        run: |
+          npx --yes lighthouse@13.4.1 http://127.0.0.1:4173/ \
+            --only-categories=accessibility,agentic-browsing \
+            --output=json \
+            --output-path=./lighthouse-v1.json \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage"
+
+      - name: Print exact failing audits
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const r = JSON.parse(fs.readFileSync('lighthouse-v1.json','utf8'));
+          for (const [id, cat] of Object.entries(r.categories || {})) {
+            console.log(`CATEGORY ${id}: score=${cat.score}`);
+          }
+          const wanted = ['agent-accessibility-tree','llms-txt','cumulative-layout-shift','webmcp-registered-tools','webmcp-form-coverage','webmcp-schema-validity'];
+          for (const id of wanted) {
+            const a = r.audits?.[id];
+            if (!a) continue;
+            console.log(`\nAUDIT ${id}`);
+            console.log(`score=${a.score} mode=${a.scoreDisplayMode}`);
+            console.log(`title=${a.title}`);
+            if (a.displayValue) console.log(`display=${a.displayValue}`);
+            if (a.explanation) console.log(`explanation=${a.explanation}`);
+            const items = a.details?.items || [];
+            for (const [i,item] of items.entries()) {
+              console.log(`ITEM ${i+1}: ${JSON.stringify(item)}`);
+            }
+          }
+          const acc = r.categories?.accessibility;
+          if (acc?.auditRefs) {
+            console.log('\nACCESSIBILITY FAILURES');
+            for (const ref of acc.auditRefs) {
+              const a = r.audits?.[ref.id];
+              if (a && a.score === 0) {
+                console.log(`FAIL ${ref.id}: ${a.title}`);
+                const items = a.details?.items || [];
+                for (const [i,item] of items.entries()) {
+                  console.log(`  ITEM ${i+1}: ${JSON.stringify(item)}`);
+                }
+              }
+            }
+          }
+          NODE
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: osa-perfect-audit-v1
+          path: lighthouse-v1.json
