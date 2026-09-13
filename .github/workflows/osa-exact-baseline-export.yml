@@ -1,0 +1,33 @@
+name: OSA Exact Baseline Export
+
+on:
+  push:
+    branches:
+      - preview/static-osa-cookies-privacy
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export-baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact branch state
+        uses: actions/checkout@v4
+
+      - name: Verify exact baseline blob
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object index.html)" = "ac232ca596b6f56c8e85d82b198d5af759e65780"
+          echo "BLOB=$(git hash-object index.html)"
+          echo "SIZE=$(stat -c '%s' index.html)"
+
+      - name: Upload exact index
+        uses: actions/upload-artifact@v4
+        with:
+          name: osatechgpt-exact-baseline-index
+          path: index.html
+          if-no-files-found: error
+          retention-days: 1
