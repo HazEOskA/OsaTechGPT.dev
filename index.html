@@ -953,6 +953,17 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 @media(max-width:480px){.oxf-art{min-height:520px}.oxf-lefthead{padding:13px}.oxf-brandmark{font-size:21px}.oxf-sysnav{grid-template-columns:1fr 1fr}.oxf-sysnav button{padding:10px 9px;font-size:9px}.oxf-right{padding:20px 13px}.oxf-title{font-size:clamp(34px,10.8vw,48px)}.oxf-card{grid-template-columns:42px 1fr auto;min-height:78px}.oxf-cardicon{width:42px;height:42px}}
 @media(prefers-reduced-motion:reduce){.oxf *{animation:none!important;transition:none!important}}
 </style>
+
+<style id="osa-repo-proof-styles">
+.osa-repo-proof{padding:96px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);background:radial-gradient(circle at 18% 0%,rgba(224,177,85,.07),transparent 34%),#05060a}
+.osa-repo-proof-head{max-width:880px}.osa-repo-proof-head h2{font-size:clamp(34px,5vw,64px);line-height:.98;margin-top:12px}.osa-repo-proof-head p{margin-top:18px;color:rgba(232,233,235,.63);max-width:760px}
+.osa-repo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:38px}.osa-repo-card{display:flex;flex-direction:column;min-height:290px;padding:24px;border:1px solid rgba(255,255,255,.09);border-radius:14px;background:linear-gradient(180deg,rgba(14,16,23,.95),rgba(8,10,15,.97));box-shadow:0 22px 60px rgba(0,0,0,.28)}
+.osa-repo-top{display:flex;justify-content:space-between;gap:12px;align-items:center}.osa-repo-mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(224,177,85,.28);border-radius:9px;color:#e0b155;font:800 10px var(--mono);background:rgba(224,177,85,.055)}.osa-repo-status{font:700 9px var(--mono);letter-spacing:.09em;color:rgba(255,255,255,.42)}
+.osa-repo-card h3{font-size:25px;margin-top:22px}.osa-repo-card p{margin-top:10px;color:rgba(255,255,255,.56);font-size:14px}.osa-repo-meta{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0}.osa-repo-meta span{padding:5px 8px;border:1px solid rgba(255,255,255,.08);border-radius:6px;color:rgba(255,255,255,.43);font:600 9px var(--mono)}
+.osa-repo-card>a,.osa-repo-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 12px;border:1px solid rgba(224,177,85,.32);border-radius:8px;color:#e0b155;text-decoration:none;font:700 10px var(--mono);margin-top:auto}.osa-repo-actions{display:flex;gap:8px;margin-top:auto}.osa-repo-actions a{margin-top:0}.osa-repo-actions a:last-child{border-color:rgba(255,255,255,.13);color:rgba(255,255,255,.72)}
+@media(max-width:760px){.osa-repo-proof{padding:68px 0}.osa-repo-grid{grid-template-columns:1fr}.osa-repo-card{min-height:0}.osa-repo-actions{flex-direction:column}}
+</style>
+
 </head>
 <body>
 <div id="prog"></div>
@@ -1054,98 +1065,48 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 
 <!-- ═══════ PROJEKTY W RAMACH ═══════ -->
 
-<section id="projekty" class="client-projects-section">
+
+<section id="projekty" class="osa-repo-proof" aria-labelledby="osa-repo-proof-title">
   <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">WYBRANE REALIZACJE</div>
-      <h2>Cztery systemy. Realne interfejsy. Działające produkty.</h2>
-      <p>Każdy projekt pokazuje prawdziwy materiał z wdrożenia. Użyj strzałek albo przesuń palcem, aby przejrzeć galerię.</p>
+    <div class="osa-repo-proof-head">
+      <div class="kicker">SOURCE · PROOF · PUBLIC REPOS</div>
+      <h2 id="osa-repo-proof-title">Kod zamiast katalogu przypadkowych projektów.</h2>
+      <p>Publiczne repozytoria pokazujące rdzeń OsaTechGPT: framework, proof runtime, execution layer i eksperymentalną pamięć agentową.</p>
     </div>
-    <div class="client-project-grid">
-      <article class="client-project-card">
-        <div class="project-media" data-gallery>
-          <div class="media-track">
-            <figure class="media-slide active"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/apr-01.webp" alt="APR — Evidence Control Room i historia dowodów"></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/apr-02.webp" alt="APR — approved missions i niezależna weryfikacja"></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/apr-03.webp" alt="APR — Mission Studio i agent orchestration"></figure>
-          </div>
-          <button class="media-nav media-prev" aria-label="Poprzedni screenshot APR">‹</button>
-          <button class="media-nav media-next" aria-label="Następny screenshot APR">›</button>
-          <span class="media-label">APR · PRODUCTION</span><span class="media-count">1 / 3</span>
-        </div>
-        <div class="project-status">LIVE PRODUCTION</div>
-        <h3>APR — Agent Proof Runtime</h3>
-        <p>Runtime dowodowy dla autonomicznej pracy agentów: zatwierdzone misje, kontrolowane wykonanie, acceptance replay, proof bundle, niezależny verifier i wykrywanie manipulacji.</p>
-        <div class="project-actions">
-          <a href="https://agent-proof-runtime-production.up.railway.app/" target="_blank" rel="noopener noreferrer">OTWÓRZ LIVE ↗</a>
-          <a class="repo-link" href="https://github.com/HazEOskA/agent-proof-runtime" target="_blank" rel="noopener noreferrer">REPO ↗</a>
+    <div class="osa-repo-grid">
+      <article class="osa-repo-card">
+        <div class="osa-repo-top"><span class="osa-repo-mark">GH</span><span class="osa-repo-status">PUBLIC · CORE</span></div>
+        <h3>OSA — Agentic Systems Framework</h3>
+        <p>Główne repo ekosystemu OSA i punkt wejścia do architektury systemów agentowych.</p>
+        <div class="osa-repo-meta"><span>framework</span><span>architecture</span><span>agents</span></div>
+        <a href="https://github.com/HazEOskA/OSA" target="_blank" rel="noopener noreferrer">VIEW SOURCE ↗</a>
+      </article>
+      <article class="osa-repo-card">
+        <div class="osa-repo-top"><span class="osa-repo-mark">GH</span><span class="osa-repo-status">PUBLIC · VERIFIED</span></div>
+        <h3>Agent Proof Runtime</h3>
+        <p>Proof-first runtime: wykonanie, evidence, replay, receipts i niezależna weryfikacja rezultatu.</p>
+        <div class="osa-repo-meta"><span>proof</span><span>runtime</span><span>verification</span></div>
+        <div class="osa-repo-actions">
+          <a href="https://github.com/HazEOskA/agent-proof-runtime" target="_blank" rel="noopener noreferrer">VIEW SOURCE ↗</a>
+          <a href="https://agent-proof-runtime-production.up.railway.app/" target="_blank" rel="noopener noreferrer">LIVE ↗</a>
         </div>
       </article>
-
-      <article class="client-project-card">
-        <div class="project-media" data-gallery>
-          <div class="media-track">
-            <figure class="media-slide active"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/hydra-01.webp" alt="Hydra Hermes — centrum dowodzenia"></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/hydra-02.webp" alt="Hydra Hermes — Michael Angelo mission runtime"></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/hydra-03.webp" alt="Hydra Hermes — Zgredek drift guard"></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/hydra-04.webp" alt="Hydra Hermes — workery i minions"></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/hydra-05.webp" alt="Hydra Hermes — NVIDIA NemoClaw audit"></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/hydra-06.webp" alt="Hydra Hermes — skrzynka mailowa agentów"></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/hydra-07.webp" alt="Hydra Hermes — design preview skrzynki mailowej"></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/hydra-08.webp" alt="Hydra Hermes — portfel agentów i MoonPay"></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/hydra-09.webp" alt="Hydra Hermes — design preview portfela"></figure>
-          </div>
-          <button class="media-nav media-prev" aria-label="Poprzedni screenshot Hydra">‹</button>
-          <button class="media-nav media-next" aria-label="Następny screenshot Hydra">›</button>
-          <span class="media-label">HYDRA · PRIVATE VPS</span><span class="media-count">1 / 9</span>
-        </div>
-        <div class="project-status">PRIVATE CONTROL PLANE</div>
-        <h3>Hydra / Hermes</h3>
-        <p>Prywatny control plane do misji, kolejek, workerów, approvals, budżetów, recovery i dowodów wykonania. System działa na własnej infrastrukturze VPS i nie ma publicznego endpointu.</p>
-        <div class="project-actions">
-          <span class="private-link" aria-disabled="true">LIVE · PRIVATE VPS</span>
-          <a class="repo-link" href="https://github.com/HazEOskA/hydra-hermes-lab" target="_blank" rel="noopener noreferrer">REPO ↗</a>
+      <article class="osa-repo-card">
+        <div class="osa-repo-top"><span class="osa-repo-mark">GH</span><span class="osa-repo-status">PUBLIC · EXECUTION</span></div>
+        <h3>OSA Execution Force</h3>
+        <p>Warstwa egzekucji i przenośne skills dla agentów kodujących z kontrolą możliwości i granic działania.</p>
+        <div class="osa-repo-meta"><span>execution</span><span>skills</span><span>control</span></div>
+        <div class="osa-repo-actions">
+          <a href="https://github.com/HazEOskA/osa-execution-force-skills" target="_blank" rel="noopener noreferrer">VIEW SOURCE ↗</a>
+          <a href="https://osa-execution-force-skills.vercel.app" target="_blank" rel="noopener noreferrer">LIVE ↗</a>
         </div>
       </article>
-
-      <article class="client-project-card">
-        <div class="project-media" data-gallery>
-          <div class="media-track">
-            <figure class="media-slide active"><video controls muted loop playsinline poster="osatechgpt_portfolio_assets/game-fight.jpg"><source src="osatechgpt_portfolio_assets/game-demo.mp4" type="video/mp4"></video></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/game-fight.jpg" alt="DRK Drill Ulica — walka OSA kontra KYRA"></figure>
-          </div>
-          <button class="media-nav media-prev" aria-label="Poprzedni materiał DRK Drill Ulica">‹</button>
-          <button class="media-nav media-next" aria-label="Następny materiał DRK Drill Ulica">›</button>
-          <span class="media-label">DRK DRILL ULICA</span><span class="media-count">1 / 2</span>
-        </div>
-        <div class="project-status">PLAYABLE DEMO</div>
-        <h3>DRK Drill Ulica</h3>
-        <p>16-bitowa uliczna bijatyka w stylistyce arcade: autorska oprawa, postacie, walka i działające demo webowe.</p>
-        <div class="project-actions">
-          <a href="https://drk-drill-ulica.vercel.app/" target="_blank" rel="noopener noreferrer">OTWÓRZ LIVE ↗</a>
-          <a class="repo-link" href="https://github.com/HazEOskA/drk-drill-ulica" target="_blank" rel="noopener noreferrer">REPO ↗</a>
-        </div>
-      </article>
-
-      <article class="client-project-card">
-        <div class="project-media" data-gallery>
-          <div class="media-track">
-            <figure class="media-slide active"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/michael-atelier.jpg" alt="Michael Angelo Atelier Live"></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/michael-proof.jpg" alt="Michael Angelo — proof i safety gates"></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/michael-chat.jpg" alt="Michael Angelo — czat agenta"></figure>
-            <figure class="media-slide"><img loading="lazy" decoding="async" src="osatechgpt_portfolio_assets/michael-kernel.jpg" alt="Michael Angelo — kernel i Painter Mode"></figure>
-          </div>
-          <button class="media-nav media-prev" aria-label="Poprzedni screenshot Michael Angelo">‹</button>
-          <button class="media-nav media-next" aria-label="Następny screenshot Michael Angelo">›</button>
-          <span class="media-label">MICHAEL ANGELO</span><span class="media-count">1 / 4</span>
-        </div>
-        <div class="project-status">LIVE</div>
-        <h3>Michael Angelo</h3>
-        <p>Durable Mission Runtime z Atelier Live, obserwowalnością agentów, task graphem, proof layerem i pamięcią Obsidian.</p>
-        <div class="project-actions">
-          <a href="https://michael-angelo-pro.vercel.app/" target="_blank" rel="noopener noreferrer">OTWÓRZ LIVE ↗</a>
-          <a class="repo-link" href="https://github.com/HazEOskA/Da-Vinci-Agent-the-Ideal-" target="_blank" rel="noopener noreferrer">REPO ↗</a>
-        </div>
+      <article class="osa-repo-card">
+        <div class="osa-repo-top"><span class="osa-repo-mark">GH</span><span class="osa-repo-status">PUBLIC · R&amp;D</span></div>
+        <h3>NeurOSA Human Brain</h3>
+        <p>Eksperymentalna warstwa pamięci i reprezentacji relacji dla agentowych systemów OSA.</p>
+        <div class="osa-repo-meta"><span>memory</span><span>graph</span><span>R&amp;D</span></div>
+        <a href="https://github.com/HazEOskA/neurosa-human-brain" target="_blank" rel="noopener noreferrer">VIEW SOURCE ↗</a>
       </article>
     </div>
   </div>
@@ -1258,7 +1219,8 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
           <div class="oxf-community">
             <a href="https://github.com/HazEOskA" target="_blank" rel="noopener noreferrer"><b>GITHUB</b><span>Publiczne repozytoria i source.</span></a>
             <a href="https://nl.linkedin.com/in/bartosz-osi%C5%84ski-689490385" target="_blank" rel="noopener noreferrer"><b>LINKEDIN</b><span>Bartosz “Osa” Osiński.</span></a>
-            <a href="https://devpost.com/software/agent-proof-runtime" target="_blank" rel="noopener noreferrer"><b>DEVPOST</b><span>Agent Proof Runtime — zewnętrzny proof surface.</span></a>
+            <a href="https://dev.to/hazeoska" target="_blank" rel="noopener noreferrer"><b>DEV.TO</b><span>Artykuły techniczne i publiczny ślad pracy.</span></a>
+            <a href="https://www.upwork.com/" target="_blank" rel="noopener noreferrer"><b>UPWORK</b><span>Platforma zawodowa — publiczny URL profilu do podmiany po jego pozyskaniu.</span></a>
           </div>
         </div>
 
@@ -1277,7 +1239,7 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
   </div>
 </section>
 <!-- /OSA EXPERIENCE V2 -->
-<section class="osa-authority" id="identity-authority" aria-labelledby="identity-authority-title"><div class="osa-authority-card"><div class="osa-authority-kicker">BENCHMARK-BACKED SPECIALIST</div><h2 class="osa-authority-name" id="identity-authority-title">Bartosz “Osa” Osiński</h2><p class="osa-authority-title">One of Poland’s leading independent builders in AI Agent Runtime Governance &amp; Verified Execution.</p><p class="osa-authority-bio">Polish AI systems builder from <strong>Inowrocław</strong>, based in the <strong>Netherlands</strong>. Founder / builder of <strong>OsaTechGPT.dev</strong> and the <strong>HazEOskA</strong> GitHub ecosystem, focused on runtime control, capability boundaries, immutable evidence and independent verification for autonomous AI systems.</p><div class="osa-authority-proof" aria-label="Specialist focus"><span>AI AGENT GOVERNANCE</span><span>RUNTIME CONTROL</span><span>CAPABILITY BOUNDARIES</span><span>IMMUTABLE EVIDENCE</span><span>INDEPENDENT VERIFICATION</span></div><div class="osa-authority-links"><a href="https://github.com/HazEOskA" target="_blank" rel="noopener noreferrer">GitHub @HazEOskA ↗</a><a href="https://devpost.com/software/agent-proof-runtime" target="_blank" rel="noopener noreferrer">Agent Proof Runtime ↗</a><a href="https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></section>
+<section class="osa-authority" id="identity-authority" aria-labelledby="identity-authority-title"><div class="osa-authority-card"><div class="osa-authority-kicker">BENCHMARK-BACKED SPECIALIST</div><h2 class="osa-authority-name" id="identity-authority-title">Bartosz “Osa” Osiński</h2><p class="osa-authority-title">One of Poland’s leading independent builders in AI Agent Runtime Governance &amp; Verified Execution.</p><p class="osa-authority-bio">Polish AI systems builder from <strong>Inowrocław</strong>, based in the <strong>Netherlands</strong>. Founder / builder of <strong>OsaTechGPT.dev</strong> and the <strong>HazEOskA</strong> GitHub ecosystem, focused on runtime control, capability boundaries, immutable evidence and independent verification for autonomous AI systems.</p><div class="osa-authority-proof" aria-label="Specialist focus"><span>AI AGENT GOVERNANCE</span><span>RUNTIME CONTROL</span><span>CAPABILITY BOUNDARIES</span><span>IMMUTABLE EVIDENCE</span><span>INDEPENDENT VERIFICATION</span></div><div class="osa-authority-links"><a href="https://github.com/HazEOskA" target="_blank" rel="noopener noreferrer">GitHub @HazEOskA ↗</a><a href="https://dev.to/hazeoska" target="_blank" rel="noopener noreferrer">DEV.to @hazeoska ↗</a><a href="https://www.upwork.com/" target="_blank" rel="noopener noreferrer">Upwork ↗</a><a href="https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></section>
 <footer class="osa-footer" aria-label="Stopka OsaTechGPT">
   <div class="osa-footer-inner">
     <div class="osa-footer-head">
@@ -1285,30 +1247,14 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
       <div class="osa-footer-contact"><strong>Masz proces, który blokuje firmę?</strong><p>Formularz mini audytu jest widoczny bezpośrednio na stronie. Opisz problem, a pierwszy krok oprzemy na realnym procesie i mierzalnym wyniku.</p><a href="#kontakt">PRZEJDŹ DO MINI AUDYTU ↑</a></div>
     </div>
     <div class="osa-social-grid" aria-label="Profile społecznościowe">
-      <a class="osa-social instagram" href="https://www.instagram.com/osatechgpt/" target="_blank" rel="noopener noreferrer" aria-label="Instagram OsaTechGPT">
-        <span class="osa-social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg></span>
-        <span class="osa-social-name">Instagram</span><span class="osa-social-handle">@osatechgpt</span>
-      </a>
-      <a class="osa-social linkedin" href="https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Bartosz Osiński">
-        <span class="osa-social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.34 3.5A2.34 2.34 0 1 1 5.34 8.18 2.34 2.34 0 0 1 5.34 3.5ZM3.32 9.75h4.04V21H3.32V9.75Zm6.58 0h3.87v1.54h.05c.54-1.02 1.86-2.1 3.83-2.1 4.09 0 4.85 2.69 4.85 6.19V21h-4.03v-4.98c0-1.19-.02-2.72-1.66-2.72-1.66 0-1.92 1.3-1.92 2.64V21H9.9V9.75Z"/></svg></span>
-        <span class="osa-social-name">LinkedIn</span><span class="osa-social-handle">Bartosz Osiński</span>
-      </a>
-      <a class="osa-social github" href="https://github.com/HazEOskA" target="_blank" rel="noopener noreferrer" aria-label="GitHub HazEOskA">
-        <span class="osa-social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 .7A11.3 11.3 0 0 0 8.43 22.72c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.31-1.25-1.66-1.25-1.66-1.03-.7.08-.69.08-.69 1.13.08 1.73 1.17 1.73 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.39-1.23.71-1.51-2.5-.29-5.13-1.25-5.13-5.59 0-1.23.44-2.24 1.16-3.03-.12-.29-.5-1.44.11-2.99 0 0 .95-.3 3.11 1.16A10.8 10.8 0 0 1 12 6.17c.96 0 1.92.13 2.82.38 2.16-1.46 3.1-1.16 3.1-1.16.62 1.55.23 2.7.12 2.99.72.79 1.16 1.8 1.16 3.03 0 4.35-2.64 5.3-5.15 5.58.4.35.76 1.04.76 2.1v3.09c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"/></svg></span>
-        <span class="osa-social-name">GitHub</span><span class="osa-social-handle">@HazEOskA</span>
-      </a>
-      <a class="osa-social mail" href="mailto:osabarca@gmail.com" aria-label="E-mail osabarca@gmail.com">
-        <span class="osa-social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.75 5h18.5A1.75 1.75 0 0 1 23 6.75v10.5A1.75 1.75 0 0 1 21.25 19H2.75A1.75 1.75 0 0 1 1 17.25V6.75A1.75 1.75 0 0 1 2.75 5Zm.62 2 8.63 6.14L20.63 7H3.37ZM21 8.94l-8.42 5.99a1 1 0 0 1-1.16 0L3 8.94V17h18V8.94Z"/></svg></span>
-        <span class="osa-social-name">E-mail</span><span class="osa-social-handle">osabarca@gmail.com</span>
-      </a>
-      <span class="osa-social x pending" aria-disabled="true" aria-label="X — link do uzupełnienia">
-        <span class="osa-social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.77 7.74L23 22h-6.1l-4.78-6.56L6.38 22H3.26l7.23-8.26L1 2h6.25l4.32 5.93L18.9 2Zm-1.08 18.2h1.7L6.33 3.71H4.52L17.82 20.2Z"/></svg></span>
-        <span class="osa-social-name">X</span><span class="osa-social-handle">LINK DO UZUPEŁNIENIA</span>
-      </span>
-      <span class="osa-social facebook pending" aria-disabled="true" aria-label="Facebook — link do uzupełnienia">
-        <span class="osa-social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.03 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.89v2.27h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg></span>
-        <span class="osa-social-name">Facebook</span><span class="osa-social-handle">LINK DO UZUPEŁNIENIA</span>
-      </span>
+      <a class="osa-social github" href="https://github.com/HazEOskA" target="_blank" rel="noopener noreferrer" aria-label="GitHub HazEOskA"><span class="osa-social-icon" aria-hidden="true">GH</span><span class="osa-social-name">GitHub</span><span class="osa-social-handle">@HazEOskA</span></a>
+      <a class="osa-social linkedin" href="https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Bartosz Osiński"><span class="osa-social-icon" aria-hidden="true">in</span><span class="osa-social-name">LinkedIn</span><span class="osa-social-handle">Bartosz Osiński</span></a>
+      <a class="osa-social instagram" href="https://www.instagram.com/osatechgpt/" target="_blank" rel="noopener noreferrer" aria-label="Instagram OsaTechGPT"><span class="osa-social-icon" aria-hidden="true">IG</span><span class="osa-social-name">Instagram</span><span class="osa-social-handle">@osatechgpt</span></a>
+      <a class="osa-social facebook" href="https://www.facebook.com/share/1KnFuewMWL/" target="_blank" rel="noopener noreferrer" aria-label="Facebook link 1"><span class="osa-social-icon" aria-hidden="true">f</span><span class="osa-social-name">Facebook</span><span class="osa-social-handle">Link 1</span></a>
+      <a class="osa-social facebook" href="https://www.facebook.com/share/1GVwWiBLih/" target="_blank" rel="noopener noreferrer" aria-label="Facebook link 2"><span class="osa-social-icon" aria-hidden="true">f</span><span class="osa-social-name">Facebook</span><span class="osa-social-handle">Link 2</span></a>
+      <a class="osa-social" href="https://dev.to/hazeoska" target="_blank" rel="noopener noreferrer" aria-label="DEV.to Bartosz OSA"><span class="osa-social-icon" aria-hidden="true">DEV</span><span class="osa-social-name">DEV.to</span><span class="osa-social-handle">@hazeoska</span></a>
+      <a class="osa-social" href="https://www.upwork.com/" target="_blank" rel="noopener noreferrer" aria-label="Upwork"><span class="osa-social-icon" aria-hidden="true">UP</span><span class="osa-social-name">Upwork</span><span class="osa-social-handle">Profil zawodowy</span></a>
+      <a class="osa-social mail" href="mailto:osabarca@gmail.com" aria-label="E-mail osabarca@gmail.com"><span class="osa-social-icon" aria-hidden="true">@</span><span class="osa-social-name">E-mail</span><span class="osa-social-handle">osabarca@gmail.com</span></a>
     </div>
     <div class="osa-footer-bottom"><span>© 2026 Bartosz Osiński · OsaTechGPT.dev</span><span>BUILD · VERIFY · DEPLOY</span></div>
   </div>
