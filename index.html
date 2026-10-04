@@ -965,12 +965,12 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 </style>
 
 <style id="osa-consent-and-premium-art">
-.oxf-premium-wasp{position:absolute;z-index:1;left:50%;top:50%;width:min(84%,520px);height:auto;max-height:92%;transform:translate(-50%,-50%);filter:drop-shadow(0 28px 44px rgba(0,0,0,.55));overflow:visible}
+.oxf-premium-raster{position:absolute;z-index:1;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:saturate(.92) contrast(1.04) brightness(.78)}
 .osa-footer-bottom a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(23,16,6,.25)}.osa-footer-bottom a:hover{color:#171006;border-bottom-color:currentColor}
 .osa-cookie-banner{position:fixed;z-index:99999;left:20px;right:20px;bottom:20px;max-width:980px;margin:0 auto;padding:18px;border:1px solid rgba(224,177,85,.5);border-radius:14px;background:rgba(8,10,15,.985);box-shadow:0 24px 90px rgba(0,0,0,.68);backdrop-filter:blur(16px);color:#f5f2ea;display:none;align-items:center;justify-content:space-between;gap:20px}
 .osa-cookie-banner[data-open="true"]{display:flex}.osa-cookie-copy{font:500 12px/1.55 var(--grote,system-ui,sans-serif);color:rgba(255,255,255,.72);max-width:690px}.osa-cookie-copy strong{display:block;margin-bottom:4px;color:#fff;font-size:13px}.osa-cookie-copy a{color:var(--acc,#e0b155);text-decoration:none;border-bottom:1px solid rgba(224,177,85,.35)}
 .osa-cookie-actions{display:flex;gap:8px;flex:0 0 auto}.osa-cookie-actions button{appearance:none;border:1px solid rgba(224,177,85,.75);border-radius:8px;padding:10px 13px;font:800 9px var(--mono,monospace);letter-spacing:.04em;cursor:pointer}.osa-cookie-reject{background:transparent;color:#e0b155}.osa-cookie-accept{background:#e0b155;color:#080a0f}
-@media(max-width:680px){.osa-cookie-banner{left:10px;right:10px;bottom:10px;align-items:stretch;flex-direction:column}.osa-cookie-actions{display:grid;grid-template-columns:1fr}.osa-cookie-actions button{width:100%}.oxf-premium-wasp{width:min(92%,470px)}}
+@media(max-width:680px){.osa-cookie-banner{left:10px;right:10px;bottom:10px;align-items:stretch;flex-direction:column}.osa-cookie-actions{display:grid;grid-template-columns:1fr}.osa-cookie-actions button{width:100%}.oxf-premium-raster{object-position:38% top}}
 </style>
 </head>
 <body>
@@ -1153,34 +1153,7 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
         </div>
         <div class="oxf-leftbody">
           <div class="oxf-art">
-            <svg class="oxf-premium-wasp" viewBox="0 0 640 720" role="img" aria-label="Cybernetyczna osa OsaTechGPT — grafika wektorowa">
-              <defs>
-                <linearGradient id="osaGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff2a8"/><stop offset=".28" stop-color="#f4bf32"/><stop offset=".68" stop-color="#b86e08"/><stop offset="1" stop-color="#5d3200"/></linearGradient>
-                <linearGradient id="osaDark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a2c33"/><stop offset=".45" stop-color="#090a0f"/><stop offset="1" stop-color="#000"/></linearGradient>
-                <radialGradient id="osaGlow"><stop offset="0" stop-color="#ffd85d" stop-opacity=".95"/><stop offset=".42" stop-color="#f4bf32" stop-opacity=".3"/><stop offset="1" stop-color="#f4bf32" stop-opacity="0"/></radialGradient>
-                <pattern id="osaHex" width="28" height="24" patternUnits="userSpaceOnUse"><path d="M7 1h14l7 11-7 11H7L0 12Z" fill="none" stroke="#f4bf32" stroke-opacity=".16" stroke-width="1"/></pattern>
-                <filter id="osaShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".72"/><feDropShadow dx="0" dy="0" stdDeviation="9" flood-color="#f4bf32" flood-opacity=".22"/></filter>
-              </defs>
-              <ellipse cx="320" cy="392" rx="268" ry="268" fill="url(#osaGlow)" opacity=".55"/>
-              <ellipse cx="320" cy="392" rx="250" ry="250" fill="url(#osaHex)" opacity=".8"/>
-              <g filter="url(#osaShadow)">
-                <path d="M282 292C196 175 103 139 54 184c-43 40-9 128 92 205 43 33 88 56 136 68Z" fill="rgba(255,255,255,.035)" stroke="url(#osaGold)" stroke-width="9"/>
-                <path d="M358 292c86-117 179-153 228-108 43 40 9 128-92 205-43 33-88 56-136 68Z" fill="rgba(255,255,255,.035)" stroke="url(#osaGold)" stroke-width="9"/>
-                <path d="M268 315c-57-62-112-92-164-95 25 57 82 112 169 164m99-69c57-62 112-92 164-95-25 57-82 112-169 164" fill="none" stroke="#ffe490" stroke-opacity=".5" stroke-width="4"/>
-                <path d="M320 126c-59 0-104 46-104 103 0 39 21 73 53 91l-24 67 75 42 75-42-24-67c32-18 53-52 53-91 0-57-45-103-104-103Z" fill="url(#osaDark)" stroke="url(#osaGold)" stroke-width="10"/>
-                <path d="M263 205c20-28 48-42 57-42s37 14 57 42l-22 62-35 24-35-24Z" fill="url(#osaGold)"/>
-                <path d="M252 223c18 9 36 11 51 2l-13 45c-20 1-38-11-48-29Zm136 0c-18 9-36 11-51 2l13 45c20 1 38-11 48-29Z" fill="#090a0f"/>
-                <ellipse cx="278" cy="230" rx="22" ry="31" fill="#060606" stroke="#ffd85d" stroke-width="5"/><ellipse cx="362" cy="230" rx="22" ry="31" fill="#060606" stroke="#ffd85d" stroke-width="5"/>
-                <circle cx="278" cy="230" r="9" fill="#ffd85d"/><circle cx="362" cy="230" r="9" fill="#ffd85d"/>
-                <path d="M282 145c-46-69-84-75-113-55m189 55c46-69 84-75 113-55" fill="none" stroke="url(#osaGold)" stroke-width="10" stroke-linecap="round"/>
-                <path d="M252 376c-77 20-129 61-152 123 55-13 105-14 151-3l69 78 69-78c46-11 96-10 151 3-23-62-75-103-152-123l-68 38Z" fill="url(#osaDark)" stroke="url(#osaGold)" stroke-width="10"/>
-                <path d="M211 441c70 7 145 12 218 0-15 45-47 84-109 118-62-34-94-73-109-118Z" fill="url(#osaGold)" opacity=".92"/>
-                <path d="M230 471h180M249 504h142" stroke="#090a0f" stroke-width="14" stroke-linecap="round"/>
-                <path d="M139 463c-31 67-39 132-23 194 44-43 82-87 112-133m273-61c31 67 39 132 23 194-44-43-82-87-112-133" fill="none" stroke="url(#osaGold)" stroke-width="16" stroke-linecap="round"/>
-                <path d="M279 585 245 665m116-80 34 80" stroke="#f4bf32" stroke-width="18" stroke-linecap="round"/>
-                <path d="M236 663h76m16 0h76" stroke="#1b1d23" stroke-width="20" stroke-linecap="round"/>
-              </g>
-            </svg>
+            <img class="oxf-premium-raster" src="osatechgpt_portfolio_assets/agentic-dashboard.jpg" alt="Agentic City OS — działający system OsaTechGPT" loading="lazy" decoding="async">
             <div class="oxf-graffiti g1">OSA<br>TECH<br>GPT</div>
             <div class="oxf-graffiti g2">CLOUD<br>BUILDS<br>REALITY</div>
             <div class="oxf-graffiti g3">MNIEJ OBIETNIC<br>WIĘCEJ DOWODÓW</div>
