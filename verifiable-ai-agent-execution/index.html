@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verifiable AI Agent Execution — Architecture & Evidence Guide | OsaTechGPT</title>
+<meta name="description" content="A technical guide to verifiable AI agent execution: mission boundaries, deterministic checks, evidence integrity, independent verification and explicit proof status.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="author" content="Bartosz Osiński">
+<meta name="theme-color" content="#05060A">
+<link rel="canonical" href="https://osatechgpt.dev/verifiable-ai-agent-execution/">
+<link rel="me" href="https://github.com/HazEOskA">
+<link rel="me" href="https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="OsaTechGPT">
+<meta property="og:title" content="Verifiable AI Agent Execution — Architecture & Evidence Guide | OsaTechGPT">
+<meta property="og:description" content="A technical guide to verifiable AI agent execution: mission boundaries, deterministic checks, evidence integrity, independent verification and explicit proof status.">
+<meta property="og:url" content="https://osatechgpt.dev/verifiable-ai-agent-execution/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Verifiable AI Agent Execution — Architecture & Evidence Guide | OsaTechGPT">
+<meta name="twitter:description" content="A technical guide to verifiable AI agent execution: mission boundaries, deterministic checks, evidence integrity, independent verification and explicit proof status.">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://osatechgpt.dev/#website","url":"https://osatechgpt.dev/","name":"OsaTechGPT","publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"}},{"@type":"Person","@id":"https://osatechgpt.dev/#bartosz-osinski","name":"Bartosz Osiński","alternateName":["Bartosz Osinski","Bartosz OSA","Osa","HazEOskA"],"url":"https://osatechgpt.dev/","sameAs":["https://github.com/HazEOskA","https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385"]},{"@type":"TechArticle","@id":"https://osatechgpt.dev/verifiable-ai-agent-execution/#page","url":"https://osatechgpt.dev/verifiable-ai-agent-execution/","headline":"Verifiable AI agent execution: from output to independent proof","name":"Verifiable AI Agent Execution — Architecture & Evidence Guide | OsaTechGPT","description":"A technical guide to verifiable AI agent execution: mission boundaries, deterministic checks, evidence integrity, independent verification and explicit proof status.","datePublished":"2026-10-06","dateModified":"2026-10-06","author":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"isPartOf":{"@id":"https://osatechgpt.dev/#website"},"inLanguage":"en"},{"@type":"BreadcrumbList","@id":"https://osatechgpt.dev/verifiable-ai-agent-execution/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"OsaTechGPT","item":"https://osatechgpt.dev/"},{"@type":"ListItem","position":2,"name":"Verifiable AI agent execution: from output to independent proof","item":"https://osatechgpt.dev/verifiable-ai-agent-execution/"}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#05060a;--bg2:#090b11;--text:#eef0f2;--muted:#a3a7b0;--gold:#e0b155;--line:rgba(224,177,85,.22);--soft:rgba(255,255,255,.06);--mono:'IBM Plex Mono',ui-monospace,monospace;--sans:'Manrope',system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% 0%,rgba(224,177,85,.08),transparent 27%),linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}.wrap{width:min(1120px,calc(100% - 36px));margin:0 auto}.nav{position:sticky;top:0;z-index:30;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(5,6,10,.88);backdrop-filter:blur(18px)}.navin{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font:700 13px/1 var(--mono);letter-spacing:.08em;text-decoration:none;color:var(--gold)}.links{display:flex;gap:18px;flex-wrap:wrap}.links a{font:500 11px/1.4 var(--mono);color:#b8bbc3;text-decoration:none}.links a:hover{color:var(--gold)}
+.hero{padding:96px 0 70px;border-bottom:1px solid rgba(255,255,255,.06)}.kicker{font:600 11px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}.hero h1{font-size:clamp(42px,7vw,82px);line-height:.98;letter-spacing:-.05em;max-width:980px;margin:0}.lead{font-size:clamp(18px,2.3vw,24px);line-height:1.55;color:#c5c7cd;max-width:850px;margin:28px 0 0}.proofline{margin-top:34px;font:500 12px/1.6 var(--mono);color:#9fa3ac}.proofline strong{color:var(--gold)}
+main{padding:26px 0 92px}.section{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:52px;padding:60px 0;border-bottom:1px solid rgba(255,255,255,.07)}.section:last-child{border-bottom:0}.section h2{font-size:clamp(26px,3.2vw,38px);line-height:1.08;letter-spacing:-.035em;margin:0}.section h3{font-size:20px;margin:34px 0 8px}.eyebrow{font:600 10px/1.4 var(--mono);letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}.copy p,.copy li{color:#b8bbc4;font-size:16px;line-height:1.75}.copy p:first-child{margin-top:0}.copy strong{color:#f1f2f4}.copy ul,.copy ol{padding-left:22px}.copy li+li{margin-top:7px}
+.flow{white-space:pre-wrap;overflow:auto;border-left:2px solid var(--gold);background:rgba(224,177,85,.045);padding:22px 24px;margin:26px 0;font:500 13px/1.75 var(--mono);color:#e9ddc4}.compare{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}.compare th,.compare td{text-align:left;vertical-align:top;padding:14px 12px;border-bottom:1px solid rgba(255,255,255,.08)}.compare th{font:600 10px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}.compare td{color:#b8bbc4}.compare td:first-child{color:#eef0f2;font-weight:700}
+.callout{margin:28px 0;padding:20px 0 20px 22px;border-left:2px solid rgba(224,177,85,.7)}.callout p{margin:0;color:#dedfe3}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border:1px solid var(--line);border-radius:9px;padding:12px 15px;font:600 11px/1 var(--mono);color:var(--gold)}.btn.primary{background:var(--gold);color:#07080c;border-color:var(--gold)}.btn:hover{transform:translateY(-1px)}
+.related{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}.related a{display:block;text-decoration:none;padding:20px;border-top:1px solid var(--line);background:rgba(255,255,255,.025)}.related b{display:block;font-size:15px}.related span{display:block;margin-top:8px;color:#91959e;font-size:13px;line-height:1.55}.footer{border-top:1px solid rgba(255,255,255,.07);padding:28px 0 44px;color:#777c86;font:500 11px/1.6 var(--mono)}.footer a{color:#aeb2ba}
+@media(max-width:800px){.links{display:none}.hero{padding:72px 0 52px}.section{grid-template-columns:1fr;gap:22px;padding:46px 0}.related{grid-template-columns:1fr}.hero h1{font-size:clamp(38px,12vw,58px)}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap navin">
+    <a class="brand" href="/">OSATECHGPT.DEV</a>
+    <nav class="links" aria-label="SEO topic navigation">
+      <a href="/agent-proof-runtime/">Agent Proof Runtime</a>
+      <a href="/verifiable-ai-agent-execution/">Verifiable Execution</a>
+      <a href="/ai-agent-execution-proof/">Execution Proof</a>
+    </nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">Research · Verifiable Execution</div>
+    <h1>Verifiable AI agent execution: from output to independent proof</h1>
+    <p class="lead">An AI agent can produce a convincing result without proving how the work was executed. Verifiable execution separates the claim, the evidence and the verifier.</p>
+    <div class="proofline"><strong>CLAIM ≠ PROOF.</strong> No evidence = UNKNOWN.</div>
+  </div>
+</section>
+<main class="wrap">
+
+<section class="section">
+  <div><div class="eyebrow">Core concept</div><h2>What verifiable execution means</h2></div>
+  <div class="copy">
+    <p><strong>Verifiable AI agent execution</strong> means an agent's result is accompanied by evidence that can be checked independently from the agent's own narrative. The system does not stop at “the model returned an answer.” It records a bounded execution and produces enough evidence to validate defined properties of that run.</p>
+    <p>This is narrower and more useful than the vague claim that an agent is “trustworthy.” Verification should always state <strong>what was verified, by which checks and under which trust boundary.</strong></p>
+    <div class="flow">Agent claim
+≠
+execution evidence
+≠
+independent verification
+
+A useful system keeps these layers separate.</div>
+  </div>
+</section>
+<section class="section">
+  <div><div class="eyebrow">Problem</div><h2>Why an agent saying “done” is insufficient</h2></div>
+  <div class="copy">
+    <p>Modern agents can generate code, modify files, call external tools and coordinate multi-step workflows. That capability creates a verification problem. A final answer can be correct while the process violated constraints, or it can look plausible while required work never happened.</p>
+    <p>Three common substitutes for proof are weak when used alone:</p>
+    <table class="compare">
+      <thead><tr><th>Signal</th><th>Useful for</th><th>What it does not prove alone</th></tr></thead>
+      <tbody>
+        <tr><td>Agent response</td><td>Intent and explanation</td><td>That required actions actually occurred or checks passed.</td></tr>
+        <tr><td>Application logs</td><td>Debugging and observability</td><td>That the evidence set is complete, bound to one mission and resistant to unnoticed mutation.</td></tr>
+        <tr><td>Screenshot / demo</td><td>Human review of a visible state</td><td>Which execution produced that state or whether hidden requirements passed.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="section">
+  <div><div class="eyebrow">Evidence path</div><h2>A practical verification pipeline</h2></div>
+  <div class="copy">
+    <ol>
+      <li><strong>Define the mission boundary.</strong> State what the run is allowed and expected to do.</li>
+      <li><strong>Capture execution evidence.</strong> Record relevant events and artifacts during the run.</li>
+      <li><strong>Run deterministic checks.</strong> Validate properties that do not depend on the model declaring itself successful.</li>
+      <li><strong>Bind the evidence.</strong> Make later mutation detectable through hashes or an equivalent integrity mechanism.</li>
+      <li><strong>Produce a proof package.</strong> Keep evidence and verification metadata together.</li>
+      <li><strong>Verify independently.</strong> Re-run integrity and requirement checks outside the agent's own reasoning loop.</li>
+      <li><strong>Return an explicit status.</strong> Verified, failed or unknown should be distinguishable.</li>
+    </ol>
+    <p>APR implements this direction with mission manifests, deterministic checks, an event chain, a Merkle root, a Proof Bundle and an independent verifier.</p>
+  </div>
+</section>
+<section class="section">
+  <div><div class="eyebrow">Governance</div><h2>Verification is strongest when paired with control</h2></div>
+  <div class="copy">
+    <p>Evidence after execution is valuable, but mature agent systems also need runtime boundaries before and during execution. That includes explicit tool permissions, capability limits, approval gates, scoped credentials and clear failure behavior.</p>
+    <p>This creates two complementary layers:</p>
+    <div class="flow">CONTROL
+What may the agent do?
+
+PROOF
+What evidence shows what actually happened?</div>
+    <p>Governance without evidence can become policy theater. Evidence without control can document a bad action after it happened. The useful architecture connects both.</p>
+  </div>
+</section>
+<section class="section">
+  <div><div class="eyebrow">Evaluation</div><h2>Questions to ask any “verifiable agent” system</h2></div>
+  <div class="copy">
+    <ul>
+      <li>What exactly is the unit of execution being verified?</li>
+      <li>Which checks are deterministic and which depend on another model?</li>
+      <li>Can evidence from two different runs be accidentally mixed?</li>
+      <li>How is evidence integrity checked after the run?</li>
+      <li>Can a verifier run independently from the agent?</li>
+      <li>What happens when evidence is missing?</li>
+      <li>Does the product distinguish local verification from external anchoring or hardware-backed trust?</li>
+      <li>Can a tampered copy be detected in a reproducible test?</li>
+    </ul>
+    <div class="callout"><p>If a system cannot answer those questions precisely, “verified” may be a label rather than an engineering property.</p></div>
+  </div>
+</section>
+<section class="section">
+  <div>
+    <div class="eyebrow">Explore</div>
+    <h2>Related technical pages</h2>
+  </div>
+  <div class="copy">
+    <div class="related">
+      <a href="/agent-proof-runtime/"><b>Agent Proof Runtime</b><span>Mission manifests, deterministic checks, evidence chains, Proof Bundles and independent verification.</span></a>
+      <a href="/verifiable-ai-agent-execution/"><b>Verifiable AI Agent Execution</b><span>What verifiable execution means and how to move from output to evidence.</span></a>
+      <a href="/ai-agent-execution-proof/"><b>AI Agent Execution Proof</b><span>A practical evidence model for validating autonomous work beyond logs and screenshots.</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap">Bartosz “Osa” Osiński · OsaTechGPT · <a href="https://github.com/HazEOskA">GitHub</a> · <a href="https://devpost.com/software/agent-proof-runtime">APR on Devpost</a> · <a href="/privacy.html">Privacy</a></div>
+</footer>
+</body>
+</html>
