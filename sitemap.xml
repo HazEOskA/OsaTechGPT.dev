@@ -2,8 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://osatechgpt.dev/</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-06</lastmod>
+  </url>
+  <url>
+    <loc>https://osatechgpt.dev/agent-proof-runtime/</loc>
+    <lastmod>2026-10-06</lastmod>
+  </url>
+  <url>
+    <loc>https://osatechgpt.dev/verifiable-ai-agent-execution/</loc>
+    <lastmod>2026-10-06</lastmod>
+  </url>
+  <url>
+    <loc>https://osatechgpt.dev/ai-agent-execution-proof/</loc>
+    <lastmod>2026-10-06</lastmod>
+  </url>
+  <url>
+    <loc>https://osatechgpt.dev/privacy.html</loc>
+    <lastmod>2026-10-04</lastmod>
   </url>
 </urlset>
