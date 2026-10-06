@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://osatechgpt.dev/</loc>
-    <lastmod>2026-10-06</lastmod>
-  </url>
-  <url>
-    <loc>https://osatechgpt.dev/agent-proof-runtime/</loc>
-    <lastmod>2026-10-06</lastmod>
-  </url>
-  <url>
-    <loc>https://osatechgpt.dev/verifiable-ai-agent-execution/</loc>
-    <lastmod>2026-10-06</lastmod>
-  </url>
-  <url>
-    <loc>https://osatechgpt.dev/ai-agent-execution-proof/</loc>
-    <lastmod>2026-10-06</lastmod>
-  </url>
-  <url>
-    <loc>https://osatechgpt.dev/privacy.html</loc>
-    <lastmod>2026-10-04</lastmod>
-  </url>
+  <url><loc>https://osatechgpt.dev/</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://osatechgpt.dev/ai-agent-systems/</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://osatechgpt.dev/agent-proof-runtime/</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://osatechgpt.dev/verifiable-ai-agent-execution/</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://osatechgpt.dev/ai-agent-execution-proof/</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://osatechgpt.dev/hydra-hermes-runtime/</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://osatechgpt.dev/neurosa-human-brain/</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://osatechgpt.dev/osa-execution-force/</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://osatechgpt.dev/osa-cloud-workspace/</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://osatechgpt.dev/privacy.html</loc><lastmod>2026-10-04</lastmod></url>
 </urlset>
