@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Agent Memory Runtime | OsaTechGPT</title>
+<meta name="description" content="A programmable AI agent memory runtime keeps persistent state, documents, retrieval, activation traces and provenance inspectable across sessions.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="author" content="Bartosz Osiński"><meta name="theme-color" content="#05060A">
+<link rel="canonical" href="https://osatechgpt.dev/ai-agent-memory-runtime/"><link rel="me" href="https://github.com/HazEOskA">
+<meta property="og:type" content="article"><meta property="og:site_name" content="OsaTechGPT">
+<meta property="og:title" content="AI Agent Memory Runtime | OsaTechGPT"><meta property="og:description" content="A programmable AI agent memory runtime keeps persistent state, documents, retrieval, activation traces and provenance inspectable across sessions."><meta property="og:url" content="https://osatechgpt.dev/ai-agent-memory-runtime/">
+<meta property="og:image" content="https://osatechgpt.dev/assets/media/mafia-reel-poster.jpg"><meta property="og:image:alt" content="OsaTechGPT AI agent systems">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AI Agent Memory Runtime | OsaTechGPT"><meta name="twitter:description" content="A programmable AI agent memory runtime keeps persistent state, documents, retrieval, activation traces and provenance inspectable across sessions."><meta name="twitter:image" content="https://osatechgpt.dev/assets/media/mafia-reel-poster.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://osatechgpt.dev/#website","url":"https://osatechgpt.dev/","name":"OsaTechGPT","publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"}},{"@type":"Person","@id":"https://osatechgpt.dev/#bartosz-osinski","name":"Bartosz Osiński","alternateName":["Bartosz Osinski","Bartosz OSA","Osa","HazEOskA"],"url":"https://osatechgpt.dev/","sameAs":["https://github.com/HazEOskA","https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385"]},{"@type":"TechArticle","@id":"https://osatechgpt.dev/ai-agent-memory-runtime/#page","url":"https://osatechgpt.dev/ai-agent-memory-runtime/","headline":"AI agent memory runtime: persistent state without hidden memory","name":"AI Agent Memory Runtime | OsaTechGPT","description":"A programmable AI agent memory runtime keeps persistent state, documents, retrieval, activation traces and provenance inspectable across sessions.","datePublished":"2026-10-07","dateModified":"2026-10-07","author":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"isPartOf":{"@id":"https://osatechgpt.dev/#website"},"inLanguage":"en"},{"@type":"BreadcrumbList","@id":"https://osatechgpt.dev/ai-agent-memory-runtime/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"OsaTechGPT","item":"https://osatechgpt.dev/"},{"@type":"ListItem","position":2,"name":"AI Agent Systems","item":"https://osatechgpt.dev/ai-agent-systems/"},{"@type":"ListItem","position":3,"name":"AI agent memory runtime: persistent state without hidden memory","item":"https://osatechgpt.dev/ai-agent-memory-runtime/"}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#05060a;--bg2:#090b11;--text:#eef0f2;--muted:#aeb1b9;--gold:#e0b155;--line:rgba(224,177,85,.22);--mono:'IBM Plex Mono',ui-monospace,monospace;--sans:'Manrope',system-ui,sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 14% 0%,rgba(224,177,85,.08),transparent 27%),linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit}.wrap{width:min(1120px,calc(100% - 36px));margin:0 auto}.nav{position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(5,6,10,.9);backdrop-filter:blur(16px)}.navin{min-height:64px;display:flex;align-items:center;gap:18px;justify-content:space-between}.brand{font:700 13px/1 var(--mono);letter-spacing:.08em;text-decoration:none;color:var(--gold)}.links{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}.links a{font:500 10px/1.3 var(--mono);text-decoration:none;color:#b9bdc5}.links a:hover{color:var(--gold)}.hero{padding:92px 0 68px;border-bottom:1px solid rgba(255,255,255,.06)}.kicker,.eyebrow{font:600 10px/1.4 var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}.hero h1{font-size:clamp(42px,7vw,80px);line-height:.99;letter-spacing:-.05em;max-width:980px;margin:18px 0 0}.lead{font-size:clamp(18px,2.2vw,24px);line-height:1.55;color:#c7c9cf;max-width:900px;margin:28px 0 0}.rule{margin-top:30px;font:500 12px/1.6 var(--mono);color:#969ba4}.rule strong{color:var(--gold)}main{padding:24px 0 90px}.section{display:grid;grid-template-columns:minmax(0,250px) minmax(0,1fr);gap:48px;padding:56px 0;border-bottom:1px solid rgba(255,255,255,.07)}.section:last-child{border-bottom:0}.section h2{font-size:clamp(25px,3vw,38px);line-height:1.1;letter-spacing:-.035em;margin:11px 0 0}.copy p,.copy li{color:#b8bbc3;font-size:16px;line-height:1.75}.copy p:first-child{margin-top:0}.copy strong{color:#f0f1f3}.copy h3{font-size:20px;margin:32px 0 8px}.copy ul,.copy ol{padding-left:22px}.copy li+li{margin-top:8px}.flow{white-space:pre-wrap;overflow:auto;border-left:2px solid var(--gold);background:rgba(224,177,85,.045);padding:22px 24px;margin:26px 0;font:500 13px/1.75 var(--mono);color:#e9ddc4}.callout{margin:26px 0;padding:19px 0 19px 22px;border-left:2px solid rgba(224,177,85,.75)}.callout p{margin:0;color:#d9dbe0}.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;text-decoration:none;border:1px solid var(--line);border-radius:9px;padding:12px 15px;font:600 11px/1 var(--mono);color:var(--gold)}.btn.primary{background:var(--gold);color:#07080c}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.tile{display:block;text-decoration:none;padding:19px;border-top:1px solid var(--line);background:rgba(255,255,255,.025)}.tile b{display:block}.tile span{display:block;color:#9297a0;margin-top:7px;font-size:13px;line-height:1.55}.table{width:100%;border-collapse:collapse;margin:22px 0}.table th,.table td{text-align:left;vertical-align:top;padding:13px 10px;border-bottom:1px solid rgba(255,255,255,.08)}.table th{font:600 10px/1.4 var(--mono);color:var(--gold);text-transform:uppercase}.table td{color:#b8bbc3;font-size:14px}.footer{border-top:1px solid rgba(255,255,255,.07);padding:28px 0 42px;color:#7d828c;font:500 11px/1.6 var(--mono)}.footer a{color:#b9bdc5}@media(max-width:840px){.links{display:none}.section{grid-template-columns:1fr;gap:20px}.grid{grid-template-columns:1fr}.hero{padding:72px 0 52px}.hero h1{font-size:clamp(38px,12vw,58px)}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap navin"><a class="brand" href="/">OSATECHGPT.DEV</a><nav class="links" aria-label="System navigation"><a href="/ai-agent-systems/">AI Agent Systems</a><a href="/ai-agent-runtime-governance/">Governance</a><a href="/agent-proof-runtime/">APR</a><a href="/osa-execution-force/">Execution Force</a><a href="/neurosa-human-brain/">NeurOSA</a><a href="/osa-cloud-workspace/">Cloud Workspace</a></nav></div></header>
+<section class="hero"><div class="wrap"><div class="kicker">Architecture · Persistent Memory</div><h1>AI agent memory runtime: persistent state without hidden memory</h1><p class="lead">An agent memory layer should survive sessions without becoming an opaque database that silently changes behavior. Persistent state needs explicit structure, bounded execution and verifiable provenance.</p><div class="rule"><strong>CLAIM ≠ PROOF.</strong> No evidence = UNKNOWN.</div></div></section>
+<main class="wrap">
+
+<section class="section"><aside><div class="eyebrow">Definition</div><h2>Memory is runtime state, not just retrieval</h2></aside><div class="copy">
+<p>Vector retrieval can help an agent find relevant text, but persistent agent memory has a broader job: preserve structured state, document relationships, activation history and write provenance across restarts and across multiple agent sessions.</p>
+<p>NeurOSA Human Brain approaches memory as a programmable cognitive layer rather than a single embedding store.</p>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Compiler path</div><h2>State transitions begin with a typed program</h2></aside><div class="copy">
+<div class="flow">.nsa
+→ lexer
+→ parser
+→ AST
+→ semantic analysis
+→ type checks
+→ IR 0.1
+→ runtime
+→ activation
+→ SQLite
+→ hash-chain ledger</div>
+<p>The runtime supports neurons, excitatory and inhibitory synapses, bounded impulse propagation, full activation traces, persistent state and restart recovery. The compiled IR defines the actual synapses through which impulses may propagate.</p>
+<div class="actions"><a class="btn primary" href="/neurosa-human-brain/">NeurOSA system page</a><a class="btn" href="https://github.com/HazEOskA/neurosa-human-brain">Source repository</a></div>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Documents</div><h2>Native documents stay part of the memory model</h2></aside><div class="copy">
+<p>The native workspace supports Markdown documents, frontmatter, tags, headings, wikilinks, backlinks, pins, favorites, trash, immutable revisions and SQLite FTS5 search. The workspace belongs to NeurOSA and does not require Obsidian after migration.</p>
+<p>A one-time read-only Obsidian importer can copy notes and safe attachments, generate neurons and synapses from wikilinks, and record import events in the ledger.</p>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Connect & Ingest</div><h2>One Brain API serves sessions and imports</h2></aside><div class="copy">
+<p>Connect adds persistent agent sessions, core context plus retrieval and atomic writes back into documents and the ledger. Ingest supports Drive material, PDF, DOCX, text files and chat exports. HTTP and MCP adapters use the same Brain API so persistence semantics do not diverge by transport.</p>
+<div class="callout"><p>Shared memory does not mean shared authority. The memory layer can retain state while execution authorization remains upstream in the governance layer.</p></div>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Bounded activation</div><h2>Persistent cognition still needs execution limits</h2></aside><div class="copy">
+<p>The runtime exposes limits for hops, minimum impulse, event count and time, plus cycle detection and cancellation. Those limits prevent a memory activation graph from becoming an unbounded execution loop.</p>
+<p>This is especially important for long-lived agent systems: persistence increases the amount of state available over time, so the activation policy must remain explicit and inspectable.</p>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Ledger</div><h2>State provenance can be mechanically checked</h2></aside><div class="copy">
+<p>The append-only ledger is linked with SHA-256 hashes and stored with runtime state in SQLite. <code>verifyLedger()</code> detects changed payloads, deleted or reordered events, and invalid previous/event hashes.</p>
+<div class="flow">EVENT n-1 HASH
+→ EVENT n previousHash
+→ EVENT n payload
+→ EVENT n eventHash
+→ verifyLedger()</div>
+<p>The repository also states a recovery limitation: the current codebase is a functional reconstruction after loss of an older unpushed scratch workspace and does not claim byte-identical recovery of the missing source history.</p>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Related controls</div><h2>Memory belongs inside a wider agent architecture</h2></aside><div class="copy"><div class="grid">
+<a class="tile" href="/neurosa-human-brain/"><b>NeurOSA Human Brain</b><span>Concrete programmable memory runtime and ledger.</span></a>
+<a class="tile" href="/ai-agent-runtime-governance/"><b>Runtime Governance</b><span>Separates memory, authority, runtime and proof.</span></a>
+<a class="tile" href="/ai-agent-capability-control/"><b>Capability Control</b><span>Controls which actions may mutate external systems.</span></a>
+<a class="tile" href="/agent-proof-runtime/"><b>Agent Proof Runtime</b><span>Verifies execution outcomes independently.</span></a>
+</div></div></section>
+</main>
+<footer class="footer"><div class="wrap">Bartosz “Osa” Osiński · OsaTechGPT · <a href="/ai-agent-systems/">System map</a> · <a href="/ai-agent-runtime-governance/">Runtime governance</a> · <a href="https://github.com/HazEOskA">GitHub</a></div></footer>
+</body></html>
