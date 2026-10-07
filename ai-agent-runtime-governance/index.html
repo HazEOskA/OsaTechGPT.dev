@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Agent Runtime Governance — Authority, Sandboxing & Proof | OsaTechGPT</title>
+<meta name="description" content="AI agent runtime governance combines authority, capability control, sandboxing, runtime limits, evidence and independent verification around agent execution.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="author" content="Bartosz Osiński"><meta name="theme-color" content="#05060A">
+<link rel="canonical" href="https://osatechgpt.dev/ai-agent-runtime-governance/"><link rel="me" href="https://github.com/HazEOskA">
+<meta property="og:type" content="article"><meta property="og:site_name" content="OsaTechGPT">
+<meta property="og:title" content="AI Agent Runtime Governance — Authority, Sandboxing & Proof | OsaTechGPT">
+<meta property="og:description" content="A proof-first architecture for governing AI agent execution: authority before mutation, bounded runtime, evidence after execution and independent verification.">
+<meta property="og:url" content="https://osatechgpt.dev/ai-agent-runtime-governance/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="AI Agent Runtime Governance — Authority, Sandboxing & Proof">
+<meta name="twitter:description" content="Authority, capability control, bounded runtime, evidence and verification for AI agent execution.">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://osatechgpt.dev/#website","url":"https://osatechgpt.dev/","name":"OsaTechGPT","publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"}},{"@type":"Person","@id":"https://osatechgpt.dev/#bartosz-osinski","name":"Bartosz Osiński","alternateName":["Bartosz Osinski","Bartosz OSA","Osa","HazEOskA"],"url":"https://osatechgpt.dev/","sameAs":["https://github.com/HazEOskA","https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385"]},{"@type":"TechArticle","@id":"https://osatechgpt.dev/ai-agent-runtime-governance/#page","url":"https://osatechgpt.dev/ai-agent-runtime-governance/","headline":"AI Agent Runtime Governance: authority, bounded execution and proof","name":"AI Agent Runtime Governance — Authority, Sandboxing & Proof | OsaTechGPT","description":"AI agent runtime governance combines authority, capability control, sandboxing, runtime limits, evidence and independent verification around agent execution.","datePublished":"2026-10-07","dateModified":"2026-10-07","author":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"isPartOf":{"@id":"https://osatechgpt.dev/#website"},"inLanguage":"en"},{"@type":"BreadcrumbList","@id":"https://osatechgpt.dev/ai-agent-runtime-governance/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"OsaTechGPT","item":"https://osatechgpt.dev/"},{"@type":"ListItem","position":2,"name":"AI Agent Systems","item":"https://osatechgpt.dev/ai-agent-systems/"},{"@type":"ListItem","position":3,"name":"AI Agent Runtime Governance","item":"https://osatechgpt.dev/ai-agent-runtime-governance/"}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#05060a;--bg2:#090b11;--text:#eef0f2;--muted:#aeb1b9;--gold:#e0b155;--line:rgba(224,177,85,.22);--mono:'IBM Plex Mono',ui-monospace,monospace;--sans:'Manrope',system-ui,sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 14% 0%,rgba(224,177,85,.08),transparent 27%),linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit}.wrap{width:min(1120px,calc(100% - 36px));margin:0 auto}.nav{position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(5,6,10,.9);backdrop-filter:blur(16px)}.navin{min-height:64px;display:flex;align-items:center;gap:18px;justify-content:space-between}.brand{font:700 13px/1 var(--mono);letter-spacing:.08em;text-decoration:none;color:var(--gold)}.links{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}.links a{font:500 10px/1.3 var(--mono);text-decoration:none;color:#b9bdc5}.links a:hover{color:var(--gold)}.hero{padding:92px 0 68px;border-bottom:1px solid rgba(255,255,255,.06)}.kicker,.eyebrow{font:600 10px/1.4 var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}.hero h1{font-size:clamp(42px,7vw,80px);line-height:.99;letter-spacing:-.05em;max-width:980px;margin:18px 0 0}.lead{font-size:clamp(18px,2.2vw,24px);line-height:1.55;color:#c7c9cf;max-width:900px;margin:28px 0 0}.rule{margin-top:30px;font:500 12px/1.6 var(--mono);color:#969ba4}.rule strong{color:var(--gold)}main{padding:24px 0 90px}.section{display:grid;grid-template-columns:minmax(0,250px) minmax(0,1fr);gap:48px;padding:56px 0;border-bottom:1px solid rgba(255,255,255,.07)}.section:last-child{border-bottom:0}.section h2{font-size:clamp(25px,3vw,38px);line-height:1.1;letter-spacing:-.035em;margin:11px 0 0}.copy p,.copy li{color:#b8bbc3;font-size:16px;line-height:1.75}.copy p:first-child{margin-top:0}.copy strong{color:#f0f1f3}.copy h3{font-size:20px;margin:32px 0 8px}.copy ul,.copy ol{padding-left:22px}.copy li+li{margin-top:8px}.flow{white-space:pre-wrap;overflow:auto;border-left:2px solid var(--gold);background:rgba(224,177,85,.045);padding:22px 24px;margin:26px 0;font:500 13px/1.75 var(--mono);color:#e9ddc4}.callout{margin:26px 0;padding:19px 0 19px 22px;border-left:2px solid rgba(224,177,85,.75)}.callout p{margin:0;color:#d9dbe0}.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;text-decoration:none;border:1px solid var(--line);border-radius:9px;padding:12px 15px;font:600 11px/1 var(--mono);color:var(--gold)}.btn.primary{background:var(--gold);color:#07080c}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.tile{display:block;text-decoration:none;padding:19px;border-top:1px solid var(--line);background:rgba(255,255,255,.025)}.tile b{display:block}.tile span{display:block;color:#9297a0;margin-top:7px;font-size:13px;line-height:1.55}.table{width:100%;border-collapse:collapse;margin:22px 0}.table th,.table td{text-align:left;vertical-align:top;padding:13px 10px;border-bottom:1px solid rgba(255,255,255,.08)}.table th{font:600 10px/1.4 var(--mono);color:var(--gold);text-transform:uppercase}.table td{color:#b8bbc3;font-size:14px}.footer{border-top:1px solid rgba(255,255,255,.07);padding:28px 0 42px;color:#7d828c;font:500 11px/1.6 var(--mono)}.footer a{color:#b9bdc5}@media(max-width:840px){.links{display:none}.section{grid-template-columns:1fr;gap:20px}.grid{grid-template-columns:1fr}.hero{padding:72px 0 52px}.hero h1{font-size:clamp(38px,12vw,58px)}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap navin"><a class="brand" href="/">OSATECHGPT.DEV</a><nav class="links" aria-label="System navigation"><a href="/ai-agent-systems/">AI Agent Systems</a><a href="/agent-proof-runtime/">APR</a><a href="/hydra-hermes-runtime/">Hydra</a><a href="/neurosa-human-brain/">NeurOSA</a><a href="/osa-execution-force/">Execution Force</a><a href="/osa-cloud-workspace/">Cloud Workspace</a></nav></div></header>
+<section class="hero"><div class="wrap"><div class="kicker">Architecture · Runtime Governance</div><h1>AI agent runtime governance: authority before action, evidence after execution</h1><p class="lead">Runtime governance is the control layer around autonomous execution. It determines who or what is allowed to act, what capabilities are available, where the work can run, which limits apply and what evidence must exist before an outcome is trusted.</p><div class="rule"><strong>CLAIM ≠ PROOF.</strong> No evidence = UNKNOWN.</div></div></section>
+<main class="wrap">
+<section class="section"><aside><div class="eyebrow">Definition</div><h2>Governance belongs in the execution path</h2></aside><div class="copy">
+<p>Policies written in a document are not enough if the runtime can bypass them. In a governed agent system, authority is resolved before mutation-capable work begins, the execution environment is bounded, state changes are observable and the final result can be checked independently.</p>
+<div class="flow">TASK / MISSION
+→ POLICY + AUTHORITY
+→ CAPABILITY + SCOPE BINDING
+→ SANDBOXED / BOUNDED EXECUTION
+→ OBSERVATIONS + EVIDENCE
+→ INDEPENDENT VERIFICATION
+→ RESULT / FAILURE</div>
+<p>The OsaTechGPT architecture separates these responsibilities instead of collapsing them into one agent process.</p>
+</div></section>
+
+<section class="section"><aside><div class="eyebrow">Authority</div><h2>Bind the exact action before mutation</h2></aside><div class="copy">
+<p><strong>OSA Execution Force</strong> is the authority and capability-control layer. Its documented V3 path binds policy, repository, scope, source SHA and the downstream execution payload before RuntimeV2 receives mutation authority.</p>
+<p>Documented P0 invariants deny a direct RuntimeV2 mutation path before V3 authorization, reject modified payloads, prevent scope widening and require exact source provenance for the project-scoped path.</p>
+<div class="actions"><a class="btn primary" href="/osa-execution-force/">Execution Force architecture</a><a class="btn" href="https://github.com/HazEOskA/osa-execution-force-skills">Source evidence</a></div>
+</div></section>
+
+<section class="section"><aside><div class="eyebrow">Runtime</div><h2>Bound the environment, credentials and duty cycle</h2></aside><div class="copy">
+<p><strong>Hydra Hermes Lab</strong> is the operational runtime laboratory. Its public architecture routes agent work through a NemoClaw/OpenShell sandbox, keeps raw infrastructure credentials host-side and applies permission classes to distinguish ordinary work from sensitive operations.</p>
+<p>The continuous worker design includes a daily prompt cap, interval controls, a circuit breaker and a STOP file. Sending, publishing, production deployment and money movement are treated as RED operations rather than ordinary autonomous actions.</p>
+<div class="actions"><a class="btn primary" href="/hydra-hermes-runtime/">Hydra runtime architecture</a><a class="btn" href="https://github.com/HazEOskA/Hydra-Laboratory">Source evidence</a></div>
+</div></section>
+
+<section class="section"><aside><div class="eyebrow">State</div><h2>Persistent memory should remain inspectable</h2></aside><div class="copy">
+<p><strong>NeurOSA Human Brain</strong> provides a separate persistent cognitive-state layer. The verified build compiles <code>.nsa</code> through lexer, parser, AST, semantic analysis and typed IR into runtime activation backed by SQLite.</p>
+<p>Its append-only SHA-256 hash-chain ledger can detect payload mutation, deletion, reordering and broken hashes. This does not turn memory into execution authority; it keeps state and provenance as a distinct system responsibility.</p>
+<div class="actions"><a class="btn primary" href="/neurosa-human-brain/">NeurOSA architecture</a><a class="btn" href="https://github.com/HazEOskA/neurosa-human-brain">Source evidence</a></div>
+</div></section>
+
+<section class="section"><aside><div class="eyebrow">Deployment evidence</div><h2>Connect source provenance to the running revision</h2></aside><div class="copy">
+<p><strong>OSA Cloud Workspace</strong> models deployment evidence as a chain from source SHA to build, image, ready revision and live endpoint. GitHub is the code source of truth; the cloud runtime is a separate source of operational truth.</p>
+<div class="flow">SOURCE SHA
+→ BUILD ID
+→ IMAGE DIGEST
+→ READY REVISION
+→ LIVE URL
+→ VERIFY</div>
+<p>A historical badge or repository claim is not treated as proof that a runtime is healthy now. Runtime freshness must be checked separately.</p>
+<div class="actions"><a class="btn primary" href="/osa-cloud-workspace/">Cloud Workspace architecture</a><a class="btn" href="https://github.com/HazEOskA/osa-cloud-workspace">Source evidence</a></div>
+</div></section>
+
+<section class="section"><aside><div class="eyebrow">Proof</div><h2>Execution and verification are different jobs</h2></aside><div class="copy">
+<p><strong>Agent Proof Runtime (APR)</strong> sits across execution paths as an evidence and verification layer. Missions produce observations and proof artifacts that can be evaluated independently instead of allowing the same agent to declare its own success.</p>
+<div class="flow">MISSION
+→ EXECUTE
+→ CHECK
+→ PROOF BUNDLE
+→ VERIFY</div>
+<p>APR uses explicit result states such as <strong>LOCAL_VERIFIED</strong>, <strong>FAILED</strong> and <strong>UNANCHORED</strong> rather than converting incomplete evidence into a green status.</p>
+<div class="actions"><a class="btn primary" href="/agent-proof-runtime/">Agent Proof Runtime</a><a class="btn" href="/verifiable-ai-agent-execution/">Verifiable execution</a><a class="btn" href="/ai-agent-execution-proof/">Execution proof</a></div>
+</div></section>
+
+<section class="section"><aside><div class="eyebrow">Control surface</div><h2>What runtime governance should answer</h2></aside><div class="copy">
+<table class="table"><thead><tr><th>Question</th><th>Control</th></tr></thead><tbody>
+<tr><td>Who may authorize the action?</td><td>Policy and authority gate.</td></tr>
+<tr><td>What exactly may change?</td><td>Repository, file, scope and payload binding.</td></tr>
+<tr><td>Which tools or capabilities are available?</td><td>Capability allow/deny rules and permission classes.</td></tr>
+<tr><td>Where does execution happen?</td><td>Sandbox or bounded runtime.</td></tr>
+<tr><td>How long and how often may it run?</td><td>Budgets, intervals, circuit breakers and cancellation.</td></tr>
+<tr><td>What changed?</td><td>Events, observations, hashes, receipts and deployment evidence.</td></tr>
+<tr><td>Who decides whether it succeeded?</td><td>Independent verification, not the executor alone.</td></tr>
+</tbody></table>
+<div class="callout"><p>Governance is not a single dashboard toggle. It is a chain of enforceable boundaries around execution, state, infrastructure and evidence.</p></div>
+</div></section>
+
+<section class="section"><aside><div class="eyebrow">Evidence boundary</div><h2>Public claims stop where public proof stops</h2></aside><div class="copy">
+<p>The systems above do not share the same evidence level. Some have public repositories and mechanical tests; some expose live runtime evidence; some remain R&amp;D. OsaTechGPT does not upgrade a component to “production ready” because it has a landing page.</p>
+<p>The governing rule is deliberately simple: <strong>claim strength follows evidence strength</strong>.</p>
+</div></section>
+
+<section class="section"><aside><div class="eyebrow">System map</div><h2>Separate responsibilities, connected controls</h2></aside><div class="copy">
+<div class="grid">
+<a class="tile" href="/ai-agent-systems/"><b>AI Agent Systems</b><span>Architecture map for the whole OsaTechGPT stack.</span></a>
+<a class="tile" href="/osa-execution-force/"><b>OSA Execution Force</b><span>Authority, policy binding and capability gates.</span></a>
+<a class="tile" href="/hydra-hermes-runtime/"><b>Hydra Hermes Lab</b><span>Sandboxed operational runtime and duty-cycle controls.</span></a>
+<a class="tile" href="/neurosa-human-brain/"><b>NeurOSA</b><span>Persistent programmable cognitive state and ledger.</span></a>
+<a class="tile" href="/osa-cloud-workspace/"><b>OSA Cloud Workspace</b><span>Source-to-runtime deployment evidence.</span></a>
+<a class="tile" href="/agent-proof-runtime/"><b>APR</b><span>Execution evidence and independent verification.</span></a>
+</div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap">Bartosz “Osa” Osiński · OsaTechGPT · <a href="/ai-agent-systems/">System map</a> · <a href="https://github.com/HazEOskA">GitHub</a> · <a href="/privacy.html">Privacy</a></div></footer>
+</body></html>
