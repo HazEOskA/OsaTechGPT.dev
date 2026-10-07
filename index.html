@@ -91,41 +91,131 @@ nav{position:fixed;top:0;left:0;right:0;z-index:180;
   .hero h1{overflow-wrap:anywhere;font-size:clamp(30px,9vw,44px)}
 }
 
-/* ═══ HERO — DZIEŃ ═══ */
-.hero{min-height:min(920px,100svh);display:flex;align-items:center;position:relative;
-  padding-top:calc(92px + env(safe-area-inset-top,0px));padding-bottom:42px;
+/* ═══ HERO — CINEMATIC SCENE ═══ */
+.hero{
+  height:100svh;min-height:760px;max-height:1080px;display:block;position:relative;
+  padding-top:calc(82px + env(safe-area-inset-top,0px));padding-bottom:24px;
   background:
     radial-gradient(ellipse 62% 78% at 78% 44%,rgba(56,189,248,.10),transparent 58%),
     radial-gradient(ellipse 56% 68% at 86% 34%,rgba(168,85,247,.085),transparent 62%),
     radial-gradient(ellipse 82% 52% at 20% 0%,rgba(224,177,85,.08),transparent 62%),
     linear-gradient(180deg,#0B0A0F 0%,#07080D 72%,#05060A 100%);
-  overflow:hidden}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:150px;pointer-events:none;
+  overflow:hidden;isolation:isolate
+}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:140px;z-index:2;pointer-events:none;
   background:linear-gradient(180deg,transparent,#05060A)}
-.hero .grid-bg{position:absolute;inset:0;opacity:.36;
-  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
-  background-size:56px 56px;mask-image:radial-gradient(ellipse 76% 72% at 36% 42%,#000,transparent 82%)}
-.hero-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.95fr);gap:54px;align-items:center;width:100%;position:relative;z-index:2}
-@media(max-width:900px){
-  .hero{min-height:auto;padding-top:calc(84px + env(safe-area-inset-top,0px));padding-bottom:38px}
-  .hero-inner{grid-template-columns:1fr;gap:26px}
+.hero .grid-bg{position:absolute;inset:0;opacity:.30;
+  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 76% at 46% 40%,#000,transparent 84%)}
+
+.hero-scene{
+  position:relative;z-index:3;width:100%;height:100%;max-width:1420px;margin:0 auto;padding:0 32px
+}
+.hero-artwork{
+  position:absolute;z-index:2;right:-1.5vw;top:49%;width:clamp(610px,48vw,740px);
+  transform:translateY(-50%);margin:0;pointer-events:none;
+  opacity:0;animation:heroStructureIn 1.35s cubic-bezier(.2,.8,.25,1) forwards .24s
+}
+@keyframes heroStructureIn{to{opacity:1}}
+.hero-structure-img{
+  display:block;width:100%;height:auto;max-width:none;
+  object-fit:contain;object-position:center;
+  filter:contrast(1.035) saturate(1.055)
+}
+.hero-foreground{
+  position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(5,6,10,.38) 0%,rgba(5,6,10,.08) 31%,transparent 52%,transparent 78%,rgba(5,6,10,.18) 100%),
+    linear-gradient(180deg,transparent 68%,rgba(5,6,10,.72) 100%)
 }
 
+.hero-status{position:absolute;z-index:7;top:2%;left:32px}
 .status{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;
   color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;
-  border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:7px 14px;margin-bottom:30px}
+  border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:7px 14px;margin:0}
 .status .pulse{width:6px;height:6px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc);animation:pulse 6.24s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.hero h1{overflow-wrap:anywhere;font-family:var(--syne);font-size:clamp(42px,6.4vw,80px);line-height:.98;letter-spacing:-.03em;font-weight:800}
-.hero h1 .g{color:var(--acc);text-shadow:0 0 40px var(--acc-glow)}
-.hero p.lead{margin-top:28px;max-width:46ch;font-size:18px;line-height:1.55;color:rgba(255,255,255,.6)}
-.hero-cta{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap}
-.btn-primary{font-family:var(--mono);font-size:14px;font-weight:600;color:#05060A;background:var(--acc);
-  padding:15px 26px;border-radius:9px;text-decoration:none;transition:transform .45s ease,box-shadow .45s ease}
+
+.hero-title{
+  position:absolute;inset:0;z-index:5;margin:0;pointer-events:none;
+  overflow:visible!important;font-family:var(--syne);font-weight:800;
+  letter-spacing:-.055em;line-height:.82;text-transform:uppercase
+}
+.hero-title .hero-line{position:absolute;display:block;overflow:visible;white-space:nowrap}
+.hero-title .hero-line-1{left:32px;top:14%;font-size:clamp(54px,5.6vw,96px);letter-spacing:-.045em}
+.hero-title .hero-line-2{left:clamp(72px,8vw,150px);top:25%;font-size:clamp(74px,8vw,138px);z-index:6}
+.hero-title .hero-line-3{left:32px;top:47%;font-size:clamp(48px,5.1vw,86px);letter-spacing:-.045em}
+.hero-title .hero-line-4{left:clamp(88px,10vw,190px);top:58%;font-size:clamp(70px,7.4vw,126px);z-index:6}
+.hero-title .g{color:var(--acc);text-shadow:0 0 34px rgba(224,177,85,.24)}
+
+.hero-support{
+  position:absolute;z-index:7;left:32px;bottom:24px;width:min(470px,37vw)
+}
+.hero p.lead{margin:0;max-width:44ch;font-size:16px;line-height:1.52;color:rgba(255,255,255,.69);
+  text-shadow:0 2px 16px rgba(0,0,0,.7)}
+.hero-cta{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+.btn-primary{font-family:var(--mono);font-size:13px;font-weight:600;color:#05060A;background:var(--acc);
+  padding:13px 21px;border-radius:8px;text-decoration:none;transition:transform .45s ease,box-shadow .45s ease}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 34px var(--acc-glow)}
-.btn-ghost{font-family:var(--mono);font-size:14px;color:#E8E9EB;padding:15px 24px;border-radius:9px;
+.btn-ghost{font-family:var(--mono);font-size:13px;color:#E8E9EB;padding:13px 19px;border-radius:8px;
   border:1px solid rgba(255,255,255,.15);text-decoration:none;transition:border-color .2s,color .2s}
 .btn-ghost:hover{border-color:var(--acc);color:var(--acc)}
+
+@media(min-width:1600px){
+  .hero-scene{padding-left:44px;padding-right:44px}
+  .hero-status,.hero-support,.hero-title .hero-line-1,.hero-title .hero-line-3{left:44px}
+  .hero-artwork{right:2%}
+}
+@media(max-width:1100px) and (min-width:901px){
+  .hero-artwork{right:-7vw;width:clamp(570px,55vw,660px)}
+  .hero-title .hero-line-2{left:68px;font-size:clamp(68px,8.4vw,102px)}
+  .hero-title .hero-line-4{left:86px;font-size:clamp(66px,7.7vw,96px)}
+  .hero-support{width:430px}
+}
+
+/* Mobile is a distinct art direction, not a collapsed desktop grid. */
+@media(max-width:900px){
+  .hero{
+    height:100svh;min-height:760px;max-height:920px;
+    padding-top:calc(70px + env(safe-area-inset-top,0px));padding-bottom:14px
+  }
+  .hero-scene{height:100%;padding:0 18px;max-width:none}
+  .hero-status{top:1.5%;left:18px;right:18px}
+  .status{font-size:9px;padding:6px 10px;max-width:100%;white-space:nowrap}
+
+  .hero-artwork{
+    z-index:2;top:43%;right:-15%;width:min(112vw,510px);
+    transform:translateY(-50%);opacity:0;animation:heroStructureIn 1.2s cubic-bezier(.2,.8,.25,1) forwards .18s
+  }
+  .hero-foreground{
+    background:
+      linear-gradient(180deg,rgba(5,6,10,.08) 0%,transparent 22%,transparent 63%,rgba(5,6,10,.60) 82%,rgba(5,6,10,.90) 100%),
+      linear-gradient(90deg,rgba(5,6,10,.24),transparent 34%,transparent 74%,rgba(5,6,10,.15))
+  }
+
+  .hero-title{inset:0;line-height:.82;letter-spacing:-.06em}
+  .hero-title .hero-line{white-space:nowrap}
+  .hero-title .hero-line-1{left:18px;top:15%;font-size:clamp(38px,11.2vw,54px)}
+  .hero-title .hero-line-2{left:6px;top:23%;font-size:clamp(51px,15.5vw,72px);z-index:6}
+  .hero-title .hero-line-3{left:18px;top:49%;font-size:clamp(34px,10.2vw,47px)}
+  .hero-title .hero-line-4{left:clamp(30px,9vw,48px);top:56.5%;font-size:clamp(48px,14.6vw,66px);z-index:6}
+
+  .hero-support{left:18px;right:18px;bottom:8px;width:auto}
+  .hero p.lead{max-width:100%;font-size:12.5px;line-height:1.42;color:rgba(255,255,255,.72)}
+  .hero-cta{margin-top:10px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+  .hero-cta a{text-align:center;display:flex;align-items:center;justify-content:center;min-height:41px}
+  .btn-primary,.btn-ghost{font-size:10.5px;padding:10px 8px;border-radius:7px}
+}
+@media(max-width:374px){
+  .hero-title .hero-line-1{font-size:37px}
+  .hero-title .hero-line-2{font-size:51px;left:2px}
+  .hero-title .hero-line-3{font-size:34px}
+  .hero-title .hero-line-4{font-size:48px;left:26px}
+  .hero-artwork{right:-18%;width:116vw}
+  .hero p.lead{font-size:12px}
+  .btn-primary,.btn-ghost{font-size:10px}
+}
+
 
 /* HERO — okno bramy po prawej */
 .gate-frame{position:relative;aspect-ratio:3/4;border-radius:16px;overflow:hidden;
@@ -167,7 +257,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:180;
 @keyframes glowB{0%,100%{opacity:1}50%{opacity:.65}}
 .scanline{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.4;
   background:repeating-linear-gradient(180deg,transparent 0 2px,rgba(255,255,255,.025) 2px 3px)}
-.hero-inner{position:relative;z-index:3}
+.hero-scene{position:relative;z-index:3}
 
 /* typewriter status */
 .type::after{content:'▋';margin-left:1px;color:var(--acc);animation:blink 3.0s step-end infinite}
@@ -179,7 +269,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:180;
   animation:lineUp 1.62s cubic-bezier(.19,1,.22,1) forwards}
 .reveal .ln:nth-child(1)>span{animation-delay:.25s}
 .reveal .ln:nth-child(2)>span{animation-delay:.55s}
-.reveal .ln:nth-child(3)>span{animation-delay:.85s}
+.reveal .ln:nth-child(3)>span{animation-delay:.85s}\n.reveal .ln:nth-child(4)>span{animation-delay:1.05s}
 @keyframes lineUp{to{transform:translateY(0);opacity:1}}
 .hero h1 em{font-style:normal}
 .hero h1 .g{display:inline-block}
@@ -260,22 +350,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:180;
   background:#E0B155;margin-right:7px;vertical-align:middle;box-shadow:0 0 8px #E0B155;
   animation:pulse 5.72s infinite}
 @media(max-width:900px){.reel{margin-top:26px;max-width:100%}}
-
-/* ── signature founder / agent-systems hero visual ── */
-.hero-structure{position:relative;width:min(43vw,620px);max-height:min(74svh,775px);aspect-ratio:4/5;justify-self:end;margin:0;
-  border-radius:24px;overflow:hidden;border:1px solid rgba(224,177,85,.30);background:#07080C;
-  box-shadow:0 42px 120px rgba(0,0,0,.80),0 0 95px rgba(56,189,248,.10),0 0 70px rgba(168,85,247,.08);
-  opacity:0;transform:translateY(20px) scale(.982);
-  animation:heroStructureIn 1.45s cubic-bezier(.2,.8,.25,1) forwards .28s}
-@keyframes heroStructureIn{to{opacity:1;transform:none}}
-.hero-structure::before{content:'';position:absolute;inset:-18%;z-index:-1;pointer-events:none;
-  background:radial-gradient(circle at 48% 42%,rgba(56,189,248,.18),transparent 48%),radial-gradient(circle at 68% 28%,rgba(168,85,247,.14),transparent 46%);
-  filter:blur(34px)}
-.hero-structure::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:inherit;
-  box-shadow:inset 0 0 78px rgba(0,0,0,.16),inset 0 -70px 90px rgba(0,0,0,.15)}
-.hero-structure-img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:contrast(1.035) saturate(1.06)}
-@media(max-width:900px){.hero-structure{width:min(88vw,520px);max-height:none;justify-self:center;margin-top:4px;border-radius:20px}}
-@media(min-width:1280px){.hero h1{font-size:clamp(54px,5.7vw,86px)}.hero p.lead{font-size:18.5px}}
 
 /* ═══ SEKCJA ZEJŚCIA ═══ */
 .descent{position:relative;background:#05060A}
@@ -1016,23 +1090,27 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 <div class="aurora a1"></div>
 <div class="aurora a2"></div>
 <div class="scanline"></div>
-<div class="wrap hero-inner">
-<div>
+<div class="hero-scene">
+<div class="hero-artwork">
+<img alt="Bartosz “Osa” Osiński with the OsaTechGPT agent systems architecture: World Kernel, Agent Body, Cognitive State and Brain" class="hero-structure-img" src="/assets/media/osa-structure-hero.avif" width="1122" height="1402" decoding="async" fetchpriority="high"/>
+</div>
+<div class="hero-status">
 <div class="status"><span class="pulse"></span><span class="type" data-txt="OsaTechGPT · AI systems &amp; product engineering"></span></div>
-<h1 class="reveal">
-<span class="ln"><span>I design AI systems</span></span>
-<span class="ln"><span>that perform</span></span>
-<span class="ln"><span><em class="g">real work.</em></span></span>
+</div>
+<h1 class="hero-title reveal" aria-label="I design AI systems that perform real work.">
+<span class="ln hero-line hero-line-1"><span>I design</span></span>
+<span class="ln hero-line hero-line-2"><span>AI systems</span></span>
+<span class="ln hero-line hero-line-3"><span>that perform</span></span>
+<span class="ln hero-line hero-line-4"><span><em class="g">real work.</em></span></span>
 </h1>
+<div class="hero-support">
 <p class="lead fade">From product and user experience to automation, agent runtimes, integrations and proof infrastructure. I build systems that take input, execute a process and leave a clear, verifiable result.</p>
 <div class="hero-cta fade2">
 <a class="btn-primary" href="#projekty">See the work ↓</a>
 <a class="btn-ghost" href="#status">Explore capabilities</a>
 </div>
 </div>
-<figure class="hero-structure">
-<img alt="Bartosz “Osa” Osiński with the OsaTechGPT agent systems architecture: World Kernel, Agent Body, Cognitive State and Brain" class="hero-structure-img" src="/assets/media/osa-structure-hero.avif" width="1122" height="1402" decoding="async" fetchpriority="high"/>
-</figure>
+<div aria-hidden="true" class="hero-foreground"></div>
 </div>
 </header>
 <!-- ═══════ MINI AUDIT — VISIBLE IMMEDIATELY ═══════ -->
