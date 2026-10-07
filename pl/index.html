@@ -1058,6 +1058,44 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 .lang-switch span{color:rgba(255,255,255,.22)}
 @media(max-width:760px){.lang-switch{margin-left:auto;gap:3px;padding:3px 5px}.lang-switch a{padding:5px}.navcta{margin-left:4px}}
 </style>
+
+<style id="osa-static-hero-v1">
+/* Static compositing prototype: original approved PNG bytes, no motion. */
+#hero.hero{height:100svh;min-height:800px;max-height:none;padding:0;position:relative;overflow:hidden;isolation:isolate;background:#090b10!important}
+#hero.hero::after{display:none}
+#hero .osa-stage{position:absolute;inset:0;isolation:isolate}
+#hero .osa-environment{position:absolute;inset:0;z-index:0;display:block}
+#hero .osa-environment img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 58%}
+#hero .osa-stage::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(5,6,10,.36),rgba(5,6,10,.12) 45%,transparent 64%),linear-gradient(90deg,rgba(5,6,10,.35),transparent 50%)}
+#hero .osa-stage::after{content:"";position:absolute;inset:0;z-index:6;pointer-events:none;background:linear-gradient(180deg,transparent 66%,rgba(5,6,10,.3) 83%,#05060a 100%),radial-gradient(ellipse 34% 24% at 18% 90%,rgba(5,6,10,.88),transparent)}
+#hero .osa-headline{position:absolute;z-index:2;top:15.5%;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 96px);margin:0;color:#f3efe8;font-family:var(--grote);font-weight:500;font-size:clamp(76px,7.4vw,124px);line-height:1.02;letter-spacing:-.035em;text-align:center;text-transform:none;text-wrap:nowrap;overflow:visible}
+#hero .osa-headline span{display:block}
+#hero .osa-core{position:absolute;z-index:3;left:34%;top:43%;height:29%;width:auto;max-width:28%;object-fit:contain;transform:translateX(-50%);filter:drop-shadow(0 18px 20px rgba(0,0,0,.22))}
+#hero .osa-subject{position:absolute;z-index:4;left:61%;bottom:1.5%;height:70%;width:auto;max-width:55%;object-fit:contain;object-position:center bottom;transform:translateX(-50%);filter:drop-shadow(0 16px 18px rgba(0,0,0,.35))}
+#hero .osa-haze{position:absolute;z-index:5;inset:0;width:100%;height:100%;object-fit:cover;object-position:center bottom;opacity:.14;pointer-events:none}
+#hero .osa-copy{position:absolute;z-index:7;left:max(5vw,32px);bottom:6%;width:355px;max-width:34%;color:#f3efe8}
+#hero .osa-copy p{font-size:16px;font-weight:400;line-height:1.6;letter-spacing:0;margin:0;text-wrap:pretty;color:#e2dfd9}
+#hero .osa-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:20px;padding:13px 22px;border:1px solid #dfb66c;border-radius:5px;background:#dfb66c;color:#17130b;font-family:var(--grote);font-size:14px;font-weight:600;line-height:1.3;letter-spacing:0;text-decoration:none}
+#hero .osa-cta:focus-visible{outline:2px solid #fff;outline-offset:5px}
+#hero *,#hero *::before,#hero *::after{animation:none!important;transition:none!important}
+@media(min-width:1700px){#hero .osa-headline{top:16%;font-size:124px}#hero .osa-subject{height:68%;left:59%}#hero .osa-core{left:36%;height:27%}#hero .osa-copy{left:8%;bottom:7%;width:380px}}
+@media(min-width:901px) and (max-width:1100px){#hero .osa-headline{font-size:76px}#hero .osa-subject{left:65%;height:64%}#hero .osa-core{left:29%;height:25%}#hero .osa-copy{max-width:38%;width:320px}}
+@media(max-width:900px){
+ #hero.hero{height:100svh;min-height:800px}
+ #hero .osa-environment img{object-position:50% 62%}
+ #hero .osa-stage::before{background:linear-gradient(180deg,rgba(5,6,10,.62),rgba(5,6,10,.13) 34%,transparent 65%)}
+ #hero .osa-stage::after{background:linear-gradient(180deg,transparent 61%,rgba(5,6,10,.65) 76%,#05060a 100%)}
+ #hero .osa-headline{top:112px;left:24px;transform:none;max-width:calc(100% - 48px);font-size:clamp(45px,12.4vw,68px);line-height:1.06;letter-spacing:-.025em;text-align:left}
+ #hero .osa-subject{left:57%;bottom:182px;height:50%;max-width:92%;}
+ #hero .osa-core{left:18%;top:44%;height:17%;max-width:35%;}
+ #hero .osa-haze{opacity:.1;object-position:50% bottom}
+ #hero .osa-copy{left:24px;right:24px;bottom:32px;max-width:none;width:auto}
+ #hero .osa-copy p{font-size:15px;line-height:1.5;max-width:42ch}
+ #hero .osa-cta{min-height:48px;margin-top:16px;font-size:14px;padding:12px 20px}
+}
+@media(max-width:374px){#hero .osa-headline{top:102px;font-size:44px}#hero .osa-subject{left:57%;bottom:184px;height:49%}#hero .osa-copy{bottom:28px}#hero .osa-copy p{font-size:14px}}
+@media(min-width:521px) and (max-width:900px){#hero.hero{min-height:900px}#hero .osa-headline{left:8%;top:115px}#hero .osa-subject{height:56%;left:60%}#hero .osa-core{left:25%}#hero .osa-copy{left:8%;right:8%}}
+</style>
 </head>
 <body>
 <div id="prog"></div>
@@ -1074,43 +1112,17 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 <a class="navcta" href="#kontakt">Opisz projekt →</a>
 </nav>
 <!-- ═══════ HERO / DZIEŃ ═══════ -->
-<header class="hero" id="hero">
-<div aria-hidden="true" class="storm-premium">
-<div class="storm-base"></div>
-<div class="storm-cloud c1"></div>
-<div class="storm-cloud c2"></div>
-<div class="storm-cloud c3"></div>
-<div class="storm-rain"></div>
-<div class="storm-city"></div>
-<div class="storm-haze"></div>
-<canvas aria-hidden="true" class="storm-lightning"></canvas>
-<div class="storm-flash"></div>
-</div>
-<div class="grid-bg"></div>
-<div class="aurora a1"></div>
-<div class="aurora a2"></div>
-<div class="scanline"></div>
-<div class="hero-scene">
-<div class="hero-artwork">
-<img alt="Bartosz „Osa” Osiński z architekturą systemów OsaTechGPT: World Kernel, Agent Body, Cognitive State i Brain" class="hero-structure-img" src="/assets/media/osa-structure-hero.avif" width="1122" height="1402" decoding="async" fetchpriority="high"/>
-</div>
-<div class="hero-status">
-<div class="status"><span class="pulse"></span><span class="type" data-txt="OsaTechGPT · systemy AI i inżynieria produktu"></span></div>
-</div>
-<h1 class="hero-title reveal" aria-label="Projektuję systemy AI, które wykonują realną pracę.">
-<span class="ln hero-line hero-line-1"><span>Projektuję</span></span>
-<span class="ln hero-line hero-line-2"><span>systemy AI,</span></span>
-<span class="ln hero-line hero-line-3"><span>które wykonują</span></span>
-<span class="ln hero-line hero-line-4"><span><em class="g">realną pracę.</em></span></span>
-</h1>
-<div class="hero-support">
-<p class="lead fade">Od produktu i doświadczenia użytkownika po automatyzację, agent runtime, integracje oraz warstwę dowodową. Buduję systemy, które przyjmują wejście, wykonują proces i pozostawiają czytelny, możliwy do zweryfikowania rezultat.</p>
-<div class="hero-cta fade2">
-<a class="btn-primary" href="#projekty">Zobacz realizacje ↓</a>
-<a class="btn-ghost" href="#status">Poznaj kompetencje</a>
-</div>
-</div>
-<div aria-hidden="true" class="hero-foreground"></div>
+<header class="hero" id="hero" data-composition="static-v1">
+<div class="osa-stage">
+<picture class="osa-environment" aria-hidden="true">
+<source media="(max-width:900px)" srcset="/assets/media/osa-hero-environment-mobile-v1.png" width="864" height="1536"/>
+<img src="/assets/media/osa-hero-environment-desktop-v1.png" width="1536" height="864" alt="" fetchpriority="high" decoding="async"/>
+</picture>
+<h1 class="osa-headline"><span>SYSTEMY AI.</span><span>REALNA PRACA.</span></h1>
+<img class="osa-core" src="/assets/media/osa-hero-system-core-v1.png" width="1254" height="1254" alt="" aria-hidden="true" decoding="async"/>
+<img class="osa-subject" src="/assets/media/osa-hero-subject-v1.png" width="1122" height="1402" alt="Bartosz ‘Osa’ Osiński" decoding="async"/>
+<img class="osa-haze" src="/assets/media/osa-hero-foreground-haze-v1.png" width="1672" height="941" alt="" aria-hidden="true" decoding="async"/>
+<div class="osa-copy"><p>Projektuję i buduję systemy, które wykonują proces i pozostawiają możliwy do zweryfikowania rezultat.</p><a class="osa-cta" href="#projekty">Zobacz realizacje ↓</a></div>
 </div>
 </header>
 <!-- ═══════ MINI AUDIT — VISIBLE IMMEDIATELY ═══════ -->
