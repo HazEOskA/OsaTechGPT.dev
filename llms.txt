@@ -41,6 +41,22 @@ Repository: https://github.com/HazEOskA/osa-cloud-workspace
 Public R&D repository for the NeurOSA brain / DSL / intermediate-representation direction.
 Repository: https://github.com/HazEOskA/neurosa-human-brain
 
+
+## Canonical technical pages
+
+- AI agent systems architecture: https://osatechgpt.dev/ai-agent-systems/
+- AI agent runtime governance: https://osatechgpt.dev/ai-agent-runtime-governance/
+- AI agent capability control: https://osatechgpt.dev/ai-agent-capability-control/
+- AI agent memory runtime: https://osatechgpt.dev/ai-agent-memory-runtime/
+- AI agent control plane: https://osatechgpt.dev/ai-agent-control-plane/
+- Agent Proof Runtime: https://osatechgpt.dev/agent-proof-runtime/
+- Verifiable AI agent execution: https://osatechgpt.dev/verifiable-ai-agent-execution/
+- AI agent execution proof: https://osatechgpt.dev/ai-agent-execution-proof/
+- Hydra Hermes runtime: https://osatechgpt.dev/hydra-hermes-runtime/
+- NeurOSA Human Brain: https://osatechgpt.dev/neurosa-human-brain/
+- OSA Execution Force: https://osatechgpt.dev/osa-execution-force/
+- OSA Cloud Workspace: https://osatechgpt.dev/osa-cloud-workspace/
+
 ## Public evidence rule
 
 A project is not treated as publicly verified merely because it is named here. Public repository content, documentation, live validation or an independent external source should support material claims.

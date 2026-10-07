@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Agent Capability Control | OsaTechGPT</title>
+<meta name="description" content="Capability control limits what AI agents may do by binding authority, tools, repository scope, payload and execution permissions before mutation.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="author" content="Bartosz Osiński"><meta name="theme-color" content="#05060A">
+<link rel="canonical" href="https://osatechgpt.dev/ai-agent-capability-control/"><link rel="me" href="https://github.com/HazEOskA">
+<meta property="og:type" content="article"><meta property="og:site_name" content="OsaTechGPT">
+<meta property="og:title" content="AI Agent Capability Control | OsaTechGPT"><meta property="og:description" content="Capability control limits what AI agents may do by binding authority, tools, repository scope, payload and execution permissions before mutation."><meta property="og:url" content="https://osatechgpt.dev/ai-agent-capability-control/">
+<meta property="og:image" content="https://osatechgpt.dev/assets/media/mafia-reel-poster.jpg"><meta property="og:image:alt" content="OsaTechGPT AI agent systems">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AI Agent Capability Control | OsaTechGPT"><meta name="twitter:description" content="Capability control limits what AI agents may do by binding authority, tools, repository scope, payload and execution permissions before mutation."><meta name="twitter:image" content="https://osatechgpt.dev/assets/media/mafia-reel-poster.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://osatechgpt.dev/#website","url":"https://osatechgpt.dev/","name":"OsaTechGPT","publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"}},{"@type":"Person","@id":"https://osatechgpt.dev/#bartosz-osinski","name":"Bartosz Osiński","alternateName":["Bartosz Osinski","Bartosz OSA","Osa","HazEOskA"],"url":"https://osatechgpt.dev/","sameAs":["https://github.com/HazEOskA","https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385"]},{"@type":"TechArticle","@id":"https://osatechgpt.dev/ai-agent-capability-control/#page","url":"https://osatechgpt.dev/ai-agent-capability-control/","headline":"AI agent capability control: constrain what an agent is allowed to do","name":"AI Agent Capability Control | OsaTechGPT","description":"Capability control limits what AI agents may do by binding authority, tools, repository scope, payload and execution permissions before mutation.","datePublished":"2026-10-07","dateModified":"2026-10-07","author":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"isPartOf":{"@id":"https://osatechgpt.dev/#website"},"inLanguage":"en"},{"@type":"BreadcrumbList","@id":"https://osatechgpt.dev/ai-agent-capability-control/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"OsaTechGPT","item":"https://osatechgpt.dev/"},{"@type":"ListItem","position":2,"name":"AI Agent Systems","item":"https://osatechgpt.dev/ai-agent-systems/"},{"@type":"ListItem","position":3,"name":"AI agent capability control: constrain what an agent is allowed to do","item":"https://osatechgpt.dev/ai-agent-capability-control/"}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#05060a;--bg2:#090b11;--text:#eef0f2;--muted:#aeb1b9;--gold:#e0b155;--line:rgba(224,177,85,.22);--mono:'IBM Plex Mono',ui-monospace,monospace;--sans:'Manrope',system-ui,sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 14% 0%,rgba(224,177,85,.08),transparent 27%),linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit}.wrap{width:min(1120px,calc(100% - 36px));margin:0 auto}.nav{position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(5,6,10,.9);backdrop-filter:blur(16px)}.navin{min-height:64px;display:flex;align-items:center;gap:18px;justify-content:space-between}.brand{font:700 13px/1 var(--mono);letter-spacing:.08em;text-decoration:none;color:var(--gold)}.links{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}.links a{font:500 10px/1.3 var(--mono);text-decoration:none;color:#b9bdc5}.links a:hover{color:var(--gold)}.hero{padding:92px 0 68px;border-bottom:1px solid rgba(255,255,255,.06)}.kicker,.eyebrow{font:600 10px/1.4 var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}.hero h1{font-size:clamp(42px,7vw,80px);line-height:.99;letter-spacing:-.05em;max-width:980px;margin:18px 0 0}.lead{font-size:clamp(18px,2.2vw,24px);line-height:1.55;color:#c7c9cf;max-width:900px;margin:28px 0 0}.rule{margin-top:30px;font:500 12px/1.6 var(--mono);color:#969ba4}.rule strong{color:var(--gold)}main{padding:24px 0 90px}.section{display:grid;grid-template-columns:minmax(0,250px) minmax(0,1fr);gap:48px;padding:56px 0;border-bottom:1px solid rgba(255,255,255,.07)}.section:last-child{border-bottom:0}.section h2{font-size:clamp(25px,3vw,38px);line-height:1.1;letter-spacing:-.035em;margin:11px 0 0}.copy p,.copy li{color:#b8bbc3;font-size:16px;line-height:1.75}.copy p:first-child{margin-top:0}.copy strong{color:#f0f1f3}.copy h3{font-size:20px;margin:32px 0 8px}.copy ul,.copy ol{padding-left:22px}.copy li+li{margin-top:8px}.flow{white-space:pre-wrap;overflow:auto;border-left:2px solid var(--gold);background:rgba(224,177,85,.045);padding:22px 24px;margin:26px 0;font:500 13px/1.75 var(--mono);color:#e9ddc4}.callout{margin:26px 0;padding:19px 0 19px 22px;border-left:2px solid rgba(224,177,85,.75)}.callout p{margin:0;color:#d9dbe0}.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;text-decoration:none;border:1px solid var(--line);border-radius:9px;padding:12px 15px;font:600 11px/1 var(--mono);color:var(--gold)}.btn.primary{background:var(--gold);color:#07080c}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.tile{display:block;text-decoration:none;padding:19px;border-top:1px solid var(--line);background:rgba(255,255,255,.025)}.tile b{display:block}.tile span{display:block;color:#9297a0;margin-top:7px;font-size:13px;line-height:1.55}.table{width:100%;border-collapse:collapse;margin:22px 0}.table th,.table td{text-align:left;vertical-align:top;padding:13px 10px;border-bottom:1px solid rgba(255,255,255,.08)}.table th{font:600 10px/1.4 var(--mono);color:var(--gold);text-transform:uppercase}.table td{color:#b8bbc3;font-size:14px}.footer{border-top:1px solid rgba(255,255,255,.07);padding:28px 0 42px;color:#7d828c;font:500 11px/1.6 var(--mono)}.footer a{color:#b9bdc5}@media(max-width:840px){.links{display:none}.section{grid-template-columns:1fr;gap:20px}.grid{grid-template-columns:1fr}.hero{padding:72px 0 52px}.hero h1{font-size:clamp(38px,12vw,58px)}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap navin"><a class="brand" href="/">OSATECHGPT.DEV</a><nav class="links" aria-label="System navigation"><a href="/ai-agent-systems/">AI Agent Systems</a><a href="/ai-agent-runtime-governance/">Governance</a><a href="/agent-proof-runtime/">APR</a><a href="/osa-execution-force/">Execution Force</a><a href="/neurosa-human-brain/">NeurOSA</a><a href="/osa-cloud-workspace/">Cloud Workspace</a></nav></div></header>
+<section class="hero"><div class="wrap"><div class="kicker">Architecture · Capability Control</div><h1>AI agent capability control: constrain what an agent is allowed to do</h1><p class="lead">Capability control is the enforcement layer between an agent's intent and a real-world action. The goal is not to make the agent less useful; it is to make authority explicit, bounded and auditable before a mutation happens.</p><div class="rule"><strong>CLAIM ≠ PROOF.</strong> No evidence = UNKNOWN.</div></div></section>
+<main class="wrap">
+
+<section class="section"><aside><div class="eyebrow">Definition</div><h2>Capability is different from intelligence</h2></aside><div class="copy">
+<p>A model may be able to reason about a repository, deployment or financial action without being authorized to perform it. Capability control separates <strong>what the agent can infer</strong> from <strong>what the runtime lets it change</strong>.</p>
+<div class="flow">INTENT
+→ POLICY
+→ AUTHORITY
+→ TOOL / CAPABILITY
+→ REPOSITORY + FILE SCOPE
+→ EXACT PAYLOAD
+→ EXECUTION
+→ EVIDENCE</div>
+<p>The enforcement point must sit upstream of mutation. If a downstream runtime can open its own write window, a policy document or UI approval badge does not provide meaningful control.</p>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Authority binding</div><h2>Bind the exact downstream action</h2></aside><div class="copy">
+<p>OSA Execution Force implements this pattern through GODMODE V3. The authority decision binds the selected policy card, repository, allowed scope, source commit SHA, task digest and exact RuntimeV2 payload before downstream execution can proceed.</p>
+<p>The documented P0 invariants deny direct RuntimeV2 mutation before V3 authorization, reject modified policy payloads, prevent scope widening and invalidate an older downstream action when a new authorization is created.</p>
+<div class="actions"><a class="btn primary" href="/osa-execution-force/">Execution Force evidence</a><a class="btn" href="https://github.com/HazEOskA/osa-execution-force-skills">Source repository</a></div>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Provenance</div><h2>Unknown source should fail closed</h2></aside><div class="copy">
+<p>Mutation authority is only meaningful if it is attached to a known code snapshot. The V3 path requires <code>source_commit_sha</code> to be an exact 40-character Git SHA. Missing or UNKNOWN provenance fails closed rather than being silently upgraded to trusted state.</p>
+<div class="callout"><p>Repository scope, file scope, payload and source provenance are separate bindings. A correct repository with a modified payload is still a different action.</p></div>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Runtime permissions</div><h2>Capabilities can be classified before dispatch</h2></aside><div class="copy">
+<p>Hydra Hermes Lab adds an operational permission layer around a sandboxed runtime. The public control plane classifies actions into GREEN, YELLOW and RED paths and exposes approval-aware queue operations. Baseline integrations such as web search, messaging, MCP servers and custom plugins are disabled until they are intentionally introduced.</p>
+<p>That creates a second boundary: authorization decides whether an action is permitted, while the sandbox and runtime decide which capabilities physically exist in the execution environment.</p>
+<div class="actions"><a class="btn" href="/hydra-hermes-runtime/">Sandboxed runtime</a><a class="btn" href="/ai-agent-runtime-governance/">Runtime governance</a></div>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Evidence</div><h2>Authorization itself should be provable</h2></aside><div class="copy">
+<p>The Execution Force repository publishes a mechanical authority workflow and an evidence ladder: CLAIMED → ARTIFACT_PRESENT → MECHANICALLY_VERIFIED → INDEPENDENTLY_VERIFIED. A model saying that it was authorized is not equivalent to evidence that the correct authority gate approved the exact action.</p>
+<p>The checked P0 launcher emitted provenance evidence and the project-scoped V3 hook suite reported 11 passing tests. The repository explicitly does not claim that this proves universal enforcement across every host or deployment topology.</p>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Design checklist</div><h2>Questions a capability-control layer must answer</h2></aside><div class="copy">
+<table class="table"><thead><tr><th>Question</th><th>Required evidence</th></tr></thead><tbody>
+<tr><td>Who authorized the action?</td><td>Policy and authority record.</td></tr>
+<tr><td>What code snapshot is acting?</td><td>Immutable source SHA.</td></tr>
+<tr><td>What may change?</td><td>Repository, file and operation scope.</td></tr>
+<tr><td>Which exact request was approved?</td><td>Bound payload and digest.</td></tr>
+<tr><td>Can downstream code widen the scope?</td><td>Fail-closed enforcement tests.</td></tr>
+<tr><td>Can the action be stopped?</td><td>Cancellation, circuit breaker or operator stop.</td></tr>
+<tr><td>How is success checked?</td><td>Independent observations and proof.</td></tr>
+</tbody></table>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Related systems</div><h2>Capability control is one layer of governance</h2></aside><div class="copy"><div class="grid">
+<a class="tile" href="/ai-agent-runtime-governance/"><b>Runtime Governance</b><span>How authority, runtime, state and proof fit together.</span></a>
+<a class="tile" href="/osa-execution-force/"><b>OSA Execution Force</b><span>Concrete authority and payload-binding implementation.</span></a>
+<a class="tile" href="/hydra-hermes-runtime/"><b>Hydra Hermes Lab</b><span>Sandbox and operational permission boundary.</span></a>
+<a class="tile" href="/agent-proof-runtime/"><b>Agent Proof Runtime</b><span>Independent post-execution evidence and verification.</span></a>
+</div></div></section>
+</main>
+<footer class="footer"><div class="wrap">Bartosz “Osa” Osiński · OsaTechGPT · <a href="/ai-agent-systems/">System map</a> · <a href="/ai-agent-runtime-governance/">Runtime governance</a> · <a href="https://github.com/HazEOskA">GitHub</a></div></footer>
+</body></html>

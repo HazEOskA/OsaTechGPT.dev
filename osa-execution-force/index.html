@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OSA Execution Force — AI Agent Authority & Capability Control | OsaTechGPT</title>
-<meta name="description" content="OSA Execution Force is an execution-governance layer for AI agents: GODMODE policy selection, V3 authority, repository and scope binding, downstream RuntimeV2 execution and evidence gates.">
+<title>OSA Execution Force — Agent Capability Control | OsaTechGPT</title>
+<meta name="description" content="OSA Execution Force binds policy, repository scope, source SHA and downstream payload before mutation-capable AI agent execution can proceed.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="author" content="Bartosz Osiński"><meta name="theme-color" content="#05060A">
 <link rel="canonical" href="https://osatechgpt.dev/osa-execution-force/"><link rel="me" href="https://github.com/HazEOskA">
 <meta property="og:type" content="article"><meta property="og:site_name" content="OsaTechGPT">
-<meta property="og:title" content="OSA Execution Force — AI Agent Authority & Capability Control | OsaTechGPT"><meta property="og:description" content="OSA Execution Force is an execution-governance layer for AI agents: GODMODE policy selection, V3 authority, repository and scope binding, downstream RuntimeV2 execution and evidence gates."><meta property="og:url" content="https://osatechgpt.dev/osa-execution-force/">
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="OSA Execution Force — AI Agent Authority & Capability Control | OsaTechGPT"><meta name="twitter:description" content="OSA Execution Force is an execution-governance layer for AI agents: GODMODE policy selection, V3 authority, repository and scope binding, downstream RuntimeV2 execution and evidence gates.">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://osatechgpt.dev/#website","url":"https://osatechgpt.dev/","name":"OsaTechGPT","publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"}},{"@type":"Person","@id":"https://osatechgpt.dev/#bartosz-osinski","name":"Bartosz Osiński","alternateName":["Bartosz Osinski","Bartosz OSA","Osa","HazEOskA"],"url":"https://osatechgpt.dev/","sameAs":["https://github.com/HazEOskA","https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385"]},{"@type":"TechArticle","@id":"https://osatechgpt.dev/osa-execution-force/#page","url":"https://osatechgpt.dev/osa-execution-force/","headline":"OSA Execution Force: authority before mutation","name":"OSA Execution Force — AI Agent Authority & Capability Control | OsaTechGPT","description":"OSA Execution Force is an execution-governance layer for AI agents: GODMODE policy selection, V3 authority, repository and scope binding, downstream RuntimeV2 execution and evidence gates.","datePublished":"2026-10-06","dateModified":"2026-10-06","author":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"isPartOf":{"@id":"https://osatechgpt.dev/#website"},"inLanguage":"en"},{"@type":"BreadcrumbList","@id":"https://osatechgpt.dev/osa-execution-force/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"OsaTechGPT","item":"https://osatechgpt.dev/"},{"@type":"ListItem","position":2,"name":"AI Agent Systems","item":"https://osatechgpt.dev/ai-agent-systems/"},{"@type":"ListItem","position":3,"name":"OSA Execution Force: authority before mutation","item":"https://osatechgpt.dev/osa-execution-force/"}]},{"@type":"SoftwareApplication","@id":"https://osatechgpt.dev/osa-execution-force/#software","name":"OSA Execution Force","alternateName":"SKILLS.MD // GODMODE + OSA-EXECUTE V3","url":"https://osatechgpt.dev/osa-execution-force/","applicationCategory":"DeveloperApplication","description":"Execution-governance system for AI agents with GODMODE policy selection, V3 authority wiring, scope binding and downstream RuntimeV2 execution.","author":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"codeRepository":"https://github.com/HazEOskA/osa-execution-force-skills","sameAs":["https://github.com/HazEOskA/osa-execution-force-skills"]}]}</script>
+<meta property="og:title" content="OSA Execution Force — Agent Capability Control | OsaTechGPT"><meta property="og:description" content="OSA Execution Force binds policy, repository scope, source SHA and downstream payload before mutation-capable AI agent execution can proceed."><meta property="og:url" content="https://osatechgpt.dev/osa-execution-force/">
+<meta property="og:image" content="https://osatechgpt.dev/assets/media/mafia-reel-poster.jpg">
+<meta property="og:image:alt" content="OsaTechGPT AI agent systems">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="OSA Execution Force — Agent Capability Control | OsaTechGPT"><meta name="twitter:description" content="OSA Execution Force binds policy, repository scope, source SHA and downstream payload before mutation-capable AI agent execution can proceed.">
+<meta name="twitter:image" content="https://osatechgpt.dev/assets/media/mafia-reel-poster.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://osatechgpt.dev/#website","url":"https://osatechgpt.dev/","name":"OsaTechGPT","publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"}},{"@type":"Person","@id":"https://osatechgpt.dev/#bartosz-osinski","name":"Bartosz Osiński","alternateName":["Bartosz Osinski","Bartosz OSA","Osa","HazEOskA"],"url":"https://osatechgpt.dev/","sameAs":["https://github.com/HazEOskA","https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385"]},{"@type":"TechArticle","@id":"https://osatechgpt.dev/osa-execution-force/#page","url":"https://osatechgpt.dev/osa-execution-force/","headline":"OSA Execution Force: authority before mutation","name":"OSA Execution Force — AI Agent Authority & Capability Control | OsaTechGPT","description":"OSA Execution Force is an execution-governance layer for AI agents: GODMODE policy selection, V3 authority, repository and scope binding, downstream RuntimeV2 execution and evidence gates.","datePublished":"2026-10-06","dateModified":"2026-10-07","author":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"isPartOf":{"@id":"https://osatechgpt.dev/#website"},"inLanguage":"en"},{"@type":"BreadcrumbList","@id":"https://osatechgpt.dev/osa-execution-force/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"OsaTechGPT","item":"https://osatechgpt.dev/"},{"@type":"ListItem","position":2,"name":"AI Agent Systems","item":"https://osatechgpt.dev/ai-agent-systems/"},{"@type":"ListItem","position":3,"name":"OSA Execution Force: authority before mutation","item":"https://osatechgpt.dev/osa-execution-force/"}]},{"@type":"SoftwareApplication","@id":"https://osatechgpt.dev/osa-execution-force/#software","name":"OSA Execution Force","alternateName":"SKILLS.MD // GODMODE + OSA-EXECUTE V3","url":"https://osatechgpt.dev/osa-execution-force/","applicationCategory":"DeveloperApplication","description":"Execution-governance system for AI agents with GODMODE policy selection, V3 authority wiring, scope binding and downstream RuntimeV2 execution.","author":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"codeRepository":"https://github.com/HazEOskA/osa-execution-force-skills","sameAs":["https://github.com/HazEOskA/osa-execution-force-skills"]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -39,7 +42,40 @@
 <p>The repository publishes a dedicated authority workflow and launcher provenance proof for the project-scoped Claude Code path. It also states what is not claimed: P0 is not a universal enforcement proof across every host and does not establish production readiness.</p>
 <div class="actions"><a class="btn primary" href="https://github.com/HazEOskA/osa-execution-force-skills">Inspect Execution Force source</a></div>
 </div></section>
-  <section class="section">
+  
+<section class="section"><aside><div class="eyebrow">P0 enforced invariants</div><h2>Mutation authority is fail-closed</h2></aside><div class="copy">
+<ul>
+<li>A direct RuntimeV2 run before V3 authorization is denied.</li>
+<li>RuntimeV2 state alone cannot authorize repository mutation.</li>
+<li>V3 authorization is bound to the exact downstream RuntimeV2 payload.</li>
+<li>A modified policy payload is denied.</li>
+<li>Repository and file scope are bound and cannot be widened downstream.</li>
+<li>A new V3 authorization invalidates the previously opened downstream action.</li>
+<li><code>source_commit_sha</code> must be an exact 40-character Git SHA; missing or UNKNOWN provenance fails closed.</li>
+<li>Commit/push finalization still requires live V3 authority plus downstream verification.</li>
+</ul>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Mechanical proof</div><h2>The authority path has a dedicated test surface</h2></aside><div class="copy">
+<p>The repository publishes an <strong>OSA V3 Authority Proof</strong> workflow. The checked launcher emitted <code>V3_LAUNCHER_PROVENANCE_PASS</code>, bound a concrete source commit SHA and policy payload, then ran the V3 hook authority suite with <strong>11 passed</strong>.</p>
+<p>The full backend, acceptance, migration, container and security gates remain separate. The dedicated P0 workflow proves the checked authority wiring; it does not replace every other validation gate.</p>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Policy surface</div><h2>150 operational cards across 14 engineering domains</h2></aside><div class="copy">
+<p>The committed V3 registry contains 150 unique operational cards covering foundation, backend, data, frontend, mobile, cloud, AI/ML, security, engineering practice, SRE, gamedev, Web3, product and low-level systems. The committed registry under <code>osa-execute/runtime/cards/</code> is treated as the live repository source of truth.</p>
+<p>The canonical MCP authority operation is <code>osagm_authorize</code>. Successful authorization binds the selected card, policy, source commit SHA, repository, allowed scope, task digest and exact downstream RuntimeV2 payload plus its digest.</p>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Evidence ladder</div><h2>A claim does not skip verification levels</h2></aside><div class="copy">
+<div class="flow">CLAIMED
+↓
+ARTIFACT_PRESENT
+↓
+MECHANICALLY_VERIFIED
+↓
+INDEPENDENTLY_VERIFIED</div>
+<p>The repository explicitly does not claim universal production readiness or universal enforcement across every host and deployment topology. The P0 result is project-scoped and evidence-scoped.</p>
+<div class="actions"><a class="btn" href="/ai-agent-capability-control/">Capability control</a><a class="btn" href="/ai-agent-runtime-governance/">Runtime governance</a><a class="btn" href="/agent-proof-runtime/">APR proof layer</a></div>
+</div></section>
+
+<section class="section">
     <aside><div class="eyebrow">System map</div><h2>One ecosystem, separate responsibilities</h2></aside>
     <div class="copy">
       <div class="grid">
