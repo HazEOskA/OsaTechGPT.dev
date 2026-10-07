@@ -92,17 +92,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:180;
 }
 
 /* ═══ HERO — DZIEŃ ═══ */
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;
-  padding-top:calc(96px + env(safe-area-inset-top,0px));padding-bottom:64px;
+.hero{min-height:min(920px,100svh);display:flex;align-items:center;position:relative;
+  padding-top:calc(92px + env(safe-area-inset-top,0px));padding-bottom:42px;
   background:
-    radial-gradient(ellipse 90% 50% at 20% 0%,rgba(224,177,85,.06),transparent 60%),
-    linear-gradient(180deg,#0B0A0F 0%,#08070C 100%);
+    radial-gradient(ellipse 62% 78% at 78% 44%,rgba(56,189,248,.10),transparent 58%),
+    radial-gradient(ellipse 56% 68% at 86% 34%,rgba(168,85,247,.085),transparent 62%),
+    radial-gradient(ellipse 82% 52% at 20% 0%,rgba(224,177,85,.08),transparent 62%),
+    linear-gradient(180deg,#0B0A0F 0%,#07080D 72%,#05060A 100%);
   overflow:hidden}
-.hero .grid-bg{position:absolute;inset:0;opacity:.5;
-  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
-  background-size:56px 56px;mask-image:radial-gradient(ellipse 70% 60% at 30% 40%,#000,transparent 80%)}
-.hero-inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center;width:100%;position:relative;z-index:2}
-@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:20px}}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:150px;pointer-events:none;
+  background:linear-gradient(180deg,transparent,#05060A)}
+.hero .grid-bg{position:absolute;inset:0;opacity:.36;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(ellipse 76% 72% at 36% 42%,#000,transparent 82%)}
+.hero-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.95fr);gap:54px;align-items:center;width:100%;position:relative;z-index:2}
+@media(max-width:900px){
+  .hero{min-height:auto;padding-top:calc(84px + env(safe-area-inset-top,0px));padding-bottom:38px}
+  .hero-inner{grid-template-columns:1fr;gap:26px}
+}
 
 .status{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;
   color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;
@@ -255,16 +262,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:180;
 @media(max-width:900px){.reel{margin-top:26px;max-width:100%}}
 
 /* ── signature founder / agent-systems hero visual ── */
-.hero-structure{position:relative;width:100%;max-width:500px;aspect-ratio:4/5;justify-self:center;margin:0;
-  border-radius:18px;overflow:hidden;border:1px solid rgba(224,177,85,.23);background:#07080C;
-  box-shadow:0 40px 110px rgba(0,0,0,.82),0 0 80px rgba(224,177,85,.12);
-  opacity:0;transform:translateY(24px) scale(.985);
-  animation:heroStructureIn 1.7s cubic-bezier(.2,.8,.25,1) forwards .35s}
+.hero-structure{position:relative;width:min(43vw,620px);max-height:min(74svh,775px);aspect-ratio:4/5;justify-self:end;margin:0;
+  border-radius:24px;overflow:hidden;border:1px solid rgba(224,177,85,.30);background:#07080C;
+  box-shadow:0 42px 120px rgba(0,0,0,.80),0 0 95px rgba(56,189,248,.10),0 0 70px rgba(168,85,247,.08);
+  opacity:0;transform:translateY(20px) scale(.982);
+  animation:heroStructureIn 1.45s cubic-bezier(.2,.8,.25,1) forwards .28s}
 @keyframes heroStructureIn{to{opacity:1;transform:none}}
+.hero-structure::before{content:'';position:absolute;inset:-18%;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at 48% 42%,rgba(56,189,248,.18),transparent 48%),radial-gradient(circle at 68% 28%,rgba(168,85,247,.14),transparent 46%);
+  filter:blur(34px)}
 .hero-structure::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:inherit;
-  box-shadow:inset 0 0 72px rgba(0,0,0,.22)}
-.hero-structure-img{display:block;width:100%;height:100%;object-fit:cover}
-@media(max-width:900px){.hero-structure{max-width:640px;margin-top:24px}}
+  box-shadow:inset 0 0 78px rgba(0,0,0,.16),inset 0 -70px 90px rgba(0,0,0,.15)}
+.hero-structure-img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:contrast(1.035) saturate(1.06)}
+@media(max-width:900px){.hero-structure{width:min(88vw,520px);max-height:none;justify-self:center;margin-top:4px;border-radius:20px}}
+@media(min-width:1280px){.hero h1{font-size:clamp(54px,5.7vw,86px)}.hero p.lead{font-size:18.5px}}
 
 /* ═══ SEKCJA ZEJŚCIA ═══ */
 .descent{position:relative;background:#05060A}
@@ -1020,7 +1031,7 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 </div>
 </div>
 <figure class="hero-structure">
-<img alt="Bartosz “Osa” Osiński with the OsaTechGPT agent systems architecture: World Kernel, Agent Body, Cognitive State and Brain" class="hero-structure-img" src="/assets/media/osa-structure-hero.avif" width="400" height="500" decoding="async" fetchpriority="high"/>
+<img alt="Bartosz “Osa” Osiński with the OsaTechGPT agent systems architecture: World Kernel, Agent Body, Cognitive State and Brain" class="hero-structure-img" src="/assets/media/osa-structure-hero.avif" width="1122" height="1402" decoding="async" fetchpriority="high"/>
 </figure>
 </div>
 </header>
