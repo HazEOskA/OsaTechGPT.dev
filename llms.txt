@@ -57,6 +57,23 @@ Repository: https://github.com/HazEOskA/neurosa-human-brain
 - OSA Execution Force: https://osatechgpt.dev/osa-execution-force/
 - OSA Cloud Workspace: https://osatechgpt.dev/osa-cloud-workspace/
 
+
+## Polish technical pages
+
+Polish equivalents use the same topic graph under the /pl/ locale:
+- https://osatechgpt.dev/pl/agent-proof-runtime/
+- https://osatechgpt.dev/pl/ai-agent-capability-control/
+- https://osatechgpt.dev/pl/ai-agent-control-plane/
+- https://osatechgpt.dev/pl/ai-agent-execution-proof/
+- https://osatechgpt.dev/pl/ai-agent-memory-runtime/
+- https://osatechgpt.dev/pl/ai-agent-runtime-governance/
+- https://osatechgpt.dev/pl/ai-agent-systems/
+- https://osatechgpt.dev/pl/hydra-hermes-runtime/
+- https://osatechgpt.dev/pl/neurosa-human-brain/
+- https://osatechgpt.dev/pl/osa-cloud-workspace/
+- https://osatechgpt.dev/pl/osa-execution-force/
+- https://osatechgpt.dev/pl/verifiable-ai-agent-execution/
+
 ## Public evidence rule
 
 A project is not treated as publicly verified merely because it is named here. Public repository content, documentation, live validation or an independent external source should support material claims.
