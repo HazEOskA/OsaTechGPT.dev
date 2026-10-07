@@ -42,7 +42,40 @@
 <p>The repository publishes a dedicated authority workflow and launcher provenance proof for the project-scoped Claude Code path. It also states what is not claimed: P0 is not a universal enforcement proof across every host and does not establish production readiness.</p>
 <div class="actions"><a class="btn primary" href="https://github.com/HazEOskA/osa-execution-force-skills">Inspect Execution Force source</a></div>
 </div></section>
-  <section class="section">
+  
+<section class="section"><aside><div class="eyebrow">P0 enforced invariants</div><h2>Mutation authority is fail-closed</h2></aside><div class="copy">
+<ul>
+<li>A direct RuntimeV2 run before V3 authorization is denied.</li>
+<li>RuntimeV2 state alone cannot authorize repository mutation.</li>
+<li>V3 authorization is bound to the exact downstream RuntimeV2 payload.</li>
+<li>A modified policy payload is denied.</li>
+<li>Repository and file scope are bound and cannot be widened downstream.</li>
+<li>A new V3 authorization invalidates the previously opened downstream action.</li>
+<li><code>source_commit_sha</code> must be an exact 40-character Git SHA; missing or UNKNOWN provenance fails closed.</li>
+<li>Commit/push finalization still requires live V3 authority plus downstream verification.</li>
+</ul>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Mechanical proof</div><h2>The authority path has a dedicated test surface</h2></aside><div class="copy">
+<p>The repository publishes an <strong>OSA V3 Authority Proof</strong> workflow. The checked launcher emitted <code>V3_LAUNCHER_PROVENANCE_PASS</code>, bound a concrete source commit SHA and policy payload, then ran the V3 hook authority suite with <strong>11 passed</strong>.</p>
+<p>The full backend, acceptance, migration, container and security gates remain separate. The dedicated P0 workflow proves the checked authority wiring; it does not replace every other validation gate.</p>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Policy surface</div><h2>150 operational cards across 14 engineering domains</h2></aside><div class="copy">
+<p>The committed V3 registry contains 150 unique operational cards covering foundation, backend, data, frontend, mobile, cloud, AI/ML, security, engineering practice, SRE, gamedev, Web3, product and low-level systems. The committed registry under <code>osa-execute/runtime/cards/</code> is treated as the live repository source of truth.</p>
+<p>The canonical MCP authority operation is <code>osagm_authorize</code>. Successful authorization binds the selected card, policy, source commit SHA, repository, allowed scope, task digest and exact downstream RuntimeV2 payload plus its digest.</p>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Evidence ladder</div><h2>A claim does not skip verification levels</h2></aside><div class="copy">
+<div class="flow">CLAIMED
+↓
+ARTIFACT_PRESENT
+↓
+MECHANICALLY_VERIFIED
+↓
+INDEPENDENTLY_VERIFIED</div>
+<p>The repository explicitly does not claim universal production readiness or universal enforcement across every host and deployment topology. The P0 result is project-scoped and evidence-scoped.</p>
+<div class="actions"><a class="btn" href="/ai-agent-capability-control/">Capability control</a><a class="btn" href="/ai-agent-runtime-governance/">Runtime governance</a><a class="btn" href="/agent-proof-runtime/">APR proof layer</a></div>
+</div></section>
+
+<section class="section">
     <aside><div class="eyebrow">System map</div><h2>One ecosystem, separate responsibilities</h2></aside>
     <div class="copy">
       <div class="grid">
