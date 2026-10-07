@@ -1096,6 +1096,27 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 }
 @media(max-width:374px){#hero .osa-headline{top:102px;font-size:40px}#hero .osa-subject{left:57%;bottom:184px;height:49%}#hero .osa-copy{bottom:28px}#hero .osa-copy p{font-size:14px}}
 @media(min-width:521px) and (max-width:900px){#hero.hero{min-height:900px}#hero .osa-headline{left:8%;top:115px}#hero .osa-subject{height:56%;left:60%}#hero .osa-core{left:25%}#hero .osa-copy{left:8%;right:8%}}
+
+/* Hero weather V1: atmospheric depth, no scroll or pointer engine. */
+#hero .osa-weather{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+#hero .osa-cloudveil{position:absolute;inset:-8%;opacity:.24;background:radial-gradient(ellipse at 26% 18%,rgba(120,138,162,.28),transparent 44%),radial-gradient(ellipse at 72% 25%,rgba(34,43,59,.7),transparent 54%);animation:osa-cloud-drift 28s ease-in-out infinite alternate!important}
+#hero .osa-stormglow{position:absolute;inset:0;background:radial-gradient(ellipse at 73% 25%,rgba(168,191,222,.33),transparent 42%);opacity:0;animation:osa-distant-glow 17s linear infinite!important}
+#hero .osa-bolts{position:absolute;left:0;top:4%;width:100%;height:54%;overflow:visible;fill:none;stroke:#cbd7ed;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;opacity:0;filter:drop-shadow(0 0 7px rgba(162,191,227,.55));animation:osa-distant-bolt 17s linear infinite!important}
+#hero .osa-bolts--far{left:-15%;top:2%;transform:scaleX(-1);opacity:0;stroke-width:1;animation-delay:7.5s!important;animation-duration:23s!important}
+#hero .osa-environment img{animation:osa-world-breathe 32s ease-in-out infinite alternate!important}
+#hero .osa-core{animation:osa-core-hover 9s ease-in-out infinite alternate!important}
+#hero .osa-haze{animation:osa-haze-drift 21s ease-in-out infinite alternate!important}
+@keyframes osa-cloud-drift{from{transform:translate3d(-2%,0,0)}to{transform:translate3d(3%,2%,0)}}
+@keyframes osa-world-breathe{from{transform:scale(1.015) translate3d(-.3%,0,0)}to{transform:scale(1.035) translate3d(.3%,-.3%,0)}}
+@keyframes osa-core-hover{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(-50%,-5px,0)}}
+@keyframes osa-haze-drift{from{transform:scale(1.03) translate3d(-1%,0,0);opacity:.09}to{transform:scale(1.05) translate3d(1%,0,0);opacity:.16}}
+@keyframes osa-distant-glow{0%,17%,23%,61%,68%,100%{opacity:0}19%{opacity:.7}21%{opacity:.15}64%{opacity:.45}}
+@keyframes osa-distant-bolt{0%,18%,23%,62%,68%,100%{opacity:0}19%{opacity:.52}21%{opacity:.1}64%{opacity:.32}}
+#hero[data-motion-paused] .osa-stage *,#hero[data-motion-paused] .osa-stage *::before,#hero[data-motion-paused] .osa-stage *::after{animation-play-state:paused!important}
+#hero[data-motion-paused] .osa-bolts,#hero[data-motion-paused] .osa-stormglow{opacity:0!important}
+@media(max-width:900px){#hero .osa-bolts{left:-25%;width:150%;height:39%;stroke-width:1}#hero .osa-stormglow{background:radial-gradient(ellipse at 78% 31%,rgba(168,191,222,.2),transparent 38%)}#hero .osa-cloudveil{opacity:.17}#hero .osa-core{animation-duration:12s!important}#hero .osa-haze{animation-name:osa-mobile-haze!important}}
+@keyframes osa-mobile-haze{from{transform:scale(1.03) translate3d(-1%,0,0);opacity:.07}to{transform:scale(1.04) translate3d(1%,0,0);opacity:.11}}
+@media(prefers-reduced-motion:reduce){#hero .osa-stage *,#hero .osa-stage *::before,#hero .osa-stage *::after{animation:none!important;transition:none!important}#hero .osa-weather{display:none}}
 </style>
 </head>
 <body>
@@ -1115,6 +1136,11 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 <!-- ═══════ HERO / DZIEŃ ═══════ -->
 <header class="hero" id="hero" data-composition="static-v1">
 <div class="osa-stage">
+<div class="osa-weather" aria-hidden="true">
+<div class="osa-cloudveil"></div><div class="osa-stormglow"></div>
+<svg class="osa-bolts" viewBox="0 0 1440 500" preserveAspectRatio="none" focusable="false"><path d="M1072 12 1054 47 1070 72 1032 111 1048 141 1024 177 1035 206 999 247 1013 278 986 326"/><path d="M1032 111 1090 137 1106 174 1148 193 M1024 177 978 192 960 224"/></svg>
+<svg class="osa-bolts osa-bolts--far" viewBox="0 0 1440 500" preserveAspectRatio="none" focusable="false"><path d="M1072 12 1054 47 1070 72 1032 111 1048 141 1024 177 1035 206 999 247 1013 278 986 326"/><path d="M1032 111 1090 137 1106 174"/></svg>
+</div>
 <picture class="osa-environment" aria-hidden="true">
 <source media="(max-width:900px)" srcset="/assets/media/osa-hero-environment-mobile-v1.png" width="864" height="1536"/>
 <img src="/assets/media/osa-hero-environment-desktop-v1.png" width="1536" height="864" alt="" fetchpriority="high" decoding="async"/>
@@ -1126,6 +1152,15 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 <div class="osa-copy"><p>Projektuję i buduję systemy, które wykonują proces i pozostawiają możliwy do zweryfikowania rezultat.</p><a class="osa-cta" href="#projekty">Zobacz realizacje ↓</a></div>
 </div>
 </header>
+<script id="osa-hero-weather-runtime">
+(()=>{
+ const hero=document.getElementById('hero');if(!hero)return;
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');let visible=true;
+ const sync=()=>hero.toggleAttribute('data-motion-paused',reduced.matches||document.hidden||!visible);
+ const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();},{threshold:0});
+ observer.observe(hero);document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);sync();
+})();
+</script>
 <!-- ═══════ MINI AUDIT — VISIBLE IMMEDIATELY ═══════ -->
 <section class="contact audit-contact audit-top" id="kontakt">
   <div class="wrap audit-layout">
