@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hydra Hermes Lab — Sandboxed AI Agent Runtime & Control Plane | OsaTechGPT</title>
-<meta name="description" content="Hydra Hermes Lab is a GitHub-first operational runtime for Hermes with sandbox boundaries, permission gates, supervised duty cycles, routing, mission ledger and sanitized evidence.">
+<title>Hydra Hermes — Sandboxed AI Agent Runtime | OsaTechGPT</title>
+<meta name="description" content="Hydra Hermes Lab runs agents in a bounded NemoClaw/OpenShell sandbox with host-side credentials, permission gates, duty-cycle controls and ledger evidence.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="author" content="Bartosz Osiński"><meta name="theme-color" content="#05060A">
 <link rel="canonical" href="https://osatechgpt.dev/hydra-hermes-runtime/"><link rel="me" href="https://github.com/HazEOskA">
 <meta property="og:type" content="article"><meta property="og:site_name" content="OsaTechGPT">
-<meta property="og:title" content="Hydra Hermes Lab — Sandboxed AI Agent Runtime & Control Plane | OsaTechGPT"><meta property="og:description" content="Hydra Hermes Lab is a GitHub-first operational runtime for Hermes with sandbox boundaries, permission gates, supervised duty cycles, routing, mission ledger and sanitized evidence."><meta property="og:url" content="https://osatechgpt.dev/hydra-hermes-runtime/">
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Hydra Hermes Lab — Sandboxed AI Agent Runtime & Control Plane | OsaTechGPT"><meta name="twitter:description" content="Hydra Hermes Lab is a GitHub-first operational runtime for Hermes with sandbox boundaries, permission gates, supervised duty cycles, routing, mission ledger and sanitized evidence.">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://osatechgpt.dev/#website","url":"https://osatechgpt.dev/","name":"OsaTechGPT","publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"}},{"@type":"Person","@id":"https://osatechgpt.dev/#bartosz-osinski","name":"Bartosz Osiński","alternateName":["Bartosz Osinski","Bartosz OSA","Osa","HazEOskA"],"url":"https://osatechgpt.dev/","sameAs":["https://github.com/HazEOskA","https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385"]},{"@type":"TechArticle","@id":"https://osatechgpt.dev/hydra-hermes-runtime/#page","url":"https://osatechgpt.dev/hydra-hermes-runtime/","headline":"Hydra Hermes Lab: operational control for sandboxed AI agents","name":"Hydra Hermes Lab — Sandboxed AI Agent Runtime & Control Plane | OsaTechGPT","description":"Hydra Hermes Lab is a GitHub-first operational runtime for Hermes with sandbox boundaries, permission gates, supervised duty cycles, routing, mission ledger and sanitized evidence.","datePublished":"2026-10-06","dateModified":"2026-10-06","author":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"isPartOf":{"@id":"https://osatechgpt.dev/#website"},"inLanguage":"en"},{"@type":"BreadcrumbList","@id":"https://osatechgpt.dev/hydra-hermes-runtime/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"OsaTechGPT","item":"https://osatechgpt.dev/"},{"@type":"ListItem","position":2,"name":"AI Agent Systems","item":"https://osatechgpt.dev/ai-agent-systems/"},{"@type":"ListItem","position":3,"name":"Hydra Hermes Lab: operational control for sandboxed AI agents","item":"https://osatechgpt.dev/hydra-hermes-runtime/"}]},{"@type":"SoftwareApplication","@id":"https://osatechgpt.dev/hydra-hermes-runtime/#software","name":"Hydra Hermes Lab","alternateName":"Hydra — Runtime Laboratory","url":"https://osatechgpt.dev/hydra-hermes-runtime/","applicationCategory":"DeveloperApplication","description":"Operational control repository for running Hermes inside a sandboxed runtime with permission gates, routing, mission ledger and supervised duty cycles.","author":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"codeRepository":"https://github.com/HazEOskA/Hydra-Laboratory","sameAs":["https://github.com/HazEOskA/Hydra-Laboratory"]}]}</script>
+<meta property="og:title" content="Hydra Hermes — Sandboxed AI Agent Runtime | OsaTechGPT"><meta property="og:description" content="Hydra Hermes Lab runs agents in a bounded NemoClaw/OpenShell sandbox with host-side credentials, permission gates, duty-cycle controls and ledger evidence."><meta property="og:url" content="https://osatechgpt.dev/hydra-hermes-runtime/">
+<meta property="og:image" content="https://osatechgpt.dev/assets/media/mafia-reel-poster.jpg">
+<meta property="og:image:alt" content="OsaTechGPT AI agent systems">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Hydra Hermes — Sandboxed AI Agent Runtime | OsaTechGPT"><meta name="twitter:description" content="Hydra Hermes Lab runs agents in a bounded NemoClaw/OpenShell sandbox with host-side credentials, permission gates, duty-cycle controls and ledger evidence.">
+<meta name="twitter:image" content="https://osatechgpt.dev/assets/media/mafia-reel-poster.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://osatechgpt.dev/#website","url":"https://osatechgpt.dev/","name":"OsaTechGPT","publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"}},{"@type":"Person","@id":"https://osatechgpt.dev/#bartosz-osinski","name":"Bartosz Osiński","alternateName":["Bartosz Osinski","Bartosz OSA","Osa","HazEOskA"],"url":"https://osatechgpt.dev/","sameAs":["https://github.com/HazEOskA","https://www.linkedin.com/in/bartosz-osi%C5%84ski-689490385"]},{"@type":"TechArticle","@id":"https://osatechgpt.dev/hydra-hermes-runtime/#page","url":"https://osatechgpt.dev/hydra-hermes-runtime/","headline":"Hydra Hermes Lab: operational control for sandboxed AI agents","name":"Hydra Hermes Lab — Sandboxed AI Agent Runtime & Control Plane | OsaTechGPT","description":"Hydra Hermes Lab is a GitHub-first operational runtime for Hermes with sandbox boundaries, permission gates, supervised duty cycles, routing, mission ledger and sanitized evidence.","datePublished":"2026-10-06","dateModified":"2026-10-07","author":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"publisher":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"isPartOf":{"@id":"https://osatechgpt.dev/#website"},"inLanguage":"en"},{"@type":"BreadcrumbList","@id":"https://osatechgpt.dev/hydra-hermes-runtime/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"OsaTechGPT","item":"https://osatechgpt.dev/"},{"@type":"ListItem","position":2,"name":"AI Agent Systems","item":"https://osatechgpt.dev/ai-agent-systems/"},{"@type":"ListItem","position":3,"name":"Hydra Hermes Lab: operational control for sandboxed AI agents","item":"https://osatechgpt.dev/hydra-hermes-runtime/"}]},{"@type":"SoftwareApplication","@id":"https://osatechgpt.dev/hydra-hermes-runtime/#software","name":"Hydra Hermes Lab","alternateName":"Hydra — Runtime Laboratory","url":"https://osatechgpt.dev/hydra-hermes-runtime/","applicationCategory":"DeveloperApplication","description":"Operational control repository for running Hermes inside a sandboxed runtime with permission gates, routing, mission ledger and supervised duty cycles.","author":{"@id":"https://osatechgpt.dev/#bartosz-osinski"},"codeRepository":"https://github.com/HazEOskA/Hydra-Laboratory","sameAs":["https://github.com/HazEOskA/Hydra-Laboratory"]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -40,7 +43,31 @@
 <div class="callout"><p>Hydra's repository documents validated baseline/runtime checks and sanitized evidence. This page does not turn that into a universal production-readiness claim.</p></div>
 <div class="actions"><a class="btn primary" href="https://github.com/HazEOskA/Hydra-Laboratory">Inspect Hydra source</a></div>
 </div></section>
-  <section class="section">
+  
+<section class="section"><aside><div class="eyebrow">Verified runtime boundary</div><h2>Sandboxing is only useful when secrets stay outside it</h2></aside><div class="copy">
+<p>The public Hydra repository documents an active Contabo/QEMU host connected privately through Tailscale, with the NemoClaw/Hermes baseline validated by a runtime PASS and a controlled first-prompt PASS. Hermes runs inside the <strong>hydra-hermes-lab</strong> OpenShell sandbox while model routing and provider credentials stay on the host.</p>
+<div class="flow">HOST
+→ NemoClaw / OpenShell
+→ host-side credential
+→ Model Router :4000
+→ managed inference.local route
+→ Hermes sandbox</div>
+<p>The raw <code>NVIDIA_INFERENCE_API_KEY</code> is not passed into Hermes. For the baseline, web search, messaging, MCP servers and custom plugins are disabled, reducing the capability surface before broader tooling is introduced.</p>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Duty cycle</div><h2>Continuous operation has explicit brakes</h2></aside><div class="copy">
+<p>The documented worker design includes a daily prompt cap, fixed interval controls, a circuit breaker and an operator STOP file. A single <code>touch $HERMES_WORKER_STATE_DIR/STOP</code> pauses the loop. Full model output is not written to disk by the worker; reports are sanitized instead.</p>
+<p>The control plane also exposes permission classification, durable queue state and approval-aware operator commands through <code>scripts/hermesctl</code>. This matters because continuous execution is not equivalent to unrestricted execution.</p>
+</div></section>
+<section class="section"><aside><div class="eyebrow">Operational evidence</div><h2>The control plane leaves a verifiable trail</h2></aside><div class="copy">
+<p><code>SOUL.md</code> acts as the operational constitution and its SHA-256 is stamped on journal records. The operator surface can check health, classify permissions, inspect waiting approvals and verify the ledger hash chain.</p>
+<div class="flow">scripts/hermesctl health
+scripts/hermesctl permissions classify …
+scripts/hermesctl queue list --status WAITING_FOR_APPROVAL
+scripts/hermesctl ledger verify</div>
+<p>This evidence proves the documented control path and baseline validation. It does not establish universal production readiness for every model, plugin or future host topology.</p>
+<div class="actions"><a class="btn" href="/ai-agent-runtime-governance/">Runtime governance</a><a class="btn" href="/ai-agent-capability-control/">Capability control</a></div>
+</div></section>
+<section class="section">
     <aside><div class="eyebrow">System map</div><h2>One ecosystem, separate responsibilities</h2></aside>
     <div class="copy">
       <div class="grid">
