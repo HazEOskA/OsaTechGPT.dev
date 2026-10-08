@@ -1060,7 +1060,6 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 </style>
 
 <style id="osa-static-hero-v1">
-@font-face{font-family:"Osa Awesome";src:url("/assets/fonts/awesome-regular.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap;}
 /* Static compositing prototype: original approved PNG bytes, no motion. */
 #hero.hero{height:100svh;min-height:800px;max-height:none;padding:0;position:relative;overflow:hidden;isolation:isolate;background:#090b10!important}
 #hero.hero::after{display:none}
@@ -1069,7 +1068,7 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 #hero .osa-environment img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 58%}
 #hero .osa-stage::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(5,6,10,.36),rgba(5,6,10,.12) 45%,transparent 64%),linear-gradient(90deg,rgba(5,6,10,.35),transparent 50%)}
 #hero .osa-stage::after{content:"";position:absolute;inset:0;z-index:6;pointer-events:none;background:linear-gradient(180deg,transparent 66%,rgba(5,6,10,.3) 83%,#05060a 100%),radial-gradient(ellipse 34% 24% at 18% 90%,rgba(5,6,10,.88),transparent)}
-#hero .osa-headline{position:absolute;z-index:2;top:15.5%;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 96px);margin:0;color:#f3efe8;font-family:"Osa Awesome",var(--grote);font-weight:400;font-synthesis:none;font-size:clamp(76px,7.4vw,124px);line-height:1.08;letter-spacing:0;text-align:center;text-transform:none;text-wrap:nowrap;overflow:visible}
+#hero .osa-headline{position:absolute;z-index:2;top:15.5%;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 96px);margin:0;color:#f3efe8;font-family:var(--grote);font-weight:800;font-synthesis:none;font-size:clamp(76px,7.4vw,124px);line-height:.98;letter-spacing:-.03em;text-align:center;text-transform:none;text-wrap:nowrap;overflow:visible}
 #hero .osa-headline span{display:block}
 #hero .osa-core{position:absolute;z-index:3;left:34%;top:43%;height:29%;width:auto;max-width:28%;object-fit:contain;transform:translateX(-50%);filter:drop-shadow(0 18px 20px rgba(0,0,0,.22))}
 #hero .osa-subject{position:absolute;z-index:4;left:61%;bottom:1.5%;height:70%;width:auto;max-width:55%;object-fit:contain;object-position:center bottom;transform:translateX(-50%);filter:drop-shadow(0 16px 18px rgba(0,0,0,.35))}
@@ -1086,7 +1085,7 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
  #hero .osa-environment img{object-position:50% 62%}
  #hero .osa-stage::before{background:linear-gradient(180deg,rgba(5,6,10,.62),rgba(5,6,10,.13) 34%,transparent 65%)}
  #hero .osa-stage::after{background:linear-gradient(180deg,transparent 61%,rgba(5,6,10,.65) 76%,#05060a 100%)}
- #hero .osa-headline{top:112px;left:24px;transform:none;max-width:calc(100% - 48px);font-size:clamp(40px,10.8vw,62px);line-height:1.12;letter-spacing:0;text-align:left}
+ #hero .osa-headline{top:112px;left:24px;transform:none;max-width:calc(100% - 48px);font-size:clamp(34px,9.5vw,58px);line-height:1.02;letter-spacing:-.03em;text-align:left}
  #hero .osa-subject{left:57%;bottom:182px;height:50%;max-width:92%;}
  #hero .osa-core{left:18%;top:44%;height:17%;max-width:35%;}
  #hero .osa-haze{opacity:.1;object-position:50% bottom}
@@ -1094,7 +1093,7 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
  #hero .osa-copy p{font-size:15px;line-height:1.5;max-width:42ch}
  #hero .osa-cta{min-height:48px;margin-top:16px;font-size:14px;padding:12px 20px}
 }
-@media(max-width:374px){#hero .osa-headline{top:102px;font-size:40px}#hero .osa-subject{left:57%;bottom:184px;height:49%}#hero .osa-copy{bottom:28px}#hero .osa-copy p{font-size:14px}}
+@media(max-width:374px){#hero .osa-headline{top:102px;font-size:34px}#hero .osa-subject{left:57%;bottom:184px;height:49%}#hero .osa-copy{bottom:28px}#hero .osa-copy p{font-size:14px}}
 @media(min-width:521px) and (max-width:900px){#hero.hero{min-height:900px}#hero .osa-headline{left:8%;top:115px}#hero .osa-subject{height:56%;left:60%}#hero .osa-core{left:25%}#hero .osa-copy{left:8%;right:8%}}
 
 /* Hero weather V1: atmospheric depth, no scroll or pointer engine. */
@@ -1117,6 +1116,13 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 @media(max-width:900px){#hero .osa-bolts{left:-25%;width:150%;height:39%;stroke-width:1}#hero .osa-stormglow{background:radial-gradient(ellipse at 78% 31%,rgba(168,191,222,.2),transparent 38%)}#hero .osa-cloudveil{opacity:.17}#hero .osa-core{animation-duration:12s!important}#hero .osa-haze{animation-name:osa-mobile-haze!important}}
 @keyframes osa-mobile-haze{from{transform:scale(1.03) translate3d(-1%,0,0);opacity:.07}to{transform:scale(1.04) translate3d(1%,0,0);opacity:.11}}
 @media(prefers-reduced-motion:reduce){#hero .osa-stage *,#hero .osa-stage *::before,#hero .osa-stage *::after{animation:none!important;transition:none!important}#hero .osa-weather{display:none}}
+
+/* Restored pre-compositing headline font and staggered reveal timing. */
+#hero .osa-headline .osa-line{display:block;overflow:hidden;padding-block:.06em}
+#hero .osa-headline .osa-word{display:block;animation:osa-headline-enter 1.62s cubic-bezier(.19,1,.22,1) .25s both!important}
+#hero .osa-headline .osa-line:nth-child(2) .osa-word{animation-delay:.55s!important}
+@keyframes osa-headline-enter{from{transform:translateY(-110%);opacity:0}to{transform:translateY(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){#hero.hero .osa-headline .osa-word{animation:none!important;transform:none;opacity:1}}
 </style>
 </head>
 <body>
@@ -1145,7 +1151,7 @@ radial-gradient(circle at 51% 42%,rgba(168,85,247,.06),transparent 52%),
 <source media="(max-width:900px)" srcset="/assets/media/osa-hero-environment-mobile-v1.png" width="864" height="1536"/>
 <img src="/assets/media/osa-hero-environment-desktop-v1.png" width="1536" height="864" alt="" fetchpriority="high" decoding="async"/>
 </picture>
-<h1 class="osa-headline"><span>SYSTEMY AI.</span><span>REALNA PRACA.</span></h1>
+<h1 class="osa-headline"><span class="osa-line"><span class="osa-word">SYSTEMY AI.</span></span><span class="osa-line"><span class="osa-word">REALNA PRACA.</span></span></h1>
 <img class="osa-core" src="/assets/media/osa-hero-system-core-v1.png" width="1254" height="1254" alt="" aria-hidden="true" decoding="async"/>
 <img class="osa-subject" src="/assets/media/osa-hero-subject-v1.png" width="1122" height="1402" alt="Bartosz ‘Osa’ Osiński" decoding="async"/>
 <img class="osa-haze" src="/assets/media/osa-hero-foreground-haze-v1.png" width="1672" height="941" alt="" aria-hidden="true" decoding="async"/>
