@@ -1,0 +1,125 @@
+/* OSA / Coinbase Glass V2 — isolated visual layer. No runtime or data changes. */
+:root{--acc:#1652F0;--acc-glow:rgba(22,82,240,.28);--amber:#1652F0;--violet:#668BFF;--pink:#6CD3FF;--glass-ink:#10254F;--glass-sub:#516584;--glass-line:rgba(76,124,198,.20);--glass-blue:#1652F0}
+html{scroll-behavior:smooth}
+body.osa-coinbase-glass-v2{color:var(--glass-ink);background:#EFF4FC;background-image:radial-gradient(ellipse 70% 30% at 0 28%,rgba(112,183,255,.15),transparent),linear-gradient(#F6FAFF,#EAF2FE 55%,#F7FAFE);-webkit-font-smoothing:antialiased}
+body.osa-coinbase-glass-v2 .wrap{max-width:1240px;padding-inline:clamp(20px,4vw,52px)}
+body.osa-coinbase-glass-v2 #prog{background:linear-gradient(90deg,#72E5FF,#1652F0,#96AEFF);height:3px;box-shadow:0 0 22px rgba(22,82,240,.35)}
+body.osa-coinbase-glass-v2 #depth{display:none}
+body.osa-coinbase-glass-v2 a:focus-visible,body.osa-coinbase-glass-v2 button:focus-visible,body.osa-coinbase-glass-v2 input:focus-visible,body.osa-coinbase-glass-v2 textarea:focus-visible,body.osa-coinbase-glass-v2 select:focus-visible{outline:3px solid #13A4FF;outline-offset:4px}
+body.osa-coinbase-glass-v2>nav{padding:12px clamp(19px,4vw,58px);min-height:78px;gap:16px;background:rgba(246,250,255,.86);border-bottom:1px solid rgba(125,168,226,.32);box-shadow:0 9px 35px rgba(6,36,102,.075);-webkit-backdrop-filter:blur(20px) saturate(1.3);backdrop-filter:blur(20px) saturate(1.3)}
+body.osa-coinbase-glass-v2>nav .brand{color:#0B2B68;font:800 16px/1.2 Manrope,system-ui,sans-serif;letter-spacing:-.045em}
+body.osa-coinbase-glass-v2>nav .brand .logo{width:43px;height:43px;padding:2px;object-fit:contain;border:none;border-radius:12px;background:linear-gradient(145deg,#F5FBFF,#DCEBFF);box-shadow:0 7px 22px rgba(18,88,201,.15)}
+body.osa-coinbase-glass-v2>nav .brand .de{color:#7490BE}
+body.osa-coinbase-glass-v2>nav .navlinks{gap:27px;font:700 11px Manrope,system-ui,sans-serif;letter-spacing:.02em}
+body.osa-coinbase-glass-v2>nav .navlinks a{color:#40577B}
+body.osa-coinbase-glass-v2>nav .navlinks a:hover{color:#1652F0}
+body.osa-coinbase-glass-v2>nav .navcta{color:#FFFFFF;background:#1652F0;border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:13px 20px;box-shadow:0 8px 24px rgba(22,82,240,.21);font:800 11px Manrope,system-ui,sans-serif;white-space:nowrap}
+body.osa-coinbase-glass-v2>nav .navcta:hover{box-shadow:0 15px 30px rgba(22,82,240,.30)}
+body.osa-coinbase-glass-v2>nav .lang-switch{margin-left:auto;padding:5px;border:1px solid #CBDBF6;background:#E9F1FF}
+body.osa-coinbase-glass-v2>nav .lang-switch a{color:#506C9A;font-weight:800}
+body.osa-coinbase-glass-v2>nav .lang-switch a[aria-current="page"]{background:#1652F0;color:#fff}
+body.osa-coinbase-glass-v2>nav .lang-switch span{color:#B7CAE7}
+/* Complete hero rebuild — no legacy imagery required */
+body.osa-coinbase-glass-v2 #hero.hero{height:auto!important;max-height:none!important;min-height:min(820px,100svh)!important;overflow:hidden;padding:124px 0 56px!important;position:relative;background:radial-gradient(ellipse 52% 90% at 86% 28%,rgba(69,142,255,.49),transparent 68%),radial-gradient(ellipse 55% 70% at 12% 91%,rgba(7,203,248,.22),transparent 67%),linear-gradient(117deg,#051736 1%,#09245D 48%,#123C99 100%)!important;isolation:isolate}
+body.osa-coinbase-glass-v2 #hero.hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.7;background-image:linear-gradient(rgba(206,235,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(206,235,255,.045) 1px,transparent 1px);background-size:67px 67px;mask-image:linear-gradient(90deg,transparent 12%,black 72%,transparent)}
+body.osa-coinbase-glass-v2 #hero.hero::after{display:block!important;content:"";position:absolute;z-index:1;inset:auto 0 0;height:185px;background:linear-gradient(180deg,transparent,rgba(11,48,130,.30));pointer-events:none}
+body.osa-coinbase-glass-v2 #hero .glass-hero-inner{position:relative;z-index:3;width:min(1440px,100%);min-height:610px;margin:auto;padding:clamp(26px,4vw,65px) clamp(22px,6vw,100px) 30px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:center}
+body.osa-coinbase-glass-v2 #hero .glass-hero-content{position:relative;z-index:5;max-width:760px}
+body.osa-coinbase-glass-v2 #hero .glass-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:9px 15px;border-radius:99px;border:1px solid rgba(178,232,255,.32);background:rgba(237,249,255,.07);box-shadow:inset 0 1px rgba(255,255,255,.16);color:#C7E9FF;font:800 10px/1.3 IBM Plex Mono,monospace;letter-spacing:.15em}
+body.osa-coinbase-glass-v2 #hero .glass-eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:#65ECFF;box-shadow:0 0 20px #65ECFF}
+body.osa-coinbase-glass-v2 #hero .glass-headline{margin:26px 0 25px;color:#FFFFFF;font:800 clamp(49px,5.4vw,91px)/.99 Manrope,system-ui,sans-serif;letter-spacing:-.07em;overflow-wrap:normal;text-wrap:balance}
+body.osa-coinbase-glass-v2 #hero .glass-headline span{display:block}
+body.osa-coinbase-glass-v2 #hero .glass-headline .glass-ink{color:#7CE8FF;background:linear-gradient(95deg,#D5FAFF,#73D8FF 47%,#78A1FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+body.osa-coinbase-glass-v2 #hero .glass-lead{max-width:610px;color:#C6D9F5;font-size:clamp(15px,1.45vw,19px);line-height:1.7;letter-spacing:-.01em}
+body.osa-coinbase-glass-v2 #hero .glass-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:35px}
+body.osa-coinbase-glass-v2 #hero .glass-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:53px;padding:14px 22px;border-radius:13px;text-decoration:none;font:800 12px Manrope,system-ui,sans-serif;transition:transform .18s,box-shadow .18s}
+body.osa-coinbase-glass-v2 #hero .glass-btn:hover{transform:translateY(-3px)}
+body.osa-coinbase-glass-v2 #hero .glass-btn-primary{color:#0A3282;background:linear-gradient(140deg,#FFFFFF,#D6EEFF);box-shadow:0 15px 43px rgba(4,15,48,.22)}
+body.osa-coinbase-glass-v2 #hero .glass-btn-secondary{color:#E5F6FF;border:1px solid rgba(193,231,255,.31);background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+body.osa-coinbase-glass-v2 #hero .glass-trust{display:flex;align-items:center;flex-wrap:wrap;gap:10px 20px;margin-top:42px;color:#B8D1F4;font:700 10px/1.6 IBM Plex Mono,monospace;letter-spacing:.035em}
+body.osa-coinbase-glass-v2 #hero .glass-trust span{display:inline-flex;align-items:center;gap:8px}
+body.osa-coinbase-glass-v2 #hero .glass-trust span:before{content:"";width:5px;height:5px;border:1px solid #80E1FF;border-radius:50%}
+body.osa-coinbase-glass-v2 #hero .glass-visual{position:relative;align-self:stretch;min-height:480px;display:grid;place-items:center}
+body.osa-coinbase-glass-v2 #hero .glass-visual:before{content:"";position:absolute;width:min(100%,490px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(52,176,255,.28) 0,rgba(35,101,235,.16) 40%,transparent 72%);filter:blur(5px)}
+body.osa-coinbase-glass-v2 #hero .glass-halo{position:absolute;width:min(96%,465px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(179,235,255,.22);box-shadow:0 0 0 22px rgba(186,226,255,.035),inset 0 0 55px rgba(66,188,255,.13)}
+body.osa-coinbase-glass-v2 #hero .glass-halo:before,body.osa-coinbase-glass-v2 #hero .glass-halo:after{content:"";position:absolute;inset:10%;border-radius:50%;border:1px dashed rgba(203,241,255,.2)}
+body.osa-coinbase-glass-v2 #hero .glass-halo:after{inset:23%;border-style:solid}
+body.osa-coinbase-glass-v2 #hero .glass-hero-emblem{position:relative;z-index:2;display:block;width:min(89%,420px);height:auto;filter:drop-shadow(0 32px 55px rgba(0,8,44,.46))}
+body.osa-coinbase-glass-v2 #hero .glass-float{position:absolute;z-index:3;display:flex;gap:9px;align-items:center;max-width:210px;padding:12px 16px;border-radius:15px;border:1px solid rgba(208,240,255,.26);background:linear-gradient(130deg,rgba(219,244,255,.17),rgba(84,146,251,.1));box-shadow:inset 0 1px rgba(255,255,255,.28),0 20px 36px rgba(0,10,50,.17);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#F0FBFF;font:800 10px/1.45 IBM Plex Mono,monospace;letter-spacing:.03em}
+body.osa-coinbase-glass-v2 #hero .glass-float img{width:30px;height:30px}
+body.osa-coinbase-glass-v2 #hero .glass-float-one{top:11%;right:-1%}
+body.osa-coinbase-glass-v2 #hero .glass-float-two{bottom:13%;left:-4%}
+body.osa-coinbase-glass-v2 #hero .glass-frame-caption{position:absolute;bottom:3%;right:8%;color:rgba(225,242,255,.62);font:700 9px IBM Plex Mono,monospace;letter-spacing:.18em}
+body.osa-coinbase-glass-v2 .glass-signal{position:relative;z-index:4;margin:0 auto;padding:0 clamp(20px,5vw,65px);background:linear-gradient(180deg,#0C337F 0,#EFF4FC 96%)}
+body.osa-coinbase-glass-v2 .glass-signal-inner{width:min(1170px,100%);margin:-1px auto 0;transform:translateY(25%);display:grid;grid-template-columns:1.1fr repeat(4,1fr);align-items:stretch;gap:0;min-height:114px;border:1px solid rgba(203,227,255,.85);border-radius:20px;background:rgba(255,255,255,.93);box-shadow:0 20px 75px rgba(26,77,148,.16);-webkit-backdrop-filter:blur(15px);backdrop-filter:blur(15px);overflow:hidden}
+body.osa-coinbase-glass-v2 .glass-signal-title{display:flex;align-items:center;padding:23px 24px;color:#0C2E6B;background:linear-gradient(140deg,rgba(205,231,255,.95),rgba(250,253,255,.85));font:800 16px/1.3 Manrope,sans-serif;letter-spacing:-.035em}
+body.osa-coinbase-glass-v2 .glass-step{padding:23px 18px;border-left:1px solid #DFEAFB;color:#35517D}
+body.osa-coinbase-glass-v2 .glass-step b{display:block;color:#1652F0;font:800 10px IBM Plex Mono,monospace;letter-spacing:.1em}
+body.osa-coinbase-glass-v2 .glass-step span{display:block;margin-top:9px;font:800 12px/1.45 Manrope,sans-serif}
+body.osa-coinbase-glass-v2 .audit-contact.audit-top{margin-top:0;padding:130px 0 90px!important;background:linear-gradient(180deg,#EFF4FC,#F8FBFF)!important;border:0!important;color:#123566}
+body.osa-coinbase-glass-v2 .audit-contact .audit-copy h2{color:#0C2A61!important;font-size:clamp(34px,4vw,56px);line-height:1.1;letter-spacing:-.055em}
+body.osa-coinbase-glass-v2 .audit-contact .audit-copy p,body.osa-coinbase-glass-v2 .audit-contact .audit-copy li{color:#526787!important}
+body.osa-coinbase-glass-v2 .audit-contact .contact-k{color:#1652F0!important;letter-spacing:.12em}
+body.osa-coinbase-glass-v2 .audit-contact .audit-proof>div{border:1px solid #D3E3F7;border-radius:15px;background:rgba(255,255,255,.9);box-shadow:0 12px 28px rgba(40,105,205,.06)}
+body.osa-coinbase-glass-v2 .audit-contact .audit-proof strong{color:#1652F0!important}
+body.osa-coinbase-glass-v2 .audit-contact .audit-proof span{color:#476180!important}
+body.osa-coinbase-glass-v2 .audit-contact .audit-form{border:1px solid #C6DAF6!important;border-radius:24px!important;background:rgba(255,255,255,.90)!important;box-shadow:0 30px 80px rgba(34,83,154,.13)!important;padding:clamp(20px,3vw,38px)!important;color:#173967}
+body.osa-coinbase-glass-v2 .audit-form label,body.osa-coinbase-glass-v2 .audit-form legend{color:#244876!important}
+body.osa-coinbase-glass-v2 .audit-form input:not([type="checkbox"]),body.osa-coinbase-glass-v2 .audit-form select,body.osa-coinbase-glass-v2 .audit-form textarea{border:1px solid #CFDFF3!important;background:#F4F8FF!important;border-radius:10px!important;color:#0B2A5A!important;box-shadow:none!important}
+body.osa-coinbase-glass-v2 .audit-form input::placeholder,body.osa-coinbase-glass-v2 .audit-form textarea::placeholder{color:#7A8CAC}
+body.osa-coinbase-glass-v2 .audit-form button[type="submit"]{background:#1652F0!important;color:#fff!important;border:0!important;border-radius:12px!important;box-shadow:0 12px 27px rgba(22,82,240,.17)}
+body.osa-coinbase-glass-v2 .audit-form .audit-checks label{color:#35537D!important}
+body.osa-coinbase-glass-v2 .audit-form .form-status{color:#657897!important}
+body.osa-coinbase-glass-v2 .osa-repo-proof{padding:104px 0 112px;border:0;background:linear-gradient(180deg,#F7FAFF,#E8F1FF)!important}
+body.osa-coinbase-glass-v2 .osa-repo-proof-head{max-width:910px}
+body.osa-coinbase-glass-v2 .osa-repo-proof-head .kicker,body.osa-coinbase-glass-v2 .offer-k{color:#1652F0!important;letter-spacing:.12em}
+body.osa-coinbase-glass-v2 .osa-repo-proof-head h2{color:#0B2A61;font-size:clamp(36px,5vw,70px);letter-spacing:-.07em;line-height:1.04}
+body.osa-coinbase-glass-v2 .osa-repo-proof-head p{color:#556A88;font-size:16px;line-height:1.7}
+body.osa-coinbase-glass-v2 .osa-repo-proof-head .osa-architecture-link{color:#1652F0!important;border-bottom-color:#91B8FF!important}
+body.osa-coinbase-glass-v2 .osa-repo-grid{gap:19px;margin-top:48px}
+body.osa-coinbase-glass-v2 .osa-repo-card{min-height:335px;padding:clamp(23px,3vw,34px);border:1px solid #CBDEFA;border-radius:25px;background:linear-gradient(141deg,rgba(255,255,255,.97),rgba(225,239,255,.82));box-shadow:0 18px 46px rgba(35,94,179,.08),inset 0 1px rgba(255,255,255,.96);transition:transform .2s,box-shadow .2s,border-color .2s}
+body.osa-coinbase-glass-v2 .osa-repo-card:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(31,95,194,.15);border-color:#87B8FC}
+body.osa-coinbase-glass-v2 .osa-repo-mark{width:68px;height:68px;border:1px solid #D2E5FF;border-radius:19px;background:linear-gradient(160deg,#EFF8FF,#D6E9FF);box-shadow:inset 0 1px white,0 8px 18px rgba(38,104,193,.1)}
+body.osa-coinbase-glass-v2 .osa-repo-mark img{display:block;width:62px;height:62px;object-fit:contain}
+body.osa-coinbase-glass-v2 .osa-repo-status{color:#5274A5!important}
+body.osa-coinbase-glass-v2 .osa-repo-card h3{color:#0D316B;font-size:26px;letter-spacing:-.04em}
+body.osa-coinbase-glass-v2 .osa-repo-card p{color:#586D8B!important;font-size:14px;line-height:1.7}
+body.osa-coinbase-glass-v2 .osa-repo-meta span{color:#4771A4;border-color:#D1E3FB;background:rgba(236,246,255,.75);border-radius:99px;padding:7px 10px}
+body.osa-coinbase-glass-v2 .osa-repo-actions{flex-wrap:wrap;align-items:center}
+body.osa-coinbase-glass-v2 .osa-repo-actions a{min-height:42px;border:1px solid #1652F0!important;border-radius:11px;color:#1652F0!important;background:rgba(237,245,255,.8)}
+body.osa-coinbase-glass-v2 .osa-repo-actions a:last-child{color:#3B6598!important;border-color:#C1D8F5!important}
+body.osa-coinbase-glass-v2 .client-offer{background:linear-gradient(165deg,#E9F2FF,#F8FBFF 42%,#EDF4FF)!important;padding:108px 0 120px!important;color:#173567}
+body.osa-coinbase-glass-v2 .offer-head h2{color:#102C64!important;font-size:clamp(36px,4.7vw,66px);line-height:1.07;letter-spacing:-.06em}
+body.osa-coinbase-glass-v2 .offer-head p{color:#556C8D!important;font-size:16px;line-height:1.7}
+body.osa-coinbase-glass-v2 .offer-grid{gap:17px}
+body.osa-coinbase-glass-v2 .offer-card{border:1px solid #CCDEF7!important;border-radius:23px!important;background:rgba(255,255,255,.87)!important;box-shadow:0 14px 38px rgba(28,83,168,.07),inset 0 1px white!important;color:#274973!important;transition:transform .2s,box-shadow .2s}
+body.osa-coinbase-glass-v2 .offer-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px rgba(28,83,168,.13)!important}
+body.osa-coinbase-glass-v2 .offer-card .offer-icon{display:grid;place-items:center;width:67px;height:67px;min-width:67px;padding:2px;border:1px solid #D6E8FF;border-radius:17px;background:linear-gradient(135deg,#F6FBFF,#D6EAFF);box-shadow:inset 0 1px #fff,0 10px 20px rgba(25,91,184,.12);color:#1652F0}
+body.osa-coinbase-glass-v2 .offer-card .offer-icon img{display:block;width:62px;height:62px;object-fit:contain}
+body.osa-coinbase-glass-v2 .offer-card h3{color:#133666!important;letter-spacing:-.03em}
+body.osa-coinbase-glass-v2 .offer-card p{color:#5B6F8D!important;line-height:1.65}
+body.osa-coinbase-glass-v2 .offer-card strong{color:#1B58BD!important}
+body.osa-coinbase-glass-v2 .offer-card>div span{border-color:#D5E5F7!important;color:#59729B!important;background:#EDF6FF!important}
+body.osa-coinbase-glass-v2 .osa-authority{margin-top:0;padding:105px clamp(20px,4vw,45px) 90px;max-width:1340px}
+body.osa-coinbase-glass-v2 .osa-authority-card{padding:clamp(25px,5vw,65px);border:1px solid rgba(200,236,255,.37);border-radius:30px;background:radial-gradient(circle at 95% 5%,rgba(80,173,255,.32),transparent 35%),linear-gradient(128deg,#072254,#0C347F 65%,#17459F);box-shadow:0 40px 90px rgba(18,62,135,.17)}
+body.osa-coinbase-glass-v2 .osa-authority-kicker{color:#78DFFF}
+body.osa-coinbase-glass-v2 .osa-authority-name{color:#fff}
+body.osa-coinbase-glass-v2 .osa-authority-title{color:#D8EDFF}
+body.osa-coinbase-glass-v2 .osa-authority-bio{color:#BAD0ED}
+body.osa-coinbase-glass-v2 .osa-authority-proof span{color:#CEE9FF;border-color:rgba(195,232,255,.19);background:rgba(255,255,255,.06)}
+body.osa-coinbase-glass-v2 .osa-authority-links a{color:#92E7FF;border-bottom-color:rgba(164,232,255,.38)}
+body.osa-coinbase-glass-v2 .osa-footer{background:linear-gradient(138deg,#061734,#0C2A65 65%,#0C397E)!important;color:#EAF5FF!important;border-top:1px solid rgba(173,221,255,.3)}
+body.osa-coinbase-glass-v2 .osa-footer a{color:#A6E9FF}
+body.osa-coinbase-glass-v2 .osa-footer-copy,body.osa-coinbase-glass-v2 .osa-footer-contact p{color:#B3CCE9!important}
+body.osa-coinbase-glass-v2 .osa-footer-bottom{color:#BCD4F2!important}
+body.osa-coinbase-glass-v2 .osa-cookie-banner{border-color:#C3DDFC;border-radius:18px;background:rgba(246,251,255,.98);box-shadow:0 20px 70px rgba(19,56,113,.22);color:#214672}
+body.osa-coinbase-glass-v2 .osa-cookie-copy{color:#546E8D}
+body.osa-coinbase-glass-v2 .osa-cookie-copy strong{color:#143D7B}
+body.osa-coinbase-glass-v2 .osa-cookie-copy a{color:#1652F0}
+body.osa-coinbase-glass-v2 .osa-cookie-accept{color:#fff;background:#1652F0;border-color:#1652F0;border-radius:11px}
+@media(min-width:1500px){body.osa-coinbase-glass-v2 #hero .glass-hero-inner{min-height:700px}}
+@media(max-width:1100px){body.osa-coinbase-glass-v2 #hero .glass-headline{font-size:clamp(45px,5.6vw,70px)}body.osa-coinbase-glass-v2 #hero .glass-float-one{right:-2%}body.osa-coinbase-glass-v2 #hero .glass-float-two{left:0}}
+@media(max-width:900px){body.osa-coinbase-glass-v2 #hero.hero{min-height:0!important;padding-top:98px!important}body.osa-coinbase-glass-v2 #hero .glass-hero-inner{grid-template-columns:1fr;min-height:0;padding:35px 25px 20px;gap:0}body.osa-coinbase-glass-v2 #hero .glass-headline{font-size:clamp(46px,8.5vw,75px)}body.osa-coinbase-glass-v2 #hero .glass-visual{min-height:430px;max-width:560px;width:100%;margin:auto}body.osa-coinbase-glass-v2 #hero .glass-hero-emblem{width:min(75%,340px)}body.osa-coinbase-glass-v2 #hero .glass-float-one{right:2%}body.osa-coinbase-glass-v2 #hero .glass-float-two{left:2%}body.osa-coinbase-glass-v2 .glass-signal-inner{grid-template-columns:repeat(4,1fr);transform:translateY(16%)}body.osa-coinbase-glass-v2 .glass-signal-title{grid-column:1/-1;min-height:66px}body.osa-coinbase-glass-v2 .audit-contact.audit-top{padding-top:125px!important}}
+@media(max-width:650px){body.osa-coinbase-glass-v2>nav{min-height:68px;padding:9px 13px;gap:7px}body.osa-coinbase-glass-v2>nav .brand{font-size:12px;gap:6px}body.osa-coinbase-glass-v2>nav .brand .logo{width:34px;height:34px}body.osa-coinbase-glass-v2>nav .navcta{font-size:10px;padding:11px 12px}body.osa-coinbase-glass-v2>nav .lang-switch{padding:2px;gap:1px}body.osa-coinbase-glass-v2 #hero.hero{padding-top:88px!important;padding-bottom:36px!important}body.osa-coinbase-glass-v2 #hero .glass-hero-inner{padding:29px 20px 18px}body.osa-coinbase-glass-v2 #hero .glass-eyebrow{font-size:8px;padding:8px 11px;letter-spacing:.08em}body.osa-coinbase-glass-v2 #hero .glass-headline{font-size:clamp(38px,9.4vw,61px);letter-spacing:-.062em;margin:23px 0 20px}body.osa-coinbase-glass-v2 #hero .glass-lead{font-size:15px;line-height:1.6}body.osa-coinbase-glass-v2 #hero .glass-actions{gap:9px;margin-top:24px}body.osa-coinbase-glass-v2 #hero .glass-btn{min-height:49px;padding:12px 15px;font-size:11px}body.osa-coinbase-glass-v2 #hero .glass-trust{margin-top:24px;gap:8px 12px;font-size:8px}body.osa-coinbase-glass-v2 #hero .glass-visual{min-height:335px}body.osa-coinbase-glass-v2 #hero .glass-halo{width:min(85%,350px)}body.osa-coinbase-glass-v2 #hero .glass-hero-emblem{width:min(72%,285px)}body.osa-coinbase-glass-v2 #hero .glass-float{max-width:145px;padding:7px 9px;gap:5px;font-size:7.5px;border-radius:10px}body.osa-coinbase-glass-v2 #hero .glass-float img{width:23px;height:23px}body.osa-coinbase-glass-v2 #hero .glass-float-one{top:15%;right:0}body.osa-coinbase-glass-v2 #hero .glass-float-two{bottom:13%;left:0}body.osa-coinbase-glass-v2 #hero .glass-frame-caption{display:none}body.osa-coinbase-glass-v2 .glass-signal{padding-inline:17px}body.osa-coinbase-glass-v2 .glass-signal-inner{grid-template-columns:repeat(2,minmax(0,1fr));border-radius:16px;transform:translateY(10%)}body.osa-coinbase-glass-v2 .glass-signal-title{font-size:14px;padding:16px}body.osa-coinbase-glass-v2 .glass-step{padding:13px 15px;border-top:1px solid #DEEBFA}body.osa-coinbase-glass-v2 .glass-step b{font-size:9px}body.osa-coinbase-glass-v2 .glass-step span{font-size:11px;margin-top:5px}body.osa-coinbase-glass-v2 .audit-contact.audit-top{padding-top:135px!important}body.osa-coinbase-glass-v2 .osa-repo-proof{padding:73px 0 80px}body.osa-coinbase-glass-v2 .client-offer{padding:80px 0!important}body.osa-coinbase-glass-v2 .osa-authority{padding-top:65px;padding-bottom:60px}body.osa-coinbase-glass-v2 .osa-repo-card{min-height:0}body.osa-coinbase-glass-v2 .osa-repo-actions{flex-direction:column;align-items:stretch}body.osa-coinbase-glass-v2 .osa-repo-actions a{width:100%}}
+@media(max-width:370px){body.osa-coinbase-glass-v2>nav .brand{font-size:10.5px}body.osa-coinbase-glass-v2>nav .navcta{font-size:9px;padding:10px 8px}body.osa-coinbase-glass-v2 #hero .glass-headline{font-size:37px}body.osa-coinbase-glass-v2 #hero .glass-float{font-size:7px;max-width:116px}}
+@media(prefers-reduced-motion:reduce){body.osa-coinbase-glass-v2 *,body.osa-coinbase-glass-v2 *:before,body.osa-coinbase-glass-v2 *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
